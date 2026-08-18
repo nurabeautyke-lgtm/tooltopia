@@ -7,7 +7,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'TOOLSTOPIA_VERSION', '1.0.0' );
+define( 'TOOLSTOPIA_VERSION', '1.1.0' );
 define( 'TOOLSTOPIA_DIR', get_template_directory() );
 define( 'TOOLSTOPIA_URI', get_template_directory_uri() );
 
@@ -132,8 +132,8 @@ add_action( 'widgets_init', 'toolstopia_widgets_init' );
 function toolstopia_phone()      { return apply_filters( 'toolstopia_phone', '0719 261277' ); }
 function toolstopia_whatsapp()   { return apply_filters( 'toolstopia_whatsapp', '254719261277' ); } // international, no +
 function toolstopia_email()      { return apply_filters( 'toolstopia_email', 'info@toolstopia.co.ke' ); }
-function toolstopia_hours()      { return apply_filters( 'toolstopia_hours', 'Mon–Fri 6:00am–6:00pm · Sat–Sun 7:00am–4:00pm' ); }
-function toolstopia_location()   { return apply_filters( 'toolstopia_location', 'Nairobi, Kenya' ); }
+function toolstopia_hours()      { return apply_filters( 'toolstopia_hours', 'Mon–Sat 7:00am–6:00pm' ); }
+function toolstopia_location()   { return apply_filters( 'toolstopia_location', 'Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya' ); }
 
 /**
  * Build a WhatsApp click-to-chat URL with an optional pre-filled message.

@@ -7,42 +7,46 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'toolstopia-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '1.8.6' );
+    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '1.9.0' );
 }, 20 );
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
 define( 'TT_PAGES_LOADED', 1 );
-define( 'TT_PAGES_VERSION', '1.5.3' );
+define( 'TT_PAGES_VERSION', '1.9.0' );
 
 function tt_pages_blueprint(){
   return array(
     'about-us' => array( 'About Us', <<<'TTBODY'
 <div class="ttx">
   <div class="ttx-intro">
-    <h1>Kenya's home for genuine tools, solar &amp; equipment</h1>
-    <p>Tools Topia helps homes, businesses and workshops across Kenya buy the right tools and equipment with confidence, genuine, warranty-backed products at honest prices, delivered and supported by a team you can actually call.</p>
+    <h1>About Toolstopia</h1>
+    <p><b>Tools and equipment for homes, businesses and professionals in Kenya.</b></p>
+    <p>Toolstopia is a Kenya-based online retailer supplying power tools, hand tools, solar equipment, water pumps, generators, welding equipment, agricultural equipment, accessories and other related products.</p>
+    <p>We help customers compare products, understand specifications and place orders through our online store, phone and WhatsApp. Our goal is simple: provide clear product information, transparent pricing and accessible customer support from order to delivery.</p>
   </div>
+  <h2>What we offer</h2>
   <div class="ttx-cards">
-    <div class="ttx-card"><span class="n">100%</span><b>Genuine</b><small>Warranty-backed products</small></div>
-    <div class="ttx-card"><span class="n">Nationwide</span><b>Delivery</b><small>Nairobi &amp; all major towns</small></div>
-    <div class="ttx-card"><span class="n">7-Day</span><b>Easy returns</b><small>Shop with confidence</small></div>
-    <div class="ttx-card"><span class="n">M-Pesa</span><b>Bank &amp; Cash</b><small>Flexible payment</small></div>
+    <div class="ttx-card"><b>Power and hand tools</b></div>
+    <div class="ttx-card"><b>Solar equipment</b></div>
+    <div class="ttx-card"><b>Generators</b></div>
+    <div class="ttx-card"><b>Water pumps</b></div>
+    <div class="ttx-card"><b>Welding equipment</b></div>
+    <div class="ttx-card"><b>Agricultural equipment</b></div>
+    <div class="ttx-card"><b>Workshop equipment</b></div>
+    <div class="ttx-card"><b>Accessories and related supplies</b></div>
   </div>
-  <h2>Who we are</h2>
-  <p>Tools Topia is a Nairobi-based retailer of genuine power tools, solar equipment, water pumps, incubators, welding machines, grinders and related accessories. From our shop at Royal Palms Mall, Shop No. BG 55, Nairobi, we serve contractors, farmers, fundis, workshops and homeowners across the country.</p>
-  <p>We started with a simple idea: buying tools and equipment in Kenya should be safe, clear and fair, no fake products, no hidden costs, and no disappearing after the sale. Just genuine goods, real prices, and a team you can reach on phone or WhatsApp.</p>
   <h2>Why shop with us</h2>
   <div class="ttx-cards">
-    <div class="ttx-card"><b>Genuine products</b><small>Every item is authentic and warranty-backed, sourced through trusted channels.</small></div>
-    <div class="ttx-card"><b>Honest prices</b><small>Fair, competitive pricing. What you see is what you pay.</small></div>
-    <div class="ttx-card"><b>Fast delivery</b><small>Next-day in Nairobi and reliable delivery to all major towns.</small></div>
-    <div class="ttx-card"><b>Real support</b><small>Advice before you buy and genuine help after, just call or WhatsApp.</small></div>
+    <div class="ttx-card"><b>Clear product information</b><small>We provide available specifications, pricing and product details to help you make an informed purchase.</small></div>
+    <div class="ttx-card"><b>Kenya-wide delivery</b><small>We arrange delivery to Nairobi and locations across Kenya through available delivery partners.</small></div>
+    <div class="ttx-card"><b>Customer support</b><small>Contact us by phone, WhatsApp or email before or after placing an order.</small></div>
+    <div class="ttx-card"><b>Flexible payment options</b><small>M-Pesa, bank transfer and cash on delivery where available.</small></div>
   </div>
   [tt_about_stats]
   [tt_about_media]
   <div class="ttx-cta">
     <b>Visit us or order from home</b>
-    Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya. Open Mon-Saturday, 7:00am-6:00pm.<br>
+    Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya. Open Monday to Saturday, 7:00am-6:00pm.<br>
     <a href="tel:0719261277">Call 0719 261277</a>
     <a href="https://wa.me/254719261277">WhatsApp us</a>
     <a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a>
@@ -52,54 +56,58 @@ TTBODY
     ),
     'shipping-policy' => array( 'Shipping Policy', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>Here is exactly how your order gets to you: processing times, coverage, costs and what to expect. For delivery to your specific area, just ask us on WhatsApp (0719 261277).</p></div>
+  <div class="ttx-intro"><p>Here is how your order gets to you: processing times, coverage, costs and what to expect. For delivery to your specific area, just ask us on WhatsApp (0719 261277). Delivery times below are typical, not guaranteed.</p></div>
   <div class="ttx-cards">
-    <div class="ttx-card"><b>Order processing</b><small>Orders are confirmed and prepared within a few hours on business days after payment or confirmation.</small></div>
-    <div class="ttx-card"><b>Dispatch</b><small>Same or next-day dispatch in Nairobi; upcountry orders leave within 1-2 business days.</small></div>
-    <div class="ttx-card"><b>Tracking</b><small>We keep you updated by call or WhatsApp from dispatch until the item is in your hands.</small></div>
+    <div class="ttx-card"><b>Order processing</b><small>Orders are confirmed and prepared on business days after payment or confirmation.</small></div>
+    <div class="ttx-card"><b>Dispatch</b><small>Same or next-business-day dispatch in Nairobi where available; other orders typically leave within 1-2 business days.</small></div>
+    <div class="ttx-card"><b>Tracking</b><small>We keep you updated by call or WhatsApp from dispatch until the item reaches you.</small></div>
   </div>
-  <h2>Where we deliver &amp; how long it takes</h2>
+  <h2>Delivery times</h2>
   <ul class="ttx-list good">
-    <li><b>Nairobi &amp; metro:</b> same-day or next-day on orders placed before 5:00pm.</li>
-    <li><b>Major towns</b> (Mombasa, Kisumu, Nakuru, Eldoret, Thika, etc.): 1-3 business days.</li>
-    <li><b>Other towns countrywide:</b> 2-5 business days via trusted courier partners.</li>
+    <li><b>Nairobi and surrounding areas:</b> same-day or next-business-day delivery may be available for qualifying orders placed during business hours, subject to product availability and delivery location.</li>
+    <li><b>Major towns:</b> typically 1-3 business days.</li>
+    <li><b>Other locations in Kenya:</b> typically 2-5 business days.</li>
+    <li>Large, heavy or specialised equipment may require additional handling time.</li>
   </ul>
+  <p><em>These are typical delivery times, not guaranteed delivery windows.</em></p>
   <h2>Shipping costs</h2>
   <ul class="ttx-list">
-    <li>Calculated at checkout based on your location and the size of the items.</li>
-    <li>Nairobi CBD and nearby estates enjoy a low flat rate.</li>
-    <li>Large or heavy equipment may attract a handling fee to guarantee safe transport.</li>
+    <li>Shipping is calculated at checkout based on your location and the size and weight of the items.</li>
+    <li>Large, heavy or specialised equipment may attract an additional handling fee for safe transport.</li>
+    <li>For an estimate before you order, contact us by phone or WhatsApp.</li>
   </ul>
   <h2>What to expect</h2>
   <ul class="ttx-list good">
     <li>A confirmation call or WhatsApp before dispatch to verify your address and timing.</li>
     <li>Careful, secure packaging, especially for solar panels, glass and delicate parts.</li>
-    <li>Please inspect major items on delivery and report any transit damage immediately.</li>
+    <li>Please inspect major items on delivery and report any transit damage as soon as possible.</li>
   </ul>
   <h2>Failed or delayed deliveries</h2>
   <ul class="ttx-list bad">
     <li>Please give an accurate address and a reachable phone number to avoid delays.</li>
     <li>If a delivery cannot be completed, we will reschedule; repeat failed attempts may attract a re-delivery fee.</li>
-    <li>Rare delays due to weather, courier or stock issues will always be communicated to you.</li>
+    <li>Delays due to weather, courier or stock issues will always be communicated to you.</li>
   </ul>
-  <div class="ttx-cta"><b>Want a delivery estimate for your area?</b>Payment methods: M-Pesa, Bank transfer &amp; Cash on Delivery.<br>
+  <div class="ttx-cta"><b>Want a delivery estimate for your area?</b>Payment methods: M-Pesa, bank transfer and cash on delivery where available.<br>
     <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a></div>
 </div>
 TTBODY
     ),
     'returns-refund-policy' => array( 'Returns & Refund Policy', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>We want you to shop with total confidence. Every product is genuine and warranty-backed, and if something is not right we will make it right. Please read the simple steps below.</p></div>
+  <div class="ttx-intro"><p>We want you to shop with confidence. Most unused products may be returned within 7 days of delivery, subject to the conditions below. If an item arrives damaged, defective or different from what you ordered, please contact us and we will advise on the next steps.</p></div>
   <div class="ttx-cards">
-    <div class="ttx-card"><span class="n">7-Day</span><b>Returns</b><small>Return most items within 7 days of delivery for a refund, exchange or store credit.</small></div>
-    <div class="ttx-card"><span class="n">Warranty</span><b>Cover</b><small>Manufacturer or supplier warranty on applicable products.</small></div>
-    <div class="ttx-card"><span class="n">Free</span><b>Fault pickup</b><small>If an item arrives damaged or faulty, we arrange collection at no cost to you.</small></div>
+    <div class="ttx-card"><span class="n">7-Day</span><b>Returns</b><small>Most unused products may be returned within 7 days of delivery for a refund, exchange or store credit, subject to conditions.</small></div>
+    <div class="ttx-card"><span class="n">Warranty</span><b>Where applicable</b><small>Warranty coverage varies by product and manufacturer.</small></div>
+    <div class="ttx-card"><span class="n">Support</span><b>We're here to help</b><small>Contact us about any return, damaged or faulty item.</small></div>
   </div>
+  <h2>7-day returns</h2>
+  <p>Most unused products may be returned within 7 days of delivery, subject to the conditions below. Products must be returned unused, with original packaging, accessories and proof of purchase. Products that arrive damaged, defective or different from the order should be reported as soon as possible. Approved returns may qualify for a refund, exchange or store credit depending on the circumstances and product.</p>
   <h2>What can be returned</h2>
   <ul class="ttx-list good">
-    <li>Items that are unused, in original packaging with all accessories and the receipt.</li>
+    <li>Unused items in original packaging with all accessories and proof of purchase.</li>
     <li>Items delivered damaged, defective, or different from what you ordered.</li>
-    <li>Products that develop a fault covered by the manufacturer or supplier warranty.</li>
+    <li>Products that develop a fault covered by an applicable manufacturer or supplier warranty.</li>
   </ul>
   <h2>What cannot be returned</h2>
   <ul class="ttx-list bad">
@@ -109,12 +117,14 @@ TTBODY
   </ul>
   <h2>How to start a return</h2>
   <ol class="ttx-steps">
-    <li>Contact us within 7 days with your order number and a short description, a photo helps for damage (0719 261277 or info@toolstopia.co.ke).</li>
-    <li>We confirm the return and, for faulty items, arrange free pickup.</li>
-    <li>Once checked, we process your refund, exchange or store credit within 3-5 business days.</li>
+    <li>Contact us within 7 days with your order number and a short description; a photo helps for damage (0719 261277 or info@toolstopia.co.ke).</li>
+    <li>We will confirm whether the return is accepted and advise on the appropriate return or collection method.</li>
+    <li>Once the item has been received and assessed, we process your refund, exchange or store credit.</li>
   </ol>
+  <h2>Faulty or damaged items</h2>
+  <p>Where a return is accepted because an item arrived damaged or defective, Toolstopia will advise the customer on the appropriate return or collection method.</p>
   <h2>Refunds &amp; warranty</h2>
-  <p>Approved refunds are made to your original payment method or by M-Pesa, usually within 3-5 business days of the returned item being received and inspected. Applicable products carry a manufacturer or supplier warranty; we do not operate an in-house service centre, so warranty repairs are handled through the manufacturer or supplier.</p>
+  <p>Approved refunds are processed within 3-5 business days after the returned item has been received and assessed, to your original payment method or by M-Pesa. Warranty coverage varies by product and manufacturer. Where a manufacturer or supplier warranty applies, the applicable terms are stated on the product page or provided with the product; we do not operate an in-house service centre, so warranty repairs are handled through the manufacturer or supplier.</p>
   <div class="ttx-cta"><b>Need to start a return or ask a question?</b>
     <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
 </div>
@@ -122,21 +132,20 @@ TTBODY
     ),
     'delivery-installation' => array( 'Delivery & Installation', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>Tools Topia delivers across Kenya with fast next-day delivery in Nairobi and major towns. For equipment that needs setup, our team will advise so everything works from day one.</p></div>
+  <div class="ttx-intro"><p>Toolstopia delivers across Kenya. For equipment that needs setup, our team will advise so everything works from day one. Delivery times below are typical, not guaranteed.</p></div>
   <h2>Delivery coverage</h2>
   <ul class="ttx-list good">
-    <li>Next-day delivery within Nairobi on most orders.</li>
-    <li>Countrywide delivery to all major towns through trusted couriers.</li>
+    <li>Delivery to Nairobi and locations across Kenya through available delivery partners.</li>
     <li>Careful handling and secure packaging for tools, solar kits, pumps, welding machines and grinders.</li>
   </ul>
   <div class="ttx-cards">
-    <div class="ttx-card"><b>Nairobi &amp; metro</b><small>Same-day or next-day on orders before 5:00pm.</small></div>
-    <div class="ttx-card"><b>Major towns</b><small>1-3 business days.</small></div>
-    <div class="ttx-card"><b>Other areas</b><small>2-5 business days via courier.</small></div>
+    <div class="ttx-card"><b>Nairobi &amp; surrounding areas</b><small>Same-day or next-business-day delivery may be available for qualifying orders placed during business hours.</small></div>
+    <div class="ttx-card"><b>Major towns</b><small>Typically 1-3 business days.</small></div>
+    <div class="ttx-card"><b>Other locations</b><small>Typically 2-5 business days.</small></div>
   </div>
   <h2>Installation &amp; setup support</h2>
-  <p>For equipment such as solar systems, water pumps and welding machines, we guide you on correct installation and safe operation. Where on-site setup is available, talk to our team when ordering and we will advise on options and any charges. Please note: we advise on installation but do not operate a physical service centre, warranty repairs are handled through the manufacturer or supplier.</p>
-  <div class="ttx-cta"><b>Arrange your delivery</b>Available Mon-Saturday, 7:00am-6:00pm.<br>
+  <p>For equipment such as solar systems, water pumps and welding machines, we guide you on correct installation and safe operation. Where on-site setup is available, talk to our team when ordering and we will advise on options and any charges. Please note: we advise on installation but do not operate a physical service centre, so warranty repairs are handled through the manufacturer or supplier.</p>
+  <div class="ttx-cta"><b>Arrange your delivery</b>Available Monday to Saturday, 7:00am-6:00pm.<br>
     <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
 </div>
 TTBODY
@@ -162,11 +171,11 @@ TTBODY
     ),
     'faq' => array( 'FAQ', <<<'TTBODY'
 <div class="ttx">
-  <details class="ttx-faq" open><summary>Are your products genuine?</summary><p>Yes. Every product we sell is genuine and warranty-backed, sourced through trusted suppliers and authorised channels.</p></details>
+  <details class="ttx-faq" open><summary>Are your products genuine?</summary><p>We source products through established suppliers and distributors. Product brand, model and specification information is provided where available. If a manufacturer warranty applies, the applicable warranty information is stated on the product page or provided with the product.</p></details>
   <details class="ttx-faq"><summary>Which areas do you deliver to?</summary><p>We deliver countrywide. Nairobi enjoys same-day or next-day delivery; major towns receive orders in 1-3 business days and other areas in 2-5 business days.</p></details>
-  <details class="ttx-faq"><summary>How much is delivery?</summary><p>Delivery is calculated at checkout based on your location and item size. Nairobi CBD and nearby estates enjoy a low flat rate. For an exact quote, WhatsApp 0719 261277.</p></details>
+  <details class="ttx-faq"><summary>How much is delivery?</summary><p>Delivery is calculated at checkout based on your location and the size and weight of the items. For an estimate before you order, WhatsApp 0719 261277.</p></details>
   <details class="ttx-faq"><summary>What payment methods do you accept?</summary><p>M-Pesa, Bank transfer, and Cash on Delivery.</p></details>
-  <details class="ttx-faq"><summary>Do your products have a warranty?</summary><p>Yes. Applicable products carry a manufacturer or supplier warranty. Keep your receipt, if a covered fault appears, contact us and we will guide you through the warranty process.</p></details>
+  <details class="ttx-faq"><summary>Do your products have a warranty?</summary><p>Warranty coverage varies by product and manufacturer. Where a manufacturer or supplier warranty applies, the applicable period and terms will be provided on the product page, quotation or accompanying documentation. Products without a stated warranty should not be assumed to have one. Keep your receipt in case you need to make a claim.</p></details>
   <details class="ttx-faq"><summary>What is your returns policy?</summary><p>You can return most items within 7 days of delivery for a refund, exchange or store credit, subject to our Returns &amp; Refund Policy.</p></details>
   <details class="ttx-faq"><summary>Do you help with installation?</summary><p>For equipment like solar systems, water pumps and welding machines, we advise on correct installation and safe use. Ask our team when ordering.</p></details>
   <details class="ttx-faq"><summary>Can I order on WhatsApp?</summary><p>Yes. Message 0719 261277 with the item you want and your location, and we will confirm price, stock and delivery.</p></details>
@@ -174,10 +183,10 @@ TTBODY
 </div>
 TTBODY
     ),
-    'why-choose-tools-topia' => array( 'Why Choose Tools Topia', <<<'TTBODY'
+    'why-choose-tools-topia' => array( 'Why Choose Toolstopia', <<<'TTBODY'
 <div class="ttx">
   <div class="ttx-cards">
-    <div class="ttx-card"><b>Genuine &amp; warranty-backed</b><small>Authentic tools and equipment you can trust.</small></div>
+    <div class="ttx-card"><b>Authentic products</b><small>Sourced from established suppliers and distributors.</small></div>
     <div class="ttx-card"><b>Fast delivery</b><small>Next-day in Nairobi and countrywide.</small></div>
     <div class="ttx-card"><b>Honest pricing</b><small>Fair prices, no hidden costs.</small></div>
     <div class="ttx-card"><b>Wide range</b><small>Power tools, solar, water pumps, incubators, welding machines and grinders.</small></div>
@@ -187,17 +196,17 @@ TTBODY
 </div>
 TTBODY
     ),
-    'authorized-brands' => array( 'Authorized Brands', <<<'TTBODY'
+    'authorized-brands' => array( 'Brands We Carry', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p><b>We source genuine products from authorised distributors.</b> Every tool, machine and solar product we sell is 100% original and backed by the manufacturer warranty. We do not sell counterfeits or imitations.</p></div>
+  <div class="ttx-intro"><p>We stock tools, machines and solar products from a range of well-known brands. We work with established suppliers and distributors and provide product and warranty information where applicable.</p></div>
   <div class="ttx-brands">
     <span class="ttx-brand">Makita</span><span class="ttx-brand">Bosch</span><span class="ttx-brand">INGCO</span><span class="ttx-brand">Total</span><span class="ttx-brand">Honda</span><span class="ttx-brand">DeWALT</span><span class="ttx-brand">Stanley</span><span class="ttx-brand">Milwaukee</span><span class="ttx-brand">Tolsen</span><span class="ttx-brand">Crown</span><span class="ttx-brand">Ryobi</span><span class="ttx-brand">Wadfow</span>
   </div>
   <div class="ttx-cards">
-    <div class="ttx-card"><b>Genuine &amp; original</b><small>Sourced through authorised distribution channels, not grey imports.</small></div>
-    <div class="ttx-card"><b>Manufacturer warranty</b><small>Warranty is honoured because the products are authentic.</small></div>
-    <div class="ttx-card"><b>Correct product data</b><small>Real model numbers, specifications and country of origin.</small></div>
-    <div class="ttx-card"><b>After-sales support</b><small>Genuine help with parts, servicing and advice.</small></div>
+    <div class="ttx-card"><b>Trusted sourcing</b><small>We work with established suppliers and distributors.</small></div>
+    <div class="ttx-card"><b>Warranty where applicable</b><small>Where a manufacturer or supplier warranty applies, the terms are provided with the product.</small></div>
+    <div class="ttx-card"><b>Clear product data</b><small>Model numbers, specifications and details are provided where available.</small></div>
+    <div class="ttx-card"><b>After-sales support</b><small>Help with parts, servicing and advice.</small></div>
   </div>
   <div class="ttx-cta"><b>Looking for a specific brand?</b>
     <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="/shop/">Browse the shop</a></div>
@@ -206,12 +215,12 @@ TTBODY
     ),
     'wholesale-bulk' => array( 'Wholesale & Bulk', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>Buying for a project, a business, an institution or a hardware shop? Tools Topia supplies genuine tools, solar products and equipment in bulk at competitive trade prices, with delivery anywhere in Kenya.</p></div>
+  <div class="ttx-intro"><p>Buying for a project, a business, an institution or a hardware shop? Toolstopia supplies tools, solar products and equipment in bulk at competitive trade prices, with delivery across Kenya.</p></div>
   <div class="ttx-cards">
-    <div class="ttx-card"><b>Trade &amp; contractor pricing</b><small>Better rates on bulk quantities and repeat orders.</small></div>
-    <div class="ttx-card"><b>Wide stock</b><small>Power tools, solar, welding machines, pumps, generators and more.</small></div>
-    <div class="ttx-card"><b>Genuine &amp; warranty-backed</b><small>Authorised distributor stock on every unit.</small></div>
-    <div class="ttx-card"><b>Countrywide delivery</b><small>Delivered to your site, shop or office across Kenya.</small></div>
+    <div class="ttx-card"><b>Competitive bulk pricing</b><small>Request pricing for larger quantities and repeat orders.</small></div>
+    <div class="ttx-card"><b>Wide selection</b><small>Tools, solar equipment, welding machines, water pumps, generators and more.</small></div>
+    <div class="ttx-card"><b>Kenya-wide delivery</b><small>Delivery arrangements can be made according to order size and destination.</small></div>
+    <div class="ttx-card"><b>Dedicated support</b><small>We help coordinate your order from quotation to delivery.</small></div>
   </div>
   <div class="ttx-cta"><b>Get a bulk price</b>
     <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="/request-a-quote/">Request a quote</a></div>
@@ -230,6 +239,8 @@ TTBODY
   </div>
   <div class="ttx-cta"><b>Send your request</b>
     <a href="https://wa.me/254719261277">WhatsApp 0719 261277</a><a href="tel:0719261277">Call us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
+  <h2>Product sourcing and warranty information</h2>
+  <p>Product availability, specifications and warranty coverage vary by product and manufacturer. We confirm current availability and applicable terms when preparing your quotation.</p>
   <div class="ttx-intro"><p>We reply during business hours, Monday to Saturday, 7:00am to 6:00pm. For urgent orders, WhatsApp is fastest.</p></div>
 </div>
 TTBODY
@@ -262,7 +273,7 @@ TTBODY
 <div class="ttx">
   <div class="ttx-intro">
     <h1>Today's Deals</h1>
-    <p>Genuine tools and equipment at special prices. Our current offers are shown below and change as new deals go live. For flash deals and stock alerts, follow us on WhatsApp.</p>
+    <p>Tools and equipment at special prices. Our current offers are shown below and change as new deals go live. For flash deals and stock alerts, follow us on WhatsApp.</p>
   </div>
   <h2>On sale now</h2>
   [products limit="12" columns="4" on_sale="true" orderby="date"]
@@ -337,7 +348,7 @@ add_action( 'after_switch_theme', 'tt_sync_pages' );
 add_action( 'admin_notices', function () {
     $done = get_transient( 'tt_pages_notice' );
     if ( ! $done ) { return; }
-    echo '<div class="notice notice-success is-dismissible"><p><strong>Tools Topia pages are set up.</strong> Click any page to view it:</p><ul style="margin:6px 0 6px 18px;list-style:disc">';
+    echo '<div class="notice notice-success is-dismissible"><p><strong>Toolstopia pages are set up.</strong> Click any page to view it:</p><ul style="margin:6px 0 6px 18px;list-style:disc">';
     foreach ( $done as $row ) {
         echo '<li>' . esc_html( $row[0] ) . ' (' . esc_html( $row[2] ) . ') &mdash; <a href="' . esc_url( $row[1] ) . '" target="_blank" rel="noopener">view page</a></li>';
     }
@@ -345,32 +356,22 @@ add_action( 'admin_notices', function () {
     delete_transient( 'tt_pages_notice' );
 } );
 
-// Remove the word "card" from the product-page payment line (you asked for this).
-add_action( 'template_redirect', function () {
-    if ( is_admin() ) { return; }
-    ob_start( function ( $html ) {
-        return str_replace(
-            'Pay via M-PESA, card, bank transfer or cash on delivery',
-            'Pay via M-PESA, bank transfer or cash on delivery',
-            $html
-        );
-    } );
-} );
+// (Removed in v1.9.0: the product-page payment line no longer contains "card", so the runtime str_replace is unnecessary.)
 
 } // end TT_PAGES_LOADED guard
 
 
-/* ===== Editable homepage settings (Appearance > Customize > Tools Topia Homepage) ===== */
+/* ===== Editable homepage settings (Appearance > Customize > Toolstopia Homepage) ===== */
 add_action( 'customize_register', function ( $wp_customize ) {
-    $wp_customize->add_section( 'tt_home', array( 'title' => 'Tools Topia Homepage', 'priority' => 30 ) );
+    $wp_customize->add_section( 'tt_home', array( 'title' => 'Toolstopia Homepage', 'priority' => 30 ) );
 
-    $wp_customize->add_setting( 'tt_home_categories', array( 'default' => "Hardware Tools\nSolar Panels\nwater pump\nIncubators\nGenerators\nBatteries", 'sanitize_callback' => 'sanitize_textarea_field' ) );
+    $wp_customize->add_setting( 'tt_home_categories', array( 'default' => "Hardware Tools\nSolar Panels\nWater Pumps\nIncubators\nGenerators\nBatteries", 'sanitize_callback' => 'sanitize_textarea_field' ) );
     $wp_customize->add_control( 'tt_home_categories', array( 'type' => 'textarea', 'section' => 'tt_home', 'label' => 'Homepage product rows', 'description' => 'One category name or slug per line, e.g. Solar Panels. Each becomes a product row on the homepage.' ) );
 
-    $wp_customize->add_setting( 'tt_hero_title', array( 'default' => 'Genuine tools, solar & equipment', 'sanitize_callback' => 'sanitize_text_field' ) );
+    $wp_customize->add_setting( 'tt_hero_title', array( 'default' => 'Tools & equipment for Kenya', 'sanitize_callback' => 'sanitize_text_field' ) );
     $wp_customize->add_control( 'tt_hero_title', array( 'type' => 'text', 'section' => 'tt_home', 'label' => 'Hero title' ) );
 
-    $wp_customize->add_setting( 'tt_hero_text', array( 'default' => 'Shop the trusted store for power tools, solar, pumps and more.', 'sanitize_callback' => 'sanitize_text_field' ) );
+    $wp_customize->add_setting( 'tt_hero_text', array( 'default' => 'Shop power tools, solar equipment, generators, water pumps, welding equipment and more.', 'sanitize_callback' => 'sanitize_text_field' ) );
     $wp_customize->add_control( 'tt_hero_text', array( 'type' => 'text', 'section' => 'tt_home', 'label' => 'Hero subtitle' ) );
 } );
 
@@ -432,7 +433,7 @@ add_action( 'wp_footer', function () { ?>
 
   var sum=d.querySelector('.entry-summary, .product .summary, div.summary');
   if(sum){
-    var phrases=['Genuine products','Nationwide delivery','Pay via','Manufacturer warranty'];
+    var phrases=['Authentic products','Kenya-wide delivery','Pay via','Warranty coverage'];
     var found=[]; var els=sum.querySelectorAll('p,li,span,div');
     for(var r=0;r<els.length;r++){ var e=els[r]; if(e.children.length>0){ continue; } var s=(e.textContent||'').trim();
       for(var p=0;p<phrases.length;p++){ if(s.indexOf(phrases[p])===0){ var seen=false; for(var g=0;g<found.length;g++){ if(found[g].p===p){ seen=true; } } if(!seen){ found.push({p:p,text:s,node:e}); } } } }
@@ -474,10 +475,10 @@ function toolstopia_child_v175_scripts() { ?>
  function topBar(){
    var mob=window.innerWidth<=768;
    if(mob){ ttContactBar(); }
-   var full='Genuine tools, solar & equipment  \u00b7  Fast countrywide delivery  \u00b7  Pay via M-Pesa, bank transfer or cash on delivery';
+   var full='Tools, equipment & supplies  \u00b7  Kenya-wide delivery  \u00b7  Pay via M-Pesa, bank transfer or cash on delivery';
    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null); var n;
    while(n=w.nextNode()){
-     if((n.nodeValue||'').indexOf('Free delivery within Nairobi')>-1){
+     if((n.nodeValue||'').indexOf('Kenya-wide delivery')>-1){
        var bar=n.parentElement;
        if(bar){ bar.classList.add('tt-annc-bar'); }
        if(mob){ if(bar){ bar.classList.add('tt-annc-hide-mobile'); } ttContactBar(); }
@@ -550,7 +551,7 @@ function toolstopia_child_v175_scripts() { ?>
    if(document.querySelector('.tt-msearch')){return;}
    var header=document.querySelector('header, .site-header, #masthead');
    var bar=document.createElement('div'); bar.className='tt-msearch';
-   bar.innerHTML='<form role="search" method="get" action="'+O+'/"><input type="search" name="s" placeholder="Search tools, brands, part numbers\u2026" aria-label="Search"><input type="hidden" name="post_type" value="product"><button type="submit">Search</button></form>';
+   bar.innerHTML='<form role="search" method="get" action="'+O+'/"><input type="search" name="s" placeholder="Search tools, brands & part numbers\u2026" aria-label="Search"><input type="hidden" name="post_type" value="product"><button type="submit">Search</button></form>';
    if(header && header.parentNode){ header.parentNode.insertBefore(bar, header.nextSibling); } else { document.body.insertBefore(bar, document.body.firstChild); }
    try{ wireSearch(bar.querySelector('input[type="search"]')); }catch(e){}
    if(header){ var si=header.querySelector('input[type="search"], input[name="s"]'); if(si){ var f=si.closest('form')||si.parentElement; if(f){ f.classList.add('tt-hide-mobile'); } } }
@@ -704,7 +705,7 @@ if ( ! shortcode_exists( 'tt_map' ) ) {
 	function tt_map_shortcode( $atts ) {
 		$q   = 'Royal Palms Mall, Ronald Ngala Street, Nairobi, Kenya';
 		$src = 'https://www.google.com/maps?q=' . rawurlencode( $q ) . '&output=embed';
-		return '<div class="tt-mapwrap"><iframe title="Tools Topia location" src="' . esc_url( $src ) . '" width="100%" height="340" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>';
+		return '<div class="tt-mapwrap"><iframe title="Toolstopia location" src="' . esc_url( $src ) . '" width="100%" height="340" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>';
 	}
 }
 
@@ -736,38 +737,38 @@ function tt_product_info_panel() {
 	$stock  = $product->is_in_stock() ? 'In stock, ready to ship' : 'Available on order';
 	$origin = $product->get_attribute( 'country-of-origin' );
 	if ( empty( $origin ) ) { $origin = $product->get_attribute( 'pa_country-of-origin' ); }
-	if ( empty( $origin ) ) { $origin = 'Imported, genuine product'; }
+	if ( empty( $origin ) ) { $origin = 'Imported'; }
 	$rows = array();
 	if ( ! empty( $brand ) ) { $rows[] = array( 'Brand', esc_html( $brand ) ); }
 	if ( ! empty( $sku ) )   { $rows[] = array( 'SKU / Model', esc_html( $sku ) ); }
 	$rows[] = array( 'Availability', esc_html( $stock ) );
-	$rows[] = array( 'Warranty', 'Genuine warranty via authorised distributor' );
-	$rows[] = array( 'Delivery', 'Nairobi next-day, countrywide 2-5 days' );
+	$rows[] = array( 'Warranty', 'Where applicable; varies by product and manufacturer' );
+	$rows[] = array( 'Delivery', 'Kenya-wide; typically 2-5 business days' );
 	$rows[] = array( 'Country of origin', esc_html( $origin ) );
 	$rows[] = array( 'Returns', '7-day returns on unused items' );
 	echo '<div class="tt-pinfo"><ul>';
 	foreach ( $rows as $r ) {
 		echo '<li><span class="tt-pinfo-k">' . $r[0] . '</span><span class="tt-pinfo-v">' . $r[1] . '</span></li>';
 	}
-	echo '</ul><div class="tt-pinfo-badges"><span>Genuine &amp; original</span><span>Authorised distributor</span><span>Warranty backed</span></div></div>';
+	echo '</ul><div class="tt-pinfo-badges"><span>Authentic products</span><span>Established suppliers</span><span>Warranty where applicable</span></div></div>';
 }
 
 
 /* Editable SEO meta descriptions (seeded into each page Excerpt, fully editable) */
 function tt_pages_meta() {
 	return array(
-		'about-us'               => 'Tools Topia supplies genuine power tools, solar and equipment from authorised distributors in Nairobi. Fast countrywide delivery and real support.',
-		'shipping-policy'        => 'How Tools Topia ships your order: next-day in Nairobi and 2-5 days countrywide. Delivery charges, timelines and tracking explained.',
-		'returns-refund-policy'  => 'Tools Topia returns and refund policy: 7-day returns on unused items, warranty claims and how to request a refund or exchange.',
+		'about-us'               => 'Toolstopia is a Kenya-based online retailer of power tools, solar and equipment. Clear product information, transparent pricing and Kenya-wide delivery.',
+		'shipping-policy'        => 'How Toolstopia ships your order: next-day in Nairobi and 2-5 days countrywide. Delivery charges, timelines and tracking explained.',
+		'returns-refund-policy'  => 'Toolstopia returns and refund policy: 7-day returns on unused items, warranty claims and how to request a refund or exchange.',
 		'delivery-installation'  => 'Fast delivery and professional installation of tools, solar systems and equipment across Nairobi and Kenya. Book delivery or installation today.',
-		'contact-us'             => 'Contact Tools Topia: call or WhatsApp 0719 261277, email info@toolstopia.co.ke, or visit Royal Palms Mall, Shop BG 55, Nairobi. Mon-Sat 7am-6pm.',
-		'faq'                    => 'Answers about genuine products, warranty, delivery, payment via M-Pesa, bank or cash, and returns at Tools Topia, Nairobi.',
-		'why-choose-tools-topia' => 'Genuine, warranty-backed tools, fast countrywide delivery, honest pricing and real support. See why customers choose Tools Topia in Nairobi.',
-		'authorized-brands'      => 'We source genuine products from authorised distributors: Makita, Bosch, INGCO, Total, Honda and more. 100% original and warranty-backed.',
-		'wholesale-bulk'         => 'Bulk and wholesale supply of genuine tools, solar and equipment in Kenya at trade prices. Contractors, businesses and resellers welcome. Countrywide delivery.',
-		'request-a-quote'        => 'Request a fast quote from Tools Topia for tools, solar and equipment. Send your list, quantities and location by WhatsApp, call or email. Countrywide delivery.',
-		'payment-methods'        => 'How to pay Tools Topia: M-PESA, bank transfer and cash on delivery. Simple, secure payment for tools, solar and equipment, with countrywide delivery.',
-		'todays-deals'           => 'Deals at Tools Topia: genuine power tools, solar and equipment on sale now, plus our most popular products. Special prices with countrywide delivery.',
+		'contact-us'             => 'Contact Toolstopia: call or WhatsApp 0719 261277, email info@toolstopia.co.ke, or visit Royal Palms Mall, Shop BG 55, Nairobi. Mon-Sat 7am-6pm.',
+		'faq'                    => 'Answers about products, warranty, delivery, payment via M-Pesa, bank or cash, and returns at Toolstopia, Nairobi.',
+		'why-choose-tools-topia' => 'Authentic products, Kenya-wide delivery, honest pricing and real support. See why customers choose Toolstopia in Nairobi.',
+		'authorized-brands'      => 'Brands we carry at Toolstopia: Makita, Bosch, INGCO, Total, Honda and more. We work with established suppliers and distributors; warranty where applicable.',
+		'wholesale-bulk'         => 'Bulk and wholesale supply of tools, solar and equipment in Kenya at trade prices. Contractors, businesses and resellers welcome. Kenya-wide delivery.',
+		'request-a-quote'        => 'Request a fast quote from Toolstopia for tools, solar and equipment. Send your list, quantities and location by WhatsApp, call or email. Countrywide delivery.',
+		'payment-methods'        => 'How to pay Toolstopia: M-PESA, bank transfer and cash on delivery. Simple, secure payment for tools, solar and equipment, with countrywide delivery.',
+		'todays-deals'           => 'Deals at Toolstopia: power tools, solar and equipment on sale now, plus our most popular products. Special prices with Kenya-wide delivery.',
 	);
 }
 
@@ -779,7 +780,7 @@ function tt_meta_description() {
 	if ( is_front_page() ) {
 		$desc = get_bloginfo( 'description' );
 		if ( '' === trim( (string) $desc ) ) {
-			$desc = 'Buy genuine power tools, solar and equipment in Nairobi. Fast countrywide delivery. Pay via M-Pesa, bank transfer or cash on delivery.';
+			$desc = 'Buy power tools, solar and equipment in Kenya. Kenya-wide delivery. Pay via M-Pesa, bank transfer or cash on delivery.';
 		}
 	} elseif ( is_singular() ) {
 		$post = get_queried_object();
@@ -793,9 +794,9 @@ function tt_meta_description() {
 		if ( $term && ! empty( $term->description ) ) {
 			$desc = wp_strip_all_tags( $term->description );
 		} elseif ( function_exists( 'is_shop' ) && is_shop() ) {
-			$desc = 'Shop genuine power tools, solar and equipment at Tools Topia. Original brands, warranty-backed, fast countrywide delivery across Kenya.';
+			$desc = 'Shop power tools, solar and equipment at Toolstopia. Kenya-wide delivery, clear product information and customer support.';
 		} elseif ( $term && isset( $term->name ) ) {
-			$desc = 'Shop genuine ' . $term->name . ' at Tools Topia. Original brands, warranty-backed and fast delivery across Kenya.';
+			$desc = 'Shop ' . $term->name . ' at Toolstopia. Clear product information and Kenya-wide delivery.';
 		}
 	}
 	$desc = trim( preg_replace( '/\s+/', ' ', (string) $desc ) );
@@ -839,7 +840,7 @@ table.wp-list-table .column-featured{width:70px;text-align:center}
 
 /* ============================================================
    Toolstopia Child v1.8.1 - make the homepage easily editable
-   (Appearance > Customize > Tools Topia ...)
+   (Appearance > Customize > Toolstopia ...)
    ============================================================ */
 function tt_sanitize_checkbox( $v ) { return ( isset( $v ) && $v ) ? 1 : 0; }
 
@@ -849,10 +850,10 @@ function tt_customize_full( $wp_customize ) {
     /* ---- Hero slider: 4 slides, each fully editable ---- */
     $wp_customize->add_section( 'tt_hero_slides', array( 'title' => 'Homepage Hero Slider', 'priority' => 31 ) );
     $sd = array(
-        1 => array( "Kenya's premium tool store", "Genuine tools, solar & equipment", "Shop the trusted store for power tools, solar, pumps and more.", "Shop All Tools", "" ),
+        1 => array( "Kenya-wide delivery", "Tools & equipment for Kenya", "Shop power tools, solar equipment, generators, water pumps, welding equipment and more.", "Shop All Tools", "" ),
         2 => array( "Solar & power", "Power that never quits", "Panels, inverters and batteries for home, business and off-grid living.", "Shop Solar", "" ),
         3 => array( "Generators & pumps", "Reliable backup power & water", "Petrol generators and water pumps built for Kenyan conditions.", "Shop now", "" ),
-        4 => array( "Fast nationwide delivery", "Next-day in Nairobi", "Countrywide in 2-5 days. Pay by M-Pesa, bank transfer or cash on delivery.", "Delivery details", "/shipping-policy/" ),
+        4 => array( "Kenya-wide delivery", "Fast delivery across Kenya", "Typically 2-5 business days countrywide. Pay by M-Pesa, bank transfer or cash on delivery.", "Delivery details", "/shipping-policy/" ),
     );
     foreach ( $sd as $i => $d ) {
         $img_default = get_stylesheet_directory_uri() . '/assets/slides/slide' . $i . '.jpg';
@@ -870,23 +871,13 @@ function tt_customize_full( $wp_customize ) {
         $wp_customize->add_control( "tt_slide{$i}_url", array( 'type' => 'text', 'section' => 'tt_hero_slides', 'label' => "Slide {$i} button link (blank = Shop page)" ) );
     }
 
-    /* ---- Statistics band ---- */
-    $wp_customize->add_section( 'tt_stats_sec', array( 'title' => 'Homepage Statistics', 'priority' => 32 ) );
-    $wp_customize->add_setting( 'tt_stats_show', array( 'default' => 1, 'sanitize_callback' => 'tt_sanitize_checkbox' ) );
-    $wp_customize->add_control( 'tt_stats_show', array( 'type' => 'checkbox', 'section' => 'tt_stats_sec', 'label' => 'Show the statistics band' ) );
-    $st = array( 1 => array( '12,000+', 'Orders Delivered' ), 2 => array( '1,300+', 'Products' ), 3 => array( '250+', 'Brands' ), 4 => array( '24', 'Counties Served' ), 5 => array( '98%', 'Satisfied Customers' ) );
-    foreach ( $st as $i => $d ) {
-        $wp_customize->add_setting( "tt_stat{$i}_num", array( 'default' => $d[0], 'sanitize_callback' => 'sanitize_text_field' ) );
-        $wp_customize->add_control( "tt_stat{$i}_num", array( 'type' => 'text', 'section' => 'tt_stats_sec', 'label' => "Stat {$i} number" ) );
-        $wp_customize->add_setting( "tt_stat{$i}_label", array( 'default' => $d[1], 'sanitize_callback' => 'sanitize_text_field' ) );
-        $wp_customize->add_control( "tt_stat{$i}_label", array( 'type' => 'text', 'section' => 'tt_stats_sec', 'label' => "Stat {$i} label" ) );
-    }
+    /* Homepage statistics band removed in v1.9.0: unverified numbers are no longer displayed. */
 
     /* ---- Trust badges ---- */
     $wp_customize->add_section( 'tt_trust_sec', array( 'title' => 'Homepage Trust Badges', 'priority' => 33 ) );
     $wp_customize->add_setting( 'tt_certs_show', array( 'default' => 1, 'sanitize_callback' => 'tt_sanitize_checkbox' ) );
     $wp_customize->add_control( 'tt_certs_show', array( 'type' => 'checkbox', 'section' => 'tt_trust_sec', 'label' => 'Show the certifications band' ) );
-    $ct = array( 1 => 'SSL Secure', 2 => 'Secure Payments', 3 => 'Warranty', 4 => 'Trusted Seller' );
+    $ct = array( 1 => 'SSL Secure', 2 => 'Secure Payments', 3 => 'Warranty Information', 4 => 'Customer Support' );
     foreach ( $ct as $i => $d ) {
         $wp_customize->add_setting( "tt_cert{$i}", array( 'default' => $d, 'sanitize_callback' => 'sanitize_text_field' ) );
         $wp_customize->add_control( "tt_cert{$i}", array( 'type' => 'text', 'section' => 'tt_trust_sec', 'label' => "Badge {$i}" ) );
@@ -912,7 +903,7 @@ function tt_customize_contact_legal( $wp_customize ) {
     $wp_customize->add_control( 'tt_email', array( 'type' => 'email', 'section' => 'tt_contact_sec', 'label' => 'Email address' ) );
 
     $wp_customize->add_section( 'tt_legal_sec', array( 'title' => 'Business / Legal Details', 'priority' => 35 ) );
-    $wp_customize->add_setting( 'tt_reg_name', array( 'default' => 'Tools Topia', 'sanitize_callback' => 'sanitize_text_field' ) );
+    $wp_customize->add_setting( 'tt_reg_name', array( 'default' => 'Toolstopia', 'sanitize_callback' => 'sanitize_text_field' ) );
     $wp_customize->add_control( 'tt_reg_name', array( 'type' => 'text', 'section' => 'tt_legal_sec', 'label' => 'Registered business name' ) );
     $wp_customize->add_setting( 'tt_reg_country', array( 'default' => 'Kenya', 'sanitize_callback' => 'sanitize_text_field' ) );
     $wp_customize->add_control( 'tt_reg_country', array( 'type' => 'text', 'section' => 'tt_legal_sec', 'label' => 'Registered in (country)' ) );
@@ -925,7 +916,7 @@ function tt_customize_contact_legal( $wp_customize ) {
 /* Footer registration line */
 add_action( 'wp_footer', 'tt_legal_line', 20 );
 function tt_legal_line() {
-    $name    = trim( get_theme_mod( 'tt_reg_name', 'Tools Topia' ) );
+    $name    = trim( get_theme_mod( 'tt_reg_name', 'Toolstopia' ) );
     $country = trim( get_theme_mod( 'tt_reg_country', 'Kenya' ) );
     $reg     = trim( get_theme_mod( 'tt_reg_number', '' ) );
     $pin     = trim( get_theme_mod( 'tt_kra_pin', '' ) );
@@ -969,11 +960,11 @@ function tt_privacy_html() {
 <div class="ttx">
   <div class="ttx-intro">
     <h1>Privacy Policy</h1>
-    <p>This Privacy Policy explains how Tools Topia ("we", "us", "our") collects, uses, stores and protects your personal information when you visit toolstopia.co.ke, contact us, or place an order. By using our website or buying from us, you agree to the practices described here.</p>
+    <p>This Privacy Policy explains how Toolstopia ("we", "us", "our") collects, uses, stores and protects your personal information when you visit toolstopia.co.ke, contact us, or place an order. By using our website or buying from us, you agree to the practices described here.</p>
     <p><strong>Last updated:</strong> 4 August 2026</p>
   </div>
   <h2>Who we are</h2>
-  <p>Tools Topia is a retailer of genuine power tools, solar equipment and related products, based at Royal Palms Mall, Shop No. BG 55, Ronald Ngala Street, Nairobi, Kenya. For any privacy question, contact us at info@toolstopia.co.ke or 0719 261277.</p>
+  <p>Toolstopia is a retailer of power tools, solar equipment and related products, based at Royal Palms Mall, Shop No. BG 55, Ronald Ngala Street, Nairobi, Kenya. For any privacy question, contact us at info@toolstopia.co.ke or 0719 261277.</p>
   <h2>Information we collect</h2>
   <p>We only collect the information we need to process your orders, deliver your products and support you. This may include:</p>
   <ul>
@@ -1028,7 +1019,7 @@ function tt_fix_privacy_once() {
     if ( get_option( 'tt_privacy_v185' ) ) { return; }
     $html = tt_privacy_html();
     $content = "<!-- wp:html -->\n" . $html . "\n<!-- /wp:html -->";
-    $excerpt = 'Tools Topia privacy policy: what we collect, how M-PESA and bank payments are handled, cookies, analytics, marketing, and your data rights under the Kenya Data Protection Act, 2019.';
+    $excerpt = 'Toolstopia privacy policy: what we collect, how M-PESA and bank payments are handled, cookies, analytics, marketing, and your data rights under the Kenya Data Protection Act, 2019.';
     $id = (int) get_option( 'wp_page_for_privacy_policy' );
     if ( ! $id ) {
         $p = get_page_by_path( 'privacy-policy' );
@@ -1090,7 +1081,7 @@ function tt_sc_about_media() {
     $out = '';
     foreach ( $imgs as $im ) {
         if ( $im[0] ) {
-            $out .= '<figure class="tt-photo"><img src="' . esc_url( $im[0] ) . '" alt="' . esc_attr( $im[1] ) . ' - Tools Topia" loading="lazy"><figcaption>' . esc_html( $im[1] ) . '</figcaption></figure>';
+            $out .= '<figure class="tt-photo"><img src="' . esc_url( $im[0] ) . '" alt="' . esc_attr( $im[1] ) . ' - Toolstopia" loading="lazy"><figcaption>' . esc_html( $im[1] ) . '</figcaption></figure>';
         }
     }
     if ( '' === $out ) { return ''; }
@@ -1158,3 +1149,41 @@ function tt_customize_brands( $wp ) {
     }
 }
 add_action( 'customize_register', 'tt_customize_brands' );
+
+
+/* ============================================================
+   v1.9.0 - one-time content refresh
+   The blueprint above never overwrites pages you have already
+   edited, so this runs once (gated by an option) to update the
+   theme-managed information pages to the current, compliance-
+   reviewed copy: unsupported "genuine / authorised distributor /
+   warranty-backed" claims removed and delivery / returns wording
+   made consistent. Runs a single time after this version deploys.
+   ============================================================ */
+function tt_refresh_pages_v190() {
+    if ( get_option( 'tt_pages_refresh_v190' ) ) { return; }
+    if ( \! function_exists( 'tt_pages_blueprint' ) ) { return; }
+    $bp    = tt_pages_blueprint();
+    $slugs = array(
+        'about-us', 'shipping-policy', 'returns-refund-policy', 'delivery-installation',
+        'contact-us', 'faq', 'why-choose-tools-topia', 'authorized-brands',
+        'wholesale-bulk', 'request-a-quote', 'todays-deals',
+    );
+    foreach ( $slugs as $slug ) {
+        if ( \! isset( $bp[ $slug ] ) ) { continue; }
+        $p = get_page_by_path( $slug );
+        if ( \! $p ) { continue; }
+        $update = array(
+            'ID'           => $p->ID,
+            'post_content' => "<\!-- wp:html -->\n" . $bp[ $slug ][1] . "\n<\!-- /wp:html -->",
+        );
+        // The "Authorized Brands" page is renamed to "Brands We Carry" (its slug stays the same).
+        if ( 'authorized-brands' === $slug && 'Authorized Brands' === $p->post_title ) {
+            $update['post_title'] = $bp[ $slug ][0];
+        }
+        wp_update_post( $update );
+    }
+    update_option( 'tt_pages_refresh_v190', 1 );
+}
+add_action( 'admin_init', 'tt_refresh_pages_v190' );
+

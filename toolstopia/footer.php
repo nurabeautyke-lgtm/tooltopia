@@ -12,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 		<div class="ts-footer__grid">
 			<div class="ts-footer__brand">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ts-logo"><img src="<?php echo esc_url( TOOLSTOPIA_URI . '/assets/images/logo-white.png' ); ?>" alt="Toolstopia" width="190" height="41"></a>
-				<p><?php esc_html_e( 'Kenya\'s premium industrial and power-tools supplier. Genuine brands, expert advice, and fast nationwide delivery — trusted by contractors, engineers, and workshops across East Africa.', 'toolstopia' ); ?></p>
+				<p><?php esc_html_e( 'Toolstopia is a Kenya-based online retailer supplying tools, equipment and related products for homes, businesses, contractors and workshops. We provide product information, customer support and delivery services across Kenya.', 'toolstopia' ); ?></p>
 				<div class="ts-footer__pay">
-					<span>M-PESA</span><span>Visa</span><span>Mastercard</span><span>Airtel Money</span><span>Bank</span><span>Cash on Delivery</span>
+					<span>M-PESA</span><span>Bank Transfer</span><span>Cash on Delivery</span>
 				</div>
 			</div>
 

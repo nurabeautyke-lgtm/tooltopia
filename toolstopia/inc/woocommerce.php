@@ -61,10 +61,10 @@ add_action( 'woocommerce_after_add_to_cart_button', 'toolstopia_wa_product_butto
  */
 add_action( 'woocommerce_single_product_summary', function () {
 	echo '<ul class="ts-po-trust" style="list-style:none;display:grid;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--ts-gray-200);font-size:.9rem">';
-	echo '<li>Genuine products &mdash; sourced from authorised distributors</li>';
-	echo '<li>Nationwide delivery in 2&ndash;5 business days</li>';
-	echo '<li>Pay via M-PESA, card, bank transfer or cash on delivery</li>';
-	echo '<li>Manufacturer warranty on eligible products</li>';
+	echo '<li>Authentic products &mdash; sourced from established suppliers and distributors</li>';
+	echo '<li>Kenya-wide delivery &mdash; typical times shown at checkout</li>';
+	echo '<li>Pay via M-PESA, bank transfer or cash on delivery</li>';
+	echo '<li>Warranty coverage varies by product and manufacturer</li>';
 	echo '</ul>';
 }, 45 );
 

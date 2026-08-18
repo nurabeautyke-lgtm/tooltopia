@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 				<?php
 				printf(
 					/* translators: 1: truck emoji removed for a11y */
-					esc_html__( 'Free delivery within Nairobi on orders over KSh 10,000 · Nationwide 2–5 days', 'toolstopia' )
+					esc_html__( 'Tools, equipment & supplies · Kenya-wide delivery · Pay via M-Pesa, bank transfer or cash on delivery', 'toolstopia' )
 				);
 				?>
 			</div>
@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 			<div class="ts-search" role="search">
 				<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
 					<label class="screen-reader-text" for="ts-search-field"><?php esc_html_e( 'Search products', 'toolstopia' ); ?></label>
-					<input id="ts-search-field" type="search" name="s" placeholder="<?php esc_attr_e( 'Search 1,300+ tools, brands, part numbers…', 'toolstopia' ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off">
+					<input id="ts-search-field" type="search" name="s" placeholder="<?php esc_attr_e( 'Search tools, brands & part numbers…', 'toolstopia' ); ?>" value="<?php echo get_search_query(); ?>" autocomplete="off">
 					<?php if ( class_exists( 'WooCommerce' ) ) { ?><input type="hidden" name="post_type" value="product"><?php } ?>
 					<button type="submit" aria-label="<?php esc_attr_e( 'Search', 'toolstopia' ); ?>">
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
