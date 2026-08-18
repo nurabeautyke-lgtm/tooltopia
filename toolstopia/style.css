@@ -1,0 +1,20 @@
+/*
+Theme Name: Toolstopia
+Theme URI: https://toolstopia.co.ke
+Author: Toolstopia
+Author URI: https://toolstopia.co.ke
+Description: Premium industrial WooCommerce theme for Toolstopia Kenya. Minimal, industrial, fast and enterprise-ready, built for the Kenyan and East African power-tools market. WhatsApp ordering, mega menu, full design system, WooCommerce-ready, SEO schema, and Google Merchant / Google Ads friendly structure.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: toolstopia
+Tags: e-commerce, woocommerce, custom-colors, custom-menu, custom-logo, featured-images, threaded-comments, translation-ready, rtl-language-support
+WC requires at least: 6.0
+WC tested up to: 9.0
+*/
+
+/* The full compiled design system is loaded from assets/css/main.css.
+   This file exists only to register the theme with WordPress. */
