@@ -1162,7 +1162,7 @@ add_action( 'customize_register', 'tt_customize_brands' );
    ============================================================ */
 function tt_refresh_pages_v190() {
     if ( get_option( 'tt_pages_refresh_v190' ) ) { return; }
-    if ( \! function_exists( 'tt_pages_blueprint' ) ) { return; }
+    if ( ! function_exists( 'tt_pages_blueprint' ) ) { return; }
     $bp    = tt_pages_blueprint();
     $slugs = array(
         'about-us', 'shipping-policy', 'returns-refund-policy', 'delivery-installation',
@@ -1170,12 +1170,12 @@ function tt_refresh_pages_v190() {
         'wholesale-bulk', 'request-a-quote', 'todays-deals',
     );
     foreach ( $slugs as $slug ) {
-        if ( \! isset( $bp[ $slug ] ) ) { continue; }
+        if ( ! isset( $bp[ $slug ] ) ) { continue; }
         $p = get_page_by_path( $slug );
-        if ( \! $p ) { continue; }
+        if ( ! $p ) { continue; }
         $update = array(
             'ID'           => $p->ID,
-            'post_content' => "<\!-- wp:html -->\n" . $bp[ $slug ][1] . "\n<\!-- /wp:html -->",
+            'post_content' => "<!-- wp:html -->\n" . $bp[ $slug ][1] . "\n<!-- /wp:html -->",
         );
         // The "Authorized Brands" page is renamed to "Brands We Carry" (its slug stays the same).
         if ( 'authorized-brands' === $slug && 'Authorized Brands' === $p->post_title ) {
