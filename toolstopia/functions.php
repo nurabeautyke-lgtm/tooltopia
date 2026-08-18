@@ -7,7 +7,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'TOOLSTOPIA_VERSION', '1.1.0' );
+define( 'TOOLSTOPIA_VERSION', '1.2.0' );
 define( 'TOOLSTOPIA_DIR', get_template_directory() );
 define( 'TOOLSTOPIA_URI', get_template_directory_uri() );
 
@@ -153,3 +153,4 @@ require_once TOOLSTOPIA_DIR . '/inc/megamenu-walker.php';
 require_once TOOLSTOPIA_DIR . '/inc/template-functions.php';
 require_once TOOLSTOPIA_DIR . '/inc/woocommerce.php';
 require_once TOOLSTOPIA_DIR . '/inc/schema.php';
+require_once TOOLSTOPIA_DIR . '/inc/performance.php';

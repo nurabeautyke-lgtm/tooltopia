@@ -27,10 +27,6 @@ add_filter( 'loop_shop_columns', function () { return 4; } );
 add_filter( 'loop_shop_per_page', function () { return 24; }, 20 );
 
 /**
- * Reposition sale flash / keep default but our CSS restyles it.
- */
-
-/**
  * WhatsApp "Order on WhatsApp" button on single product page.
  */
 function toolstopia_wa_product_button() {
@@ -61,7 +57,7 @@ add_action( 'woocommerce_after_add_to_cart_button', 'toolstopia_wa_product_butto
  */
 add_action( 'woocommerce_single_product_summary', function () {
 	echo '<ul class="ts-po-trust" style="list-style:none;display:grid;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--ts-gray-200);font-size:.9rem">';
-	echo '<li>Authentic products &mdash; sourced from established suppliers and distributors</li>';
+	echo '<li>Products sourced from established suppliers and distributors</li>';
 	echo '<li>Kenya-wide delivery &mdash; typical times shown at checkout</li>';
 	echo '<li>Pay via M-PESA, bank transfer or cash on delivery</li>';
 	echo '<li>Warranty coverage varies by product and manufacturer</li>';

@@ -67,6 +67,10 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ts-font-head);font-weight:800;line-height:1.
 h1{font-size:clamp(2.2rem,5vw,4rem)}
 h2{font-size:clamp(1.7rem,3.4vw,2.6rem)}
 h3{font-size:clamp(1.25rem,2vw,1.6rem)}
+/* Single product: right-size the title so it reads as a professional heading, not a banner */
+.woocommerce div.product .product_title,
+.single-product .summary .product_title{font-size:clamp(1.4rem,2.2vw,1.9rem);line-height:1.25;margin:0 0 .45em;letter-spacing:-.01em;font-weight:700}
+.single-product div.product .summary .price{font-size:1.4rem;margin:.1em 0 .6em}
 p{margin:0 0 1rem}
 a{color:var(--ts-accent);text-decoration:none;transition:color var(--ts-fast) var(--ts-ease)}
 a:hover{color:var(--ts-primary)}
