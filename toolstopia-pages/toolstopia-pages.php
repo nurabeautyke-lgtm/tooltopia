@@ -541,7 +541,7 @@ TTBODY
 </div>
 TTBODY
     ),
-    'todays-deals' => array( 'Today\'s Deals', <<<'TTBODY'
+    'todays-deals' => array( "Today's Deals", <<<'TTBODY'
 <style>
 .ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
 .ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
