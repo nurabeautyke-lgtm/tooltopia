@@ -2,23 +2,20 @@
 /*
 Plugin Name: Toolstopia Pages
 Description: Creates and keeps up to date all Toolstopia information pages (About, Shipping, Returns, Delivery & Installation, Contact, FAQ, Why Choose, Brands We Carry, Wholesale & Bulk, Request a Quote, Payment Methods, Today's Deals) with clean, compliant content. Does NOT change your homepage or design. Bump the version to re-sync all pages.
-Version: 1.9.0
+Version: 1.9.1
 Author: Toolstopia
 */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
 define( 'TT_PAGES_LOADED', 1 );
-define( 'TT_PAGES_VERSION', '1.9.0' );
+define( 'TT_PAGES_VERSION', '1.9.1' );
 
-function tt_pages_blueprint(){
-  return array(
-    'about-us' => array( 'About Us', <<<'TTBODY'
-<style>
+// Shared page CSS is printed once in the document head (never inside page content,
+// so it can never be shown as raw text or stripped from the body).
+define( 'TT_PAGES_CSS', <<<'TTCSS'
 .ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h1,.ttx h2{color:#14243a;line-height:1.25}
-.ttx h1{font-size:1.8rem;margin:0 0 10px}
-.ttx h2{font-size:1.5rem;margin:28px 0 12px}
+.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
 .ttx p{margin:0 0 14px}
 .ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
 .ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
@@ -26,10 +23,33 @@ function tt_pages_blueprint(){
 .ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
 .ttx-card b{display:block;margin-bottom:4px;color:#14243a}
 .ttx-card small{color:#5b6b80;font-size:.92rem}
+.ttx-list{list-style:none;padding:0;margin:0 0 14px}
+.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
+.ttx-list.good li{border-left:4px solid #1f9d55}
+.ttx-list.bad li{border-left:4px solid #d64545}
+.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
+.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
+.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
 .ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
 .ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
 .ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-</style>
+.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
+.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
+.ttx-faq summary::-webkit-details-marker{display:none}
+.ttx-faq[open]{border-color:#4a90e2}
+.ttx-faq p{margin:0 0 12px;color:#4a5666}
+TTCSS
+);
+
+add_action( 'wp_head', 'tt_pages_print_css', 20 );
+function tt_pages_print_css() {
+    if ( is_admin() ) { return; }
+    echo '<style id="tt-ttx-css">' . TT_PAGES_CSS . '</style>';
+}
+
+function tt_pages_blueprint(){
+  return array(
+    'about-us' => array( 'About Us', <<<'TTBODY'
 <div class="ttx">
   <div class="ttx-intro">
     <h1>About Toolstopia</h1>
@@ -64,32 +84,6 @@ function tt_pages_blueprint(){
 TTBODY
     ),
     'shipping-policy' => array( 'Shipping Policy', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-intro"><p>Here is how your order reaches you: processing times, coverage, costs and what to expect. Delivery times are typical estimates and can vary with location, courier and stock. For delivery to your specific area, ask us on WhatsApp (0719 261277).</p></div>
   <div class="ttx-cards">
@@ -127,32 +121,6 @@ TTBODY
 TTBODY
     ),
     'returns-refund-policy' => array( 'Returns & Refund Policy', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-intro"><p>We want you to shop with confidence. If an item arrives damaged, defective or not as described, we will help put it right. Please read the simple steps below.</p></div>
   <div class="ttx-cards">
@@ -186,32 +154,6 @@ TTBODY
 TTBODY
     ),
     'delivery-installation' => array( 'Delivery & Installation', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-intro"><p>Toolstopia delivers across Kenya, with typical next-day delivery in Nairobi and major towns. For equipment that needs setup, our team can advise so you can get started with confidence.</p></div>
   <h2>Delivery coverage</h2>
@@ -233,32 +175,6 @@ TTBODY
 TTBODY
     ),
     'contact-us' => array( 'Contact Us', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-intro"><p>We are here to help you find the right tools and get them delivered. Reach us by phone, WhatsApp, email, or visit our shop.</p></div>
   <div class="ttx-cards">
@@ -280,32 +196,6 @@ TTBODY
 TTBODY
     ),
     'faq' => array( 'FAQ', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <details class="ttx-faq" open><summary>Where do your products come from?</summary><p>We source our products through suppliers and distributors. If you need details about a specific product or its warranty, contact us and we will share the information we have.</p></details>
   <details class="ttx-faq"><summary>Which areas do you deliver to?</summary><p>We deliver countrywide. Nairobi enjoys same-day or next-day delivery; major towns receive orders in 1-3 business days and other areas in 2-5 business days.</p></details>
@@ -320,32 +210,6 @@ TTBODY
 TTBODY
     ),
     'why-choose-tools-topia' => array( 'Why Choose Toolstopia', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-cards">
     <div class="ttx-card"><b>Wide product range</b><small>Power tools, solar, water pumps, welding machines, grinders and more in one place.</small></div>
@@ -359,32 +223,6 @@ TTBODY
 TTBODY
     ),
     'authorized-brands' => array( 'Brands We Carry', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-intro"><h1>Brands We Carry</h1><p>We stock and source tools and equipment from a range of well-known manufacturers. Brand availability changes over time, so contact us to confirm current stock for a specific brand or model.</p></div>
   <h2>Brands you will often find with us</h2>
@@ -401,32 +239,6 @@ TTBODY
 TTBODY
     ),
     'wholesale-bulk' => array( 'Wholesale & Bulk Orders', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-intro"><h1>Wholesale &amp; Bulk Orders</h1><p>Buying in larger quantities for a project, business or resale? Contact us for bulk pricing on eligible products. Bulk pricing depends on the product, quantity and availability.</p></div>
   <h2>How bulk orders work</h2>
@@ -448,32 +260,6 @@ TTBODY
 TTBODY
     ),
     'request-a-quote' => array( 'Request a Quote', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-intro"><h1>Request a Quote</h1><p>Need pricing on a specific product, a bulk order or an item you cannot find on the site? Tell us what you need and we will prepare a quote.</p></div>
   <h2>What to include</h2>
@@ -497,32 +283,6 @@ TTBODY
 TTBODY
     ),
     'payment-methods' => array( 'Payment Methods', <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-intro"><h1>Payment Methods</h1><p>We offer flexible, convenient ways to pay. Choose the option that works best for you.</p></div>
   <div class="ttx-cards">
@@ -542,32 +302,6 @@ TTBODY
 TTBODY
     ),
     'todays-deals' => array( "Today's Deals", <<<'TTBODY'
-<style>
-.ttx{font-family:inherit;color:#243244;max-width:1000px;margin:0 auto;line-height:1.6}
-.ttx h2{color:#14243a;font-size:1.5rem;margin:28px 0 12px;line-height:1.25}
-.ttx p{margin:0 0 14px}
-.ttx-intro{background:#eef4fc;border-left:4px solid #4a90e2;border-radius:10px;padding:16px 20px;margin:0 0 22px}
-.ttx-cards{display:flex;flex-wrap:wrap;gap:16px;margin:8px 0}
-.ttx-card{flex:1 1 210px;background:#fff;border:1px solid #e6eaf0;border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(20,36,58,.06)}
-.ttx-card .n{display:inline-block;background:#4a90e2;color:#fff;font-weight:700;border-radius:8px;padding:6px 12px;margin-bottom:10px}
-.ttx-card b{display:block;margin-bottom:4px;color:#14243a}
-.ttx-card small{color:#5b6b80;font-size:.92rem}
-.ttx-list{list-style:none;padding:0;margin:0 0 14px}
-.ttx-list li{padding:9px 14px;margin:0 0 8px;border-radius:8px;background:#f7f9fc}
-.ttx-list.good li{border-left:4px solid #1f9d55}
-.ttx-list.bad li{border-left:4px solid #d64545}
-.ttx-steps{counter-reset:s;list-style:none;padding:0;margin:0 0 14px}
-.ttx-steps li{position:relative;padding:8px 0 8px 44px;margin:0 0 8px}
-.ttx-steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:6px;width:28px;height:28px;border-radius:50%;background:#4a90e2;color:#fff;text-align:center;line-height:28px;font-weight:700}
-.ttx-cta{background:#14243a;color:#fff;border-radius:14px;padding:22px 24px;margin:22px 0}
-.ttx-cta b{color:#fff;font-size:1.1rem;display:block;margin-bottom:6px}
-.ttx-cta a{color:#cfe0f7;text-decoration:none;font-weight:600;margin-right:16px}
-.ttx-faq{border:1px solid #e6eaf0;border-radius:10px;padding:2px 18px;margin:0 0 10px;background:#fff}
-.ttx-faq summary{font-weight:700;color:#14243a;cursor:pointer;padding:12px 0;list-style:none}
-.ttx-faq summary::-webkit-details-marker{display:none}
-.ttx-faq[open]{border-color:#4a90e2}
-.ttx-faq p{margin:0 0 12px;color:#4a5666}
-</style>
 <div class="ttx">
   <div class="ttx-intro"><h1>Today's Deals</h1><p>Current offers and discounted products, updated regularly. Prices and availability can change, so order early to avoid missing out.</p></div>
   <h2>On sale now</h2>
