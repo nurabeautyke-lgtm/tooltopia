@@ -2,14 +2,14 @@
 /*
 Plugin Name: Toolstopia Pages
 Description: Creates and keeps up to date all Toolstopia information pages (About, Shipping, Returns, Delivery & Installation, Contact, FAQ, Why Choose, Brands We Carry, Wholesale & Bulk, Request a Quote, Payment Methods, Today's Deals) with clean, compliant content. Does NOT change your homepage or design. Bump the version to re-sync all pages.
-Version: 1.9.1
+Version: 1.9.2
 Author: Toolstopia
 */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
 define( 'TT_PAGES_LOADED', 1 );
-define( 'TT_PAGES_VERSION', '1.9.1' );
+define( 'TT_PAGES_VERSION', '1.9.2' );
 
 // Shared page CSS is printed once in the document head (never inside page content,
 // so it can never be shown as raw text or stripped from the body).
@@ -54,7 +54,7 @@ function tt_pages_blueprint(){
   <div class="ttx-intro">
     <h1>About Toolstopia</h1>
     <p><b>Tools and equipment for homes, businesses and professionals in Kenya.</b></p>
-    <p>Toolstopia is a Kenya-based retailer supplying power tools, hand tools, solar equipment, water pumps, generators, welding equipment, agricultural equipment, accessories and other related products. From our shop at Royal Palms Mall, Shop No. BG 55, Nairobi, we serve contractors, farmers, fundis, workshops and homeowners across the country.</p>
+    <p>Toolstopia is a Kenya-based online retailer supplying power tools, hand tools, solar equipment, water pumps, generators, welding equipment, agricultural equipment, accessories and other related products. From our shop at Royal Palms Mall, Shop No. BG 55, Nairobi, we serve contractors, farmers, fundis, workshops and homeowners across the country.</p>
     <p>We help customers compare products, understand specifications and place orders through our store, phone and WhatsApp. Our aim is simple: clear product information, transparent pricing and accessible customer support from order to delivery.</p>
   </div>
   <h2>What we offer</h2>
@@ -99,9 +99,9 @@ TTBODY
   </ul>
   <h2>Shipping costs</h2>
   <ul class="ttx-list">
-    <li>Calculated at checkout based on your location and the size of the items.</li>
-    <li>Nairobi CBD and nearby estates typically enjoy a lower flat rate.</li>
-    <li>Large or heavy equipment may attract a handling fee to help cover safe transport.</li>
+    <li>Your delivery cost is shown at checkout before you pay.</li>
+    <li>Costs depend on your delivery location and the order.</li>
+    <li>Large, heavy or specialised equipment may require additional handling time.</li>
   </ul>
   <h2>What to expect</h2>
   <ul class="ttx-list good">
@@ -148,6 +148,8 @@ TTBODY
   </ol>
   <h2>Refunds and warranty</h2>
   <p>Approved refunds are made to your original payment method or by M-Pesa, usually within 3-5 business days of the returned item being received and inspected. Where products carry a manufacturer or supplier warranty, warranty claims and repairs are handled through the manufacturer or supplier, as we do not operate an in-house service centre.</p>
+  <h2>Faulty or damaged items</h2>
+  <p>Where a return is accepted because an item arrived damaged or defective, Toolstopia will advise the customer on the appropriate return or collection method.</p>
   <div class="ttx-cta"><b>Need to start a return or ask a question?</b>
     <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
 </div>
@@ -197,11 +199,11 @@ TTBODY
     ),
     'faq' => array( 'FAQ', <<<'TTBODY'
 <div class="ttx">
-  <details class="ttx-faq" open><summary>Where do your products come from?</summary><p>We source our products through suppliers and distributors. If you need details about a specific product or its warranty, contact us and we will share the information we have.</p></details>
+  <details class="ttx-faq" open><summary>Are your products genuine?</summary><p>We source products through established suppliers and distributors. Product brand, model and specification information is provided where available. If a manufacturer warranty applies, the applicable warranty information is stated on the product page or provided with the product.</p></details>
   <details class="ttx-faq"><summary>Which areas do you deliver to?</summary><p>We deliver countrywide. Nairobi enjoys same-day or next-day delivery; major towns receive orders in 1-3 business days and other areas in 2-5 business days.</p></details>
-  <details class="ttx-faq"><summary>How much is delivery?</summary><p>Delivery is calculated at checkout based on your location and item size. Nairobi CBD and nearby estates enjoy a low flat rate. For an exact quote, WhatsApp 0719 261277.</p></details>
+  <details class="ttx-faq"><summary>How much is delivery?</summary><p>Your delivery cost is shown at checkout before you pay. For an estimate for your area, WhatsApp 0719 261277.</p></details>
   <details class="ttx-faq"><summary>What payment methods do you accept?</summary><p>M-Pesa, Bank transfer, and Cash on Delivery.</p></details>
-  <details class="ttx-faq"><summary>Do your products have a warranty?</summary><p>Some products carry a manufacturer or supplier warranty. Keep your receipt; if a covered fault appears, contact us and we will guide you through the warranty process.</p></details>
+  <details class="ttx-faq"><summary>Do products come with a warranty?</summary><p>Warranty coverage varies by product and manufacturer. Where a manufacturer or supplier warranty applies, the applicable period and terms will be provided on the product page, quotation or accompanying documentation. Products without a stated warranty should not be assumed to have one.</p></details>
   <details class="ttx-faq"><summary>What is your returns policy?</summary><p>You can return most items within 7 days of delivery for a refund, exchange or store credit, subject to our Returns &amp; Refund Policy.</p></details>
   <details class="ttx-faq"><summary>Do you help with installation?</summary><p>For equipment like solar systems, water pumps and welding machines, we advise on correct installation and safe use. Ask our team when ordering.</p></details>
   <details class="ttx-faq"><summary>Can I order on WhatsApp?</summary><p>Yes. Message 0719 261277 with the item you want and your location, and we will confirm price, stock and delivery.</p></details>
@@ -241,6 +243,13 @@ TTBODY
     'wholesale-bulk' => array( 'Wholesale & Bulk Orders', <<<'TTBODY'
 <div class="ttx">
   <div class="ttx-intro"><h1>Wholesale &amp; Bulk Orders</h1><p>Buying in larger quantities for a project, business or resale? Contact us for bulk pricing on eligible products. Bulk pricing depends on the product, quantity and availability.</p></div>
+  <h2>Why buy in bulk from Toolstopia</h2>
+  <div class="ttx-cards">
+    <div class="ttx-card"><b>Competitive bulk pricing</b><small>Request pricing for larger quantities and repeat orders.</small></div>
+    <div class="ttx-card"><b>Wide selection</b><small>Tools, solar equipment, welding machines, water pumps, generators and more.</small></div>
+    <div class="ttx-card"><b>Kenya-wide delivery</b><small>Delivery arrangements can be made according to order size and destination.</small></div>
+    <div class="ttx-card"><b>Dedicated support</b><small>We help coordinate your order from quotation to delivery.</small></div>
+  </div>
   <h2>How bulk orders work</h2>
   <ol class="ttx-steps">
     <li>Send us the products and quantities you need by phone, WhatsApp or email.</li>
@@ -269,8 +278,8 @@ TTBODY
     <li>Your location for delivery.</li>
     <li>Any specifications or preferences.</li>
   </ul>
-  <h2>Sourcing and warranty</h2>
-  <p>Some items are stocked and others are sourced to order through our suppliers. For sourced items, availability, pricing and lead time are confirmed at the time of quoting. Where a product carries a manufacturer or supplier warranty, we will let you know and help you access it if a covered fault appears.</p>
+  <h2>Product sourcing and warranty information</h2>
+  <p>Product availability, specifications and warranty coverage vary by product and manufacturer. We confirm current availability and applicable terms when preparing your quotation.</p>
   <h2>How to send your request</h2>
   <ol class="ttx-steps">
     <li>Message us on WhatsApp or email with the details above.</li>
