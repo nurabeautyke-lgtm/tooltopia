@@ -12,38 +12,32 @@ add_action( 'wp_enqueue_scripts', function () {
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
 define( 'TT_PAGES_LOADED', 1 );
-define( 'TT_PAGES_VERSION', '1.9.0' );
+define( 'TT_PAGES_VERSION', '1.9.2' );
 
 function tt_pages_blueprint(){
   return array(
     'about-us' => array( 'About Us', <<<'TTBODY'
 <div class="ttx">
   <div class="ttx-intro">
-    <h1>About Toolstopia</h1>
-    <p><b>Tools and equipment for homes, businesses and professionals in Kenya.</b></p>
-    <p>Toolstopia is a Kenya-based online retailer supplying power tools, hand tools, solar equipment, water pumps, generators, welding equipment, agricultural equipment, accessories and other related products.</p>
-    <p>We help customers compare products, understand specifications and place orders through our online store, phone and WhatsApp. Our goal is simple: provide clear product information, transparent pricing and accessible customer support from order to delivery.</p>
+    <h1>Tools &amp; Equipment for Homes, Businesses and Professionals</h1>
+    <p>Toolstopia is a Kenya-based online retailer supplying tools, equipment and related products for homes, businesses, contractors and workshops. We provide product information, customer support and delivery services across Kenya.</p>
   </div>
-  <h2>What we offer</h2>
   <div class="ttx-cards">
-    <div class="ttx-card"><b>Power and hand tools</b></div>
-    <div class="ttx-card"><b>Solar equipment</b></div>
-    <div class="ttx-card"><b>Generators</b></div>
-    <div class="ttx-card"><b>Water pumps</b></div>
-    <div class="ttx-card"><b>Welding equipment</b></div>
-    <div class="ttx-card"><b>Agricultural equipment</b></div>
-    <div class="ttx-card"><b>Workshop equipment</b></div>
-    <div class="ttx-card"><b>Accessories and related supplies</b></div>
+    <div class="ttx-card"><b>Product Selection</b><small>Tools, equipment and related products from established suppliers.</small></div>
+    <div class="ttx-card"><b>Kenya-wide Delivery</b><small>Delivery options available across Nairobi and other locations in Kenya.</small></div>
+    <div class="ttx-card"><b>7-Day Returns</b><small>Eligible products may be returned within 7 days, subject to our returns policy.</small></div>
+    <div class="ttx-card"><b>Flexible Payment</b><small>M-Pesa, bank transfer and cash on delivery where available.</small></div>
   </div>
-  <h2>Why shop with us</h2>
+  <h2>Who We Are</h2>
+  <p>Toolstopia is a Kenya-based retailer supplying power tools, solar equipment, water pumps, incubators, welding machines, grinders and related accessories. Our shop is located at Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya.</p>
+  <p>We aim to make buying tools and equipment straightforward by providing clear product information, transparent pricing, customer support and delivery options across Kenya.</p>
+  <h2>Why Shop With Us</h2>
   <div class="ttx-cards">
-    <div class="ttx-card"><b>Clear product information</b><small>We provide available specifications, pricing and product details to help you make an informed purchase.</small></div>
-    <div class="ttx-card"><b>Kenya-wide delivery</b><small>We arrange delivery to Nairobi and locations across Kenya through available delivery partners.</small></div>
-    <div class="ttx-card"><b>Customer support</b><small>Contact us by phone, WhatsApp or email before or after placing an order.</small></div>
-    <div class="ttx-card"><b>Flexible payment options</b><small>M-Pesa, bank transfer and cash on delivery where available.</small></div>
+    <div class="ttx-card"><b>Product Information</b><small>Clear specifications and product details to help you make an informed choice.</small></div>
+    <div class="ttx-card"><b>Fair Pricing</b><small>Competitive pricing with clear prices shown on our website.</small></div>
+    <div class="ttx-card"><b>Kenya-wide Delivery</b><small>Delivery options available depending on product and location.</small></div>
+    <div class="ttx-card"><b>Customer Support</b><small>Assistance before and after purchase through phone, WhatsApp and email.</small></div>
   </div>
-  [tt_about_stats]
-  [tt_about_media]
   <div class="ttx-cta">
     <b>Visit us or order from home</b>
     Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya. Open Monday to Saturday, 7:00am-6:00pm.<br>
@@ -187,7 +181,7 @@ TTBODY
 <div class="ttx">
   <div class="ttx-cards">
     <div class="ttx-card"><b>Authentic products</b><small>Sourced from established suppliers and distributors.</small></div>
-    <div class="ttx-card"><b>Fast delivery</b><small>Next-day in Nairobi and countrywide.</small></div>
+    <div class="ttx-card"><b>Kenya-wide delivery</b><small>Delivery times depend on your location, product availability and order confirmation.</small></div>
     <div class="ttx-card"><b>Honest pricing</b><small>Fair prices, no hidden costs.</small></div>
     <div class="ttx-card"><b>Wide range</b><small>Power tools, solar, water pumps, incubators, welding machines and grinders.</small></div>
     <div class="ttx-card"><b>Easy ordering</b><small>Order on WhatsApp; pay by M-Pesa, Bank or Cash on Delivery.</small></div>
@@ -704,7 +698,7 @@ if ( ! shortcode_exists( 'tt_map' ) ) {
 	add_shortcode( 'tt_map', 'tt_map_shortcode' );
 	function tt_map_shortcode( $atts ) {
 		$q   = 'Royal Palms Mall, Ronald Ngala Street, Nairobi, Kenya';
-		$src = 'https://www.google.com/maps?q=' . rawurlencode( $q ) . '&output=embed';
+		$src = 'https://maps.google.com/maps?q=' . rawurlencode( $q ) . '&t=&z=16&ie=UTF8&iwloc=&output=embed';
 		return '<div class="tt-mapwrap"><iframe title="Toolstopia location" src="' . esc_url( $src ) . '" width="100%" height="340" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>';
 	}
 }
@@ -758,9 +752,9 @@ function tt_product_info_panel() {
 function tt_pages_meta() {
 	return array(
 		'about-us'               => 'Toolstopia is a Kenya-based online retailer of power tools, solar and equipment. Clear product information, transparent pricing and Kenya-wide delivery.',
-		'shipping-policy'        => 'How Toolstopia ships your order: next-day in Nairobi and 2-5 days countrywide. Delivery charges, timelines and tracking explained.',
+		'shipping-policy'        => 'How Toolstopia ships your order across Kenya: delivery timelines, charges and tracking explained. Nairobi and countrywide delivery options.',
 		'returns-refund-policy'  => 'Toolstopia returns and refund policy: 7-day returns on unused items, warranty claims and how to request a refund or exchange.',
-		'delivery-installation'  => 'Fast delivery and professional installation of tools, solar systems and equipment across Nairobi and Kenya. Book delivery or installation today.',
+		'delivery-installation'  => 'Delivery of tools, solar systems and equipment across Nairobi and Kenya, with installation guidance. Contact us to arrange delivery.',
 		'contact-us'             => 'Contact Toolstopia: call or WhatsApp 0719 261277, email info@toolstopia.co.ke, or visit Royal Palms Mall, Shop BG 55, Nairobi. Mon-Sat 7am-6pm.',
 		'faq'                    => 'Answers about products, warranty, delivery, payment via M-Pesa, bank or cash, and returns at Toolstopia, Nairobi.',
 		'why-choose-tools-topia' => 'Authentic products, Kenya-wide delivery, honest pricing and real support. See why customers choose Toolstopia in Nairobi.',
@@ -853,7 +847,7 @@ function tt_customize_full( $wp_customize ) {
         1 => array( "Kenya-wide delivery", "Tools & equipment for Kenya", "Shop power tools, solar equipment, generators, water pumps, welding equipment and more.", "Shop All Tools", "" ),
         2 => array( "Solar & power", "Power that never quits", "Panels, inverters and batteries for home, business and off-grid living.", "Shop Solar", "" ),
         3 => array( "Generators & pumps", "Reliable backup power & water", "Petrol generators and water pumps built for Kenyan conditions.", "Shop now", "" ),
-        4 => array( "Kenya-wide delivery", "Fast delivery across Kenya", "Typically 2-5 business days countrywide. Pay by M-Pesa, bank transfer or cash on delivery.", "Delivery details", "/shipping-policy/" ),
+        4 => array( "Kenya-wide delivery", "Delivery across Kenya", "Typically 2-5 business days countrywide. Pay by M-Pesa, bank transfer or cash on delivery.", "Delivery details", "/shipping-policy/" ),
     );
     foreach ( $sd as $i => $d ) {
         $img_default = get_stylesheet_directory_uri() . '/assets/slides/slide' . $i . '.jpg';
@@ -964,7 +958,7 @@ function tt_privacy_html() {
     <p><strong>Last updated:</strong> 4 August 2026</p>
   </div>
   <h2>Who we are</h2>
-  <p>Toolstopia is a retailer of power tools, solar equipment and related products, based at Royal Palms Mall, Shop No. BG 55, Ronald Ngala Street, Nairobi, Kenya. For any privacy question, contact us at info@toolstopia.co.ke or 0719 261277.</p>
+  <p>Toolstopia is a Kenya-based online retailer supplying power tools, solar equipment and related products. Our business is based at Royal Palms Mall, Shop No. BG 55, Ronald Ngala Street, Nairobi, Kenya. For privacy questions, contact us at info@toolstopia.co.ke or 0719 261277.</p>
   <h2>Information we collect</h2>
   <p>We only collect the information we need to process your orders, deliver your products and support you. This may include:</p>
   <ul>
@@ -1136,6 +1130,52 @@ function tt_fix_cutoff_once() {
     }
     update_option( 'tt_cutoff_fixed', 1 );
 }
+
+/* One-time compliance refresh (Aug 2026): force existing info pages to the current
+   compliant blueprint content, refresh the Privacy page, and remove unsupported
+   payment methods from the Terms page. Runs once, guarded by an option flag. */
+function tt_fix_compliance_aug2026() {
+    if ( get_option( 'tt_compliance_aug2026' ) ) { return; }
+    if ( ! function_exists( 'wp_update_post' ) ) { return; }
+    $bp = tt_pages_blueprint();
+    foreach ( $bp as $slug => $d ) {
+        $p = get_page_by_path( $slug );
+        if ( $p ) {
+            wp_update_post( array( 'ID' => $p->ID, 'post_content' => "<!-- wp:html -->\n" . $d[1] . "\n<!-- /wp:html -->" ) );
+        }
+    }
+    $priv = get_page_by_path( 'privacy-policy' );
+    if ( ! $priv ) {
+        $pid = (int) get_option( 'wp_page_for_privacy_policy' );
+        if ( $pid ) { $priv = get_post( $pid ); }
+    }
+    if ( $priv ) {
+        wp_update_post( array( 'ID' => $priv->ID, 'post_content' => "<!-- wp:html -->\n" . tt_privacy_html() . "\n<!-- /wp:html -->" ) );
+    }
+    $terms = get_page_by_path( 'terms-conditions' );
+    if ( ! $terms ) { $terms = get_page_by_path( 'terms-and-conditions' ); }
+    if ( $terms ) {
+        $c    = (string) $terms->post_content;
+        $orig = $c;
+        $repl = 'We accept M-Pesa, bank transfer and cash on delivery in selected areas. Please see our Payment Methods page for the current payment options.';
+        $clauses = array(
+            'M-PESA, Airtel Money, Visa/Mastercard, bank transfer, and cash on delivery',
+            'M-PESA, Airtel Money, Visa/Mastercard, bank transfer and cash on delivery',
+            'M-Pesa, Airtel Money, Visa/Mastercard, bank transfer, and cash on delivery',
+            'M-PESA, Airtel Money, Visa and Mastercard, bank transfer, and cash on delivery',
+        );
+        foreach ( $clauses as $clause ) {
+            if ( false !== strpos( $c, $clause ) ) { $c = str_replace( $clause, $repl, $c ); }
+        }
+        $strip = array( 'Airtel Money, ', ', Airtel Money', ' Airtel Money', 'Visa/Mastercard, ', ', Visa/Mastercard', ' Visa/Mastercard', 'Visa and Mastercard, ', ', Visa and Mastercard', ' Visa and Mastercard' );
+        $c = str_replace( $strip, '', $c );
+        if ( $c !== $orig ) {
+            wp_update_post( array( 'ID' => $terms->ID, 'post_content' => $c ) );
+        }
+    }
+    update_option( 'tt_compliance_aug2026', 1 );
+}
+add_action( 'admin_init', 'tt_fix_compliance_aug2026' );
 
 
 function tt_customize_brands( $wp ) {

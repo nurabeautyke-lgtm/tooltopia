@@ -46,7 +46,7 @@ get_header();
           array( get_theme_mod( 'tt_slide1_img', $slides_uri . '/slide1.jpg' ), get_theme_mod( 'tt_slide1_eyebrow', "Kenya-wide delivery" ), $hero_title, $hero_text, get_theme_mod( 'tt_slide1_btn', 'Shop All Tools' ), get_theme_mod( 'tt_slide1_url', '' ) ),
           array( get_theme_mod( 'tt_slide2_img', $slides_uri . '/slide2.jpg' ), get_theme_mod( 'tt_slide2_eyebrow', 'Solar & power' ), get_theme_mod( 'tt_slide2_heading', 'Power that never quits' ), get_theme_mod( 'tt_slide2_text', 'Panels, inverters and batteries for home, business and off-grid living.' ), get_theme_mod( 'tt_slide2_btn', 'Shop Solar' ), get_theme_mod( 'tt_slide2_url', '' ) ),
           array( get_theme_mod( 'tt_slide3_img', $slides_uri . '/slide3.jpg' ), get_theme_mod( 'tt_slide3_eyebrow', 'Generators & pumps' ), get_theme_mod( 'tt_slide3_heading', 'Reliable backup power & water' ), get_theme_mod( 'tt_slide3_text', 'Petrol generators and water pumps built for Kenyan conditions.' ), get_theme_mod( 'tt_slide3_btn', 'Shop now' ), get_theme_mod( 'tt_slide3_url', '' ) ),
-          array( get_theme_mod( 'tt_slide4_img', $slides_uri . '/slide4.jpg' ), get_theme_mod( 'tt_slide4_eyebrow', 'Kenya-wide delivery' ), get_theme_mod( 'tt_slide4_heading', 'Fast delivery across Kenya' ), get_theme_mod( 'tt_slide4_text', 'Typically 2-5 business days countrywide. Pay by M-Pesa, bank transfer or cash on delivery.' ), get_theme_mod( 'tt_slide4_btn', 'Delivery details' ), get_theme_mod( 'tt_slide4_url', '/shipping-policy/' ) ),
+          array( get_theme_mod( 'tt_slide4_img', $slides_uri . '/slide4.jpg' ), get_theme_mod( 'tt_slide4_eyebrow', 'Kenya-wide delivery' ), get_theme_mod( 'tt_slide4_heading', 'Delivery across Kenya' ), get_theme_mod( 'tt_slide4_text', 'Typically 2-5 business days countrywide. Pay by M-Pesa, bank transfer or cash on delivery.' ), get_theme_mod( 'tt_slide4_btn', 'Delivery details' ), get_theme_mod( 'tt_slide4_url', '/shipping-policy/' ) ),
         );
         $tt_i = 0;
         foreach ( $tt_slides as $sl ) {
@@ -86,7 +86,7 @@ get_header();
   <?php endif; ?>
 
   <section class="tt-trust">
-    <div><b>Fast delivery</b><small>Next-day in Nairobi, nationwide 2-5 days</small></div>
+    <div><b>Kenya-wide delivery</b><small>Delivery times depend on your location, product availability and order confirmation.</small></div>
     <div><b>Trusted sourcing</b><small>Established suppliers and distributors</small></div>
     <div><b>Secure payments</b><small>M-Pesa, bank transfer or cash on delivery</small></div>
     <div><b>Expert support</b><small>Mon-Saturday 7:00am-6:00pm</small></div>
@@ -155,7 +155,7 @@ get_header();
     <h2>Why choose Toolstopia</h2>
     <div class="tt-trust">
       <div><b>Authentic products</b><small>Sourced from established suppliers and distributors.</small></div>
-      <div><b>Fast delivery</b><small>Next-day in Nairobi and countrywide.</small></div>
+      <div><b>Kenya-wide delivery</b><small>Delivery times depend on your location, product availability and order confirmation.</small></div>
       <div><b>Honest pricing</b><small>Fair prices, no hidden costs.</small></div>
       <div><b>Real support</b><small>Reachable before and after your purchase.</small></div>
     </div>
