@@ -36,7 +36,7 @@ $solutions = array(
 );
 
 $reviews = array(
-	array( 'James M.', 'Nairobi', 'Ordered a Makita drill on WhatsApp at 9am and it was delivered by 3pm the same day. Genuine product, fair price.' ),
+	array( 'James M.', 'Nairobi', 'Ordered a Makita drill on WhatsApp at 9am and it was delivered by 3pm the same day. Good product, fair price.' ),
 	array( 'Grace W.', 'Nakuru', 'Bought a full generator for our shop. The team advised on the right size and it arrived well packed. Excellent service.' ),
 	array( 'Kevin O.', 'Mombasa', 'I run a small welding business. Toolstopia is now my go-to for consumables. Reliable stock and honest advice.' ),
 );
@@ -49,7 +49,7 @@ $reviews = array(
 			<div class="ts-reveal">
 				<span class="ts-eyebrow" style="color:#fb923c">Kenya's Premium Tool Store</span>
 				<h1>Power every project with <em>professional-grade</em> tools.</h1>
-				<p class="lead">Genuine Bosch, Makita, DeWalt, INGCO, Total and Honda. Expert advice, real stock, and fast nationwide delivery across Kenya &mdash; order online or on WhatsApp.</p>
+				<p class="lead">Bosch, Makita, DeWalt, INGCO, Total and Honda. Expert advice, real stock, and fast delivery across Kenya &mdash; order online or on WhatsApp.</p>
 
 				<div class="ts-hero__search">
 					<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" class="ts-search" style="max-width:none">
@@ -67,7 +67,7 @@ $reviews = array(
 				</div>
 
 				<div class="ts-hero__badges">
-					<div class="ts-hero__badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m20 6-11 11-5-5"/></svg> 100% Genuine Products</div>
+					<div class="ts-hero__badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m20 6-11 11-5-5"/></svg> Authentic Products</div>
 					<div class="ts-hero__badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg> Nationwide Delivery</div>
 					<div class="ts-hero__badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/></svg> Secure M-PESA & Card</div>
 				</div>
@@ -77,8 +77,8 @@ $reviews = array(
 				<img src="<?php echo esc_url( TOOLSTOPIA_URI . '/assets/images/hero.jpg' ); ?>" alt="Professional industrial power tools" width="800" height="600" fetchpriority="high" onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(135deg,#1e293b,#0f172a)'">
 				<div class="ts-hero__float ts-glass">
 					<div style="display:flex;align-items:center;gap:10px">
-						<div class="ts-review__ava">4.9</div>
-						<div style="font-size:.82rem;color:#0f172a"><strong style="font-family:var(--ts-font-head)">Rated 4.9/5</strong><br><span style="color:#64748b">by 1,200+ Kenyan customers</span></div>
+						<div class="ts-review__ava">TT</div>
+						<div style="font-size:.82rem;color:#0f172a"><strong style="font-family:var(--ts-font-head)">Order support</strong><br><span style="color:#64748b">Help on phone &amp; WhatsApp</span></div>
 					</div>
 					<a class="ts-btn ts-btn--sm" href="<?php echo esc_url( home_url( '/shop/' ) ); ?>">Shop now</a>
 				</div>
@@ -92,9 +92,9 @@ $reviews = array(
 	<div class="ts-container">
 		<div class="ts-trust__grid">
 			<div class="ts-trust__item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span><div><b>Fast Delivery</b><span>Nationwide in 2&ndash;5 days</span></div></div>
-			<div class="ts-trust__item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m20 6-11 11-5-5"/></svg></span><div><b>Genuine Brands</b><span>Authorised sourcing</span></div></div>
+			<div class="ts-trust__item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m20 6-11 11-5-5"/></svg></span><div><b>Trusted sourcing</b><span>Established suppliers</span></div></div>
 			<div class="ts-trust__item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><b>M-PESA & Card</b><span>Secure checkout</span></div></div>
-			<div class="ts-trust__item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/></svg></span><div><b>Warranty</b><span>On eligible products</span></div></div>
+			<div class="ts-trust__item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/></svg></span><div><b>Warranty</b><span>Where applicable</span></div></div>
 		</div>
 	</div>
 </section>
@@ -211,7 +211,7 @@ $reviews = array(
 	<div class="ts-container">
 		<div class="ts-section-head"><div><span class="ts-eyebrow">The Toolstopia difference</span><h2>Why Buy From Us</h2></div></div>
 		<div class="ts-grid ts-why">
-			<div class="ts-why__item ts-reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m20 6-11 11-5-5"/></svg></div><h3 style="font-size:1.05rem">Genuine, Guaranteed</h3><p class="ts-muted" style="margin:0">Every product is sourced from authorised distributors with manufacturer warranty where applicable.</p></div>
+			<div class="ts-why__item ts-reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m20 6-11 11-5-5"/></svg></div><h3 style="font-size:1.05rem">Authentic products</h3><p class="ts-muted" style="margin:0">Sourced from established suppliers and distributors, with warranty information where applicable.</p></div>
 			<div class="ts-why__item ts-reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7"/></svg></div><h3 style="font-size:1.05rem">Fast Nationwide Delivery</h3><p class="ts-muted" style="margin:0">Same-day dispatch in Nairobi and 2&ndash;5 day delivery to every county in Kenya.</p></div>
 			<div class="ts-why__item ts-reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM12 8v4l3 2"/></svg></div><h3 style="font-size:1.05rem">Expert Advice</h3><p class="ts-muted" style="margin:0">Talk to real tool specialists on WhatsApp before you buy &mdash; get the right tool, first time.</p></div>
 			<div class="ts-why__item ts-reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3 style="font-size:1.05rem">Fair, Honest Pricing</h3><p class="ts-muted" style="margin:0">Competitive prices with wholesale and project rates for businesses and contractors.</p></div>

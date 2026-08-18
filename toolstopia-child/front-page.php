@@ -6,10 +6,10 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 $shop_url  = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/shop/' );
-$cats_raw  = get_theme_mod( 'tt_home_categories', "Hardware Tools\nSolar Panels\nwater pump\nIncubators\nGenerators\nBatteries" );
+$cats_raw  = get_theme_mod( 'tt_home_categories', "Hardware Tools\nSolar Panels\nWater Pumps\nIncubators\nGenerators\nBatteries" );
 $cat_slugs = array_filter( array_map( 'trim', preg_split( '/[\r\n,]+/', $cats_raw ) ) );
-$hero_title = get_theme_mod( 'tt_hero_title', 'Genuine tools, solar & equipment' );
-$hero_text  = get_theme_mod( 'tt_hero_text', "Shop Kenya's trusted store for power tools, solar, pumps and more. Fast delivery, honest prices." );
+$hero_title = get_theme_mod( 'tt_hero_title', 'Tools & equipment for Kenya' );
+$hero_text  = get_theme_mod( 'tt_hero_text', "Shop power tools, solar equipment, generators, water pumps, welding equipment and more. Clear pricing, product support and Kenya-wide delivery." );
 
 $slides_uri   = get_stylesheet_directory_uri() . '/assets/slides';
 $cat_imgs_uri = get_stylesheet_directory_uri() . '/assets/categories';
@@ -43,10 +43,10 @@ get_header();
         <?php
         $tt_wa_url = 'https://wa.me/254719261277';
         $tt_slides = array(
-          array( get_theme_mod( 'tt_slide1_img', $slides_uri . '/slide1.jpg' ), get_theme_mod( 'tt_slide1_eyebrow', "Kenya's premium tool store" ), $hero_title, $hero_text, get_theme_mod( 'tt_slide1_btn', 'Shop All Tools' ), get_theme_mod( 'tt_slide1_url', '' ) ),
+          array( get_theme_mod( 'tt_slide1_img', $slides_uri . '/slide1.jpg' ), get_theme_mod( 'tt_slide1_eyebrow', "Kenya-wide delivery" ), $hero_title, $hero_text, get_theme_mod( 'tt_slide1_btn', 'Shop All Tools' ), get_theme_mod( 'tt_slide1_url', '' ) ),
           array( get_theme_mod( 'tt_slide2_img', $slides_uri . '/slide2.jpg' ), get_theme_mod( 'tt_slide2_eyebrow', 'Solar & power' ), get_theme_mod( 'tt_slide2_heading', 'Power that never quits' ), get_theme_mod( 'tt_slide2_text', 'Panels, inverters and batteries for home, business and off-grid living.' ), get_theme_mod( 'tt_slide2_btn', 'Shop Solar' ), get_theme_mod( 'tt_slide2_url', '' ) ),
           array( get_theme_mod( 'tt_slide3_img', $slides_uri . '/slide3.jpg' ), get_theme_mod( 'tt_slide3_eyebrow', 'Generators & pumps' ), get_theme_mod( 'tt_slide3_heading', 'Reliable backup power & water' ), get_theme_mod( 'tt_slide3_text', 'Petrol generators and water pumps built for Kenyan conditions.' ), get_theme_mod( 'tt_slide3_btn', 'Shop now' ), get_theme_mod( 'tt_slide3_url', '' ) ),
-          array( get_theme_mod( 'tt_slide4_img', $slides_uri . '/slide4.jpg' ), get_theme_mod( 'tt_slide4_eyebrow', 'Fast nationwide delivery' ), get_theme_mod( 'tt_slide4_heading', 'Next-day in Nairobi' ), get_theme_mod( 'tt_slide4_text', 'Countrywide in 2-5 days. Pay by M-Pesa, bank transfer or cash on delivery.' ), get_theme_mod( 'tt_slide4_btn', 'Delivery details' ), get_theme_mod( 'tt_slide4_url', '/shipping-policy/' ) ),
+          array( get_theme_mod( 'tt_slide4_img', $slides_uri . '/slide4.jpg' ), get_theme_mod( 'tt_slide4_eyebrow', 'Kenya-wide delivery' ), get_theme_mod( 'tt_slide4_heading', 'Fast delivery across Kenya' ), get_theme_mod( 'tt_slide4_text', 'Typically 2-5 business days countrywide. Pay by M-Pesa, bank transfer or cash on delivery.' ), get_theme_mod( 'tt_slide4_btn', 'Delivery details' ), get_theme_mod( 'tt_slide4_url', '/shipping-policy/' ) ),
         );
         $tt_i = 0;
         foreach ( $tt_slides as $sl ) {
@@ -66,25 +66,19 @@ get_header();
     </div>
   </section>
 
-  <?php if ( get_theme_mod( 'tt_stats_show', 1 ) ) :
-        $tt_stats = array(
-          array( get_theme_mod( 'tt_stat1_num', '12,000+' ), get_theme_mod( 'tt_stat1_label', 'Orders Delivered' ) ),
-          array( get_theme_mod( 'tt_stat2_num', '1,300+' ), get_theme_mod( 'tt_stat2_label', 'Products' ) ),
-          array( get_theme_mod( 'tt_stat3_num', '250+' ), get_theme_mod( 'tt_stat3_label', 'Brands' ) ),
-          array( get_theme_mod( 'tt_stat4_num', '24' ), get_theme_mod( 'tt_stat4_label', 'Counties Served' ) ),
-          array( get_theme_mod( 'tt_stat5_num', '98%' ), get_theme_mod( 'tt_stat5_label', 'Satisfied Customers' ) ),
-        ); ?>
-  <section class="tt-stats" aria-label="Tools Topia in numbers">
-    <?php foreach ( $tt_stats as $stt ) { echo '<div class="tt-stat"><b>' . esc_html( $stt[0] ) . '</b><small>' . esc_html( $stt[1] ) . '</small></div>'; } ?>
+  <section class="tt-trust tt-confidence" aria-label="Shop with confidence">
+    <div><b>Verified business</b><small>Clear business information and customer support.</small></div>
+    <div><b>Wide product selection</b><small>Tools, equipment and related products.</small></div>
+    <div><b>Kenya delivery</b><small>Delivery options available across Kenya.</small></div>
+    <div><b>Customer support</b><small>Phone, WhatsApp and email assistance.</small></div>
   </section>
-  <?php endif; ?>
 
   <?php if ( get_theme_mod( 'tt_certs_show', 1 ) ) :
         $tt_certs = array(
           array( '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>', get_theme_mod( 'tt_cert1', 'SSL Secure' ) ),
           array( '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>', get_theme_mod( 'tt_cert2', 'Secure Payments' ) ),
-          array( '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>', get_theme_mod( 'tt_cert3', 'Warranty' ) ),
-          array( '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg>', get_theme_mod( 'tt_cert4', 'Trusted Seller' ) ),
+          array( '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>', get_theme_mod( 'tt_cert3', 'Warranty Information' ) ),
+          array( '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg>', get_theme_mod( 'tt_cert4', 'Customer Support' ) ),
         ); ?>
   <section class="tt-certs" aria-label="Trust and certifications">
     <?php foreach ( $tt_certs as $crt ) { echo '<div class="tt-cert"><span class="tt-cert__i">' . $crt[0] . '</span><b>' . esc_html( $crt[1] ) . '</b></div>'; } ?>
@@ -93,7 +87,7 @@ get_header();
 
   <section class="tt-trust">
     <div><b>Fast delivery</b><small>Next-day in Nairobi, nationwide 2-5 days</small></div>
-    <div><b>Genuine products</b><small>Authorised distributors, warranty-backed</small></div>
+    <div><b>Trusted sourcing</b><small>Established suppliers and distributors</small></div>
     <div><b>Secure payments</b><small>M-Pesa, bank transfer or cash on delivery</small></div>
     <div><b>Expert support</b><small>Mon-Saturday 7:00am-6:00pm</small></div>
   </section>
@@ -109,11 +103,11 @@ get_header();
         array( 'Batteries', 'batteries.jpg' ),
         array( 'Inverters', 'inverters.jpg' ),
         array( 'Electronics', 'electronics.jpg' ),
-        array( 'water pump', 'water-pump.jpg' ),
+        array( 'Water Pumps', 'water-pump.jpg' ),
         array( 'Generators', 'generators.jpg' ),
         array( 'Incubators', 'incubators.jpg' ),
         array( 'Kitchen Utensils', 'kitchen-utensils.jpg' ),
-        array( 'Agricultural Appliances', 'agricultural-appliances.jpg' ),
+        array( 'Agricultural Equipment', 'agricultural-appliances.jpg' ),
         array( 'Accessories', 'accessories.jpg' ),
     );
     foreach ( $tt_featured as $fc ) {
@@ -158,9 +152,9 @@ get_header();
   </section>
 
   <section class="tt-sec tt-why">
-    <h2>Why choose Tools Topia</h2>
+    <h2>Why choose Toolstopia</h2>
     <div class="tt-trust">
-      <div><b>Genuine &amp; warranty-backed</b><small>Authentic tools you can trust.</small></div>
+      <div><b>Authentic products</b><small>Sourced from established suppliers and distributors.</small></div>
       <div><b>Fast delivery</b><small>Next-day in Nairobi and countrywide.</small></div>
       <div><b>Honest pricing</b><small>Fair prices, no hidden costs.</small></div>
       <div><b>Real support</b><small>Reachable before and after your purchase.</small></div>
