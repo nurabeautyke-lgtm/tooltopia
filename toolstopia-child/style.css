@@ -433,3 +433,61 @@ html.tt-dark .tt-filter-body select,html.tt-dark .tt-filter-body input{backgroun
 .tt-photo{margin:0;border:1px solid #e6ebf1;border-radius:14px;overflow:hidden;background:#fff}
 .tt-photo img{display:block;width:100%;height:220px;object-fit:cover}
 .tt-photo figcaption{padding:10px 14px;font-size:.85rem;color:#4a5568;font-weight:600}
+
+
+/* ===================================================================
+   Tooltopia Store - Phase 2 design polish (electric blue #0047FF)
+   Appended: additive refinements only; later rules win. No forced overrides.
+   =================================================================== */
+:root{ --tt-blue:#0047FF; --tt-blue-600:#0033CC; --tt-ink:#0f1b2d; }
+
+/* Section headings with an electric-blue accent bar */
+.tt-sec__head h2, .tt-why h2{position:relative;padding-bottom:12px;letter-spacing:-.01em}
+.tt-sec__head h2::after, .tt-why h2::after{content:"";position:absolute;left:0;bottom:0;width:56px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--tt-blue),#3d6bff)}
+.tt-sec__head a{color:var(--tt-blue);font-weight:700}
+.tt-sec__head a:hover{color:var(--tt-blue-600)}
+
+/* Category tiles: rounded, hover lift + image zoom */
+.tt-cat{border-radius:16px;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease;box-shadow:0 4px 14px rgba(9,17,30,.06)}
+.tt-cat:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,71,255,.18)}
+.tt-cat__img{transition:transform .35s ease}
+.tt-cat:hover .tt-cat__img{transform:scale(1.06)}
+.tt-cat__label{font-weight:700}
+
+/* Trust + confidence badges: card style with a blue top accent */
+.tt-trust>div,.tt-confidence>div{position:relative;background:#fff;border:1px solid #e6ebf1;border-radius:14px;padding:18px 16px 16px;overflow:hidden;transition:transform .16s ease,box-shadow .16s ease}
+.tt-trust>div::before,.tt-confidence>div::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--tt-blue),#3d6bff)}
+.tt-trust>div:hover,.tt-confidence>div:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,71,255,.14)}
+.tt-trust>div b,.tt-confidence>div b{color:var(--tt-ink)}
+
+/* Hero slide scrim so overlay text stays legible on any slide */
+.tt-slide{position:relative}
+.tt-slide::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,18,54,.80) 0%,rgba(0,18,54,.42) 44%,rgba(0,18,54,0) 74%);pointer-events:none}
+.tt-slide__inner{position:relative;z-index:2}
+.tt-slide__inner .eyebrow{display:inline-block;background:var(--tt-blue);color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;letter-spacing:.02em}
+.tt-slide__inner h2{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.35)}
+.tt-slide__inner p{color:#eaf0ff}
+
+/* Buttons: bold electric blue with hover lift */
+.tt-btn{background:var(--tt-blue);color:#fff;border-radius:12px;font-weight:700;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;box-shadow:0 6px 16px rgba(0,71,255,.28)}
+.tt-btn:hover{background:var(--tt-blue-600);transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,71,255,.36)}
+.tt-btn--wa{background:#25D366;box-shadow:0 6px 16px rgba(37,211,102,.30)}
+.tt-btn--wa:hover{background:#1db855}
+
+/* Page content cards + CTA blocks */
+.ttx-card{border-radius:14px;transition:transform .16s ease,box-shadow .16s ease}
+.ttx-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,71,255,.12)}
+.ttx-card b{color:var(--tt-ink)}
+.ttx-cta{background:linear-gradient(120deg,#eef3ff,#e6edff);border:1px solid #cfe0f7;border-radius:16px}
+.ttx-cta a{background:var(--tt-blue);color:#fff;border-radius:10px;font-weight:700}
+.ttx-cta a:hover{background:var(--tt-blue-600)}
+
+/* FAQ accordions as clean cards */
+.ttx-faq{border:1px solid #e6ebf1;border-radius:12px;padding:2px 16px;margin:10px 0;background:#fff;transition:box-shadow .16s ease}
+.ttx-faq[open]{box-shadow:0 10px 24px rgba(0,71,255,.10);border-color:#cfe0f7}
+.ttx-faq summary{font-weight:700;color:var(--tt-ink);padding:14px 0;cursor:pointer}
+.ttx-faq[open] summary{color:var(--tt-blue)}
+
+/* Trust icons + brand chips */
+.tt-cert__i{color:var(--tt-blue)}
+.ttx-brand{border:1px solid #cfe0f7;color:var(--tt-blue-600);border-radius:999px;font-weight:700;background:#f5f9ff}

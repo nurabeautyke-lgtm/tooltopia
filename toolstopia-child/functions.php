@@ -20,7 +20,7 @@ function tt_pages_blueprint(){
 <div class="ttx">
   <div class="ttx-intro">
     <h1>Tools &amp; Equipment for Homes, Businesses and Professionals</h1>
-    <p>Tooltopia Store is a Kenya-based online retailer supplying tools, equipment and related products for homes, businesses, contractors and workshops. We provide product information, customer support and delivery services across Kenya.</p>
+    <p>Tooltopia Store is a Nairobi-based retailer and online store for the tools and equipment Kenya works with every day. From homes and workshops to contractors and businesses, we make it easy to find the right gear, understand what you are buying, and get it delivered anywhere in the country.</p>
   </div>
   <div class="ttx-cards">
     <div class="ttx-card"><b>Product Selection</b><small>Tools, equipment and related products from established suppliers.</small></div>
@@ -29,8 +29,8 @@ function tt_pages_blueprint(){
     <div class="ttx-card"><b>Flexible Payment</b><small>M-Pesa, bank transfer and cash on delivery where available.</small></div>
   </div>
   <h2>Who We Are</h2>
-  <p>Tooltopia Store is a Kenya-based retailer supplying power tools, solar equipment, water pumps, incubators, welding machines, grinders and related accessories. Our shop is located at Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya.</p>
-  <p>We aim to make buying tools and equipment straightforward by providing clear product information, transparent pricing, customer support and delivery options across Kenya.</p>
+  <p>We stock power tools, solar equipment, water pumps, incubators, welding machines, grinders and the accessories that go with them. You will find us at Royal Palms Mall, Shop No. BG 55, Nairobi, where our team is on hand Monday to Saturday.</p>
+  <p>Our aim is simple: take the guesswork out of buying tools. That means clear product information, prices shown up front, honest advice from people who know the gear, and delivery options that reach across Kenya.</p>
   <h2>Why Shop With Us</h2>
   <div class="ttx-cards">
     <div class="ttx-card"><b>Product Information</b><small>Clear specifications and product details to help you make an informed choice.</small></div>
@@ -50,7 +50,7 @@ TTBODY
     ),
     'shipping-policy' => array( 'Shipping Policy', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>Here is how your order gets to you: processing times, coverage, costs and what to expect. For delivery to your specific area, just ask us on WhatsApp (0719 261277). Delivery times below are typical, not guaranteed.</p></div>
+  <div class="ttx-intro"><p>Here is exactly how your order reaches you, from the moment you pay to the knock on your door: processing, coverage, costs and what to expect. Want timing for your specific area? Ask us on WhatsApp (0719 261277). The delivery times below are typical, not guaranteed.</p></div>
   <div class="ttx-cards">
     <div class="ttx-card"><b>Order processing</b><small>Orders are confirmed and prepared on business days after payment or confirmation.</small></div>
     <div class="ttx-card"><b>Dispatch</b><small>Same or next-business-day dispatch in Nairobi where available; other orders typically leave within 1-2 business days.</small></div>
@@ -89,7 +89,7 @@ TTBODY
     ),
     'returns-refund-policy' => array( 'Returns & Refund Policy', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>We want you to shop with confidence. Most unused products may be returned within 7 days of delivery, subject to the conditions below. If an item arrives damaged, defective or different from what you ordered, please contact us and we will advise on the next steps.</p></div>
+  <div class="ttx-intro"><p>Shop with confidence. If something is not right, we are here to sort it out. Most unused products can be returned within 7 days of delivery, subject to the conditions below, and if an item arrives damaged, faulty or different from what you ordered, just contact us and we will advise on the next steps.</p></div>
   <div class="ttx-cards">
     <div class="ttx-card"><span class="n">7-Day</span><b>Returns</b><small>Most unused products may be returned within 7 days of delivery for a refund, exchange or store credit, subject to conditions.</small></div>
     <div class="ttx-card"><span class="n">Warranty</span><b>Where applicable</b><small>Warranty coverage varies by product and manufacturer.</small></div>
@@ -126,7 +126,7 @@ TTBODY
     ),
     'delivery-installation' => array( 'Delivery & Installation', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>Tooltopia Store delivers across Kenya. For equipment that needs setup, our team will advise so everything works from day one. Delivery times below are typical, not guaranteed.</p></div>
+  <div class="ttx-intro"><p>Tooltopia Store delivers countrywide, and for equipment that needs setting up, our team walks you through it so everything works from day one. The delivery times below are typical, not guaranteed.</p></div>
   <h2>Delivery coverage</h2>
   <ul class="ttx-list good">
     <li>Delivery to Nairobi and locations across Kenya through available delivery partners.</li>
@@ -146,7 +146,7 @@ TTBODY
     ),
     'contact-us' => array( 'Contact Us', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>We are here to help you find the right tools and get them delivered fast. Reach us by phone, WhatsApp, email, or visit our shop.</p></div>
+  <div class="ttx-intro"><p>Got a question, need a price, or ready to order? Our team is quick to respond. Reach us by phone, WhatsApp or email, or come and see the gear in person at our Nairobi shop.</p></div>
   <div class="ttx-cards">
     <div class="ttx-card"><b>Visit our shop</b><small>Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya. Open Mon-Saturday, 7:00am-6:00pm.</small></div>
     <div class="ttx-card"><b>Phone &amp; WhatsApp</b><small>0719 261277, the fastest way to order or check stock.</small></div>
@@ -180,11 +180,11 @@ TTBODY
     'why-choose-tools-topia' => array( 'Why Choose Tooltopia Store', <<<'TTBODY'
 <div class="ttx">
   <div class="ttx-cards">
-    <div class="ttx-card"><b>Authentic products</b><small>Sourced from established suppliers and distributors.</small></div>
+    <div class="ttx-card"><b>Sourcing you can trust</b><small>Stocked through established suppliers and distributors.</small></div>
     <div class="ttx-card"><b>Kenya-wide delivery</b><small>Delivery times depend on your location, product availability and order confirmation.</small></div>
-    <div class="ttx-card"><b>Honest pricing</b><small>Fair prices, no hidden costs.</small></div>
+    <div class="ttx-card"><b>Honest pricing</b><small>Fair prices shown up front, no hidden extras.</small></div>
     <div class="ttx-card"><b>Wide range</b><small>Power tools, solar, water pumps, incubators, welding machines and grinders.</small></div>
-    <div class="ttx-card"><b>Easy ordering</b><small>Order on WhatsApp; pay by M-Pesa, Bank or Cash on Delivery.</small></div>
+    <div class="ttx-card"><b>Order in minutes</b><small>Message us on WhatsApp and pay by M-Pesa, bank transfer or cash on delivery.</small></div>
     <div class="ttx-card"><b>Real support</b><small>Reachable help before and after your purchase.</small></div>
   </div>
 </div>
@@ -192,7 +192,7 @@ TTBODY
     ),
     'authorized-brands' => array( 'Brands We Carry', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>We stock tools, machines and solar products from a range of well-known brands. We work with established suppliers and distributors and provide product and warranty information where applicable.</p></div>
+  <div class="ttx-intro"><p>From the biggest names in power tools to trusted solar and machinery brands, we stock gear built to last. We work with established suppliers and distributors, and provide product and warranty information where applicable.</p></div>
   <div class="ttx-brands">
     <span class="ttx-brand">Makita</span><span class="ttx-brand">Bosch</span><span class="ttx-brand">INGCO</span><span class="ttx-brand">Total</span><span class="ttx-brand">Honda</span><span class="ttx-brand">DeWALT</span><span class="ttx-brand">Stanley</span><span class="ttx-brand">Milwaukee</span><span class="ttx-brand">Tolsen</span><span class="ttx-brand">Crown</span><span class="ttx-brand">Ryobi</span><span class="ttx-brand">Wadfow</span>
   </div>
@@ -209,7 +209,7 @@ TTBODY
     ),
     'wholesale-bulk' => array( 'Wholesale & Bulk', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>Buying for a project, a business, an institution or a hardware shop? Tooltopia Store supplies tools, solar products and equipment in bulk at competitive trade prices, with delivery across Kenya.</p></div>
+  <div class="ttx-intro"><p>Kitting out a project, a business, an institution or a hardware shop? Tooltopia Store supplies tools, solar products and equipment in bulk at competitive trade prices, delivered right across Kenya.</p></div>
   <div class="ttx-cards">
     <div class="ttx-card"><b>Competitive bulk pricing</b><small>Request pricing for larger quantities and repeat orders.</small></div>
     <div class="ttx-card"><b>Wide selection</b><small>Tools, solar equipment, welding machines, water pumps, generators and more.</small></div>
@@ -224,7 +224,7 @@ TTBODY
     ),
     'request-a-quote' => array( 'Request a Quote', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>Need pricing for a specific list of items or a large order? Send us your list and we will get back to you quickly with a quote.</p></div>
+  <div class="ttx-intro"><p>Need pricing for a specific list or a large order? Send us what you need and we will come back fast with a clear, competitive quote.</p></div>
   <div class="ttx-cards">
     <div class="ttx-card"><b>1. List your items</b><small>The products and models you need.</small></div>
     <div class="ttx-card"><b>2. Quantities</b><small>How many of each item.</small></div>
@@ -243,7 +243,7 @@ TTBODY
 <div class="ttx">
   <div class="ttx-intro">
     <h1>Payment methods</h1>
-    <p>We offer secure, convenient payment options for customers across Kenya. Choose whatever works best for you.</p>
+    <p>Pay the way that suits you. Tooltopia Store keeps payment simple and secure for customers across Kenya, whether you are buying a single tool or kitting out a whole project.</p>
   </div>
   <div class="ttx-cards">
     <div class="ttx-card"><b>M-PESA</b><small>Lipa na M-PESA, Paybill or Till, at checkout or on delivery.</small></div>
@@ -267,7 +267,7 @@ TTBODY
 <div class="ttx">
   <div class="ttx-intro">
     <h1>Today's Deals</h1>
-    <p>Tools and equipment at special prices. Our current offers are shown below and change as new deals go live. For flash deals and stock alerts, follow us on WhatsApp.</p>
+    <p>The best prices in the shop, all in one place. Our current offers are below and change as new deals go live, so check back often. Want first dibs on flash deals and stock alerts? Follow us on WhatsApp.</p>
   </div>
   <h2>On sale now</h2>
   [products limit="12" columns="4" on_sale="true" orderby="date"]
@@ -751,7 +751,7 @@ function tt_product_info_panel() {
 /* Editable SEO meta descriptions (seeded into each page Excerpt, fully editable) */
 function tt_pages_meta() {
 	return array(
-		'about-us'               => 'Tooltopia Store is a Kenya-based online retailer of power tools, solar and equipment. Clear product information, transparent pricing and Kenya-wide delivery.',
+		'about-us'               => 'Tooltopia Store is a Nairobi tools and equipment shop and online store. Power tools, solar, pumps and more, with clear info, honest pricing and Kenya-wide delivery.',
 		'shipping-policy'        => 'How Tooltopia Store ships your order across Kenya: delivery timelines, charges and tracking explained. Nairobi and countrywide delivery options.',
 		'returns-refund-policy'  => 'Tooltopia Store returns and refund policy: 7-day returns on unused items, warranty claims and how to request a refund or exchange.',
 		'delivery-installation'  => 'Delivery of tools, solar systems and equipment across Nairobi and Kenya, with installation guidance. Contact us to arrange delivery.',

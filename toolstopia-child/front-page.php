@@ -8,8 +8,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 $shop_url  = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/shop/' );
 $cats_raw  = get_theme_mod( 'tt_home_categories', "Hardware Tools\nSolar Panels\nWater Pumps\nIncubators\nGenerators\nBatteries" );
 $cat_slugs = array_filter( array_map( 'trim', preg_split( '/[\r\n,]+/', $cats_raw ) ) );
-$hero_title = get_theme_mod( 'tt_hero_title', 'Tools & equipment for Kenya' );
-$hero_text  = get_theme_mod( 'tt_hero_text', "Shop power tools, solar equipment, generators, water pumps, welding equipment and more. Clear pricing, product support and Kenya-wide delivery." );
+$hero_title = get_theme_mod( 'tt_hero_title', 'Power tools, solar & equipment, delivered across Kenya' );
+$hero_text  = get_theme_mod( 'tt_hero_text', "From the workshop to the site to the farm, Tooltopia Store stocks the power tools, solar kits, generators, pumps and welding gear Kenya runs on. Clear prices, honest advice and countrywide delivery." );
 
 $slides_uri   = get_stylesheet_directory_uri() . '/assets/slides';
 $cat_imgs_uri = get_stylesheet_directory_uri() . '/assets/categories';
@@ -44,9 +44,9 @@ get_header();
         $tt_wa_url = 'https://wa.me/254719261277';
         $tt_slides = array(
           array( get_theme_mod( 'tt_slide1_img', $slides_uri . '/slide1.jpg' ), get_theme_mod( 'tt_slide1_eyebrow', "Kenya-wide delivery" ), $hero_title, $hero_text, get_theme_mod( 'tt_slide1_btn', 'Shop All Tools' ), get_theme_mod( 'tt_slide1_url', '' ) ),
-          array( get_theme_mod( 'tt_slide2_img', $slides_uri . '/slide2.jpg' ), get_theme_mod( 'tt_slide2_eyebrow', 'Solar & power' ), get_theme_mod( 'tt_slide2_heading', 'Power that never quits' ), get_theme_mod( 'tt_slide2_text', 'Panels, inverters and batteries for home, business and off-grid living.' ), get_theme_mod( 'tt_slide2_btn', 'Shop Solar' ), get_theme_mod( 'tt_slide2_url', '' ) ),
-          array( get_theme_mod( 'tt_slide3_img', $slides_uri . '/slide3.jpg' ), get_theme_mod( 'tt_slide3_eyebrow', 'Generators & pumps' ), get_theme_mod( 'tt_slide3_heading', 'Reliable backup power & water' ), get_theme_mod( 'tt_slide3_text', 'Petrol generators and water pumps built for Kenyan conditions.' ), get_theme_mod( 'tt_slide3_btn', 'Shop now' ), get_theme_mod( 'tt_slide3_url', '' ) ),
-          array( get_theme_mod( 'tt_slide4_img', $slides_uri . '/slide4.jpg' ), get_theme_mod( 'tt_slide4_eyebrow', 'Kenya-wide delivery' ), get_theme_mod( 'tt_slide4_heading', 'Delivery across Kenya' ), get_theme_mod( 'tt_slide4_text', 'Typically 2-5 business days countrywide. Pay by M-Pesa, bank transfer or cash on delivery.' ), get_theme_mod( 'tt_slide4_btn', 'Delivery details' ), get_theme_mod( 'tt_slide4_url', '/shipping-policy/' ) ),
+          array( get_theme_mod( 'tt_slide2_img', $slides_uri . '/slide2.jpg' ), get_theme_mod( 'tt_slide2_eyebrow', 'Solar & power' ), get_theme_mod( 'tt_slide2_heading', 'Solar power, sorted' ), get_theme_mod( 'tt_slide2_text', 'Panels, inverters and batteries sized for homes, shops and off-grid living, with guidance to get the setup right.' ), get_theme_mod( 'tt_slide2_btn', 'Shop Solar' ), get_theme_mod( 'tt_slide2_url', '' ) ),
+          array( get_theme_mod( 'tt_slide3_img', $slides_uri . '/slide3.jpg' ), get_theme_mod( 'tt_slide3_eyebrow', 'Generators & pumps' ), get_theme_mod( 'tt_slide3_heading', 'Backup power and water, ready when you are' ), get_theme_mod( 'tt_slide3_text', 'Petrol generators and water pumps chosen for Kenyan conditions and backed by real support.' ), get_theme_mod( 'tt_slide3_btn', 'Shop now' ), get_theme_mod( 'tt_slide3_url', '' ) ),
+          array( get_theme_mod( 'tt_slide4_img', $slides_uri . '/slide4.jpg' ), get_theme_mod( 'tt_slide4_eyebrow', 'Kenya-wide delivery' ), get_theme_mod( 'tt_slide4_heading', 'From our shop to your door, countrywide' ), get_theme_mod( 'tt_slide4_text', 'Typically 2-5 business days across Kenya. Pay by M-Pesa, bank transfer or cash on delivery.' ), get_theme_mod( 'tt_slide4_btn', 'Delivery details' ), get_theme_mod( 'tt_slide4_url', '/shipping-policy/' ) ),
         );
         $tt_i = 0;
         foreach ( $tt_slides as $sl ) {
@@ -67,10 +67,10 @@ get_header();
   </section>
 
   <section class="tt-trust tt-confidence" aria-label="Shop with confidence">
-    <div><b>Verified business</b><small>Clear business information and customer support.</small></div>
-    <div><b>Wide product selection</b><small>Tools, equipment and related products.</small></div>
-    <div><b>Kenya delivery</b><small>Delivery options available across Kenya.</small></div>
-    <div><b>Customer support</b><small>Phone, WhatsApp and email assistance.</small></div>
+    <div><b>A real Nairobi shop</b><small>Visit us in person at Royal Palms Mall, Shop BG 55, not just online.</small></div>
+    <div><b>Huge range in stock</b><small>Power tools, solar, pumps, generators, welding and more.</small></div>
+    <div><b>Countrywide delivery</b><small>We send orders across Kenya, big or small.</small></div>
+    <div><b>Help on tap</b><small>Call, WhatsApp or email us before and after you buy.</small></div>
   </section>
 
   <?php if ( get_theme_mod( 'tt_certs_show', 1 ) ) :
@@ -154,9 +154,9 @@ get_header();
   <section class="tt-sec tt-why">
     <h2>Why choose Tooltopia Store</h2>
     <div class="tt-trust">
-      <div><b>Authentic products</b><small>Sourced from established suppliers and distributors.</small></div>
+      <div><b>Sourcing you can trust</b><small>Stocked through established suppliers and distributors.</small></div>
       <div><b>Kenya-wide delivery</b><small>Delivery times depend on your location, product availability and order confirmation.</small></div>
-      <div><b>Honest pricing</b><small>Fair prices, no hidden costs.</small></div>
+      <div><b>Honest pricing</b><small>Fair prices shown up front, no hidden extras.</small></div>
       <div><b>Real support</b><small>Reachable before and after your purchase.</small></div>
     </div>
     <p><a class="tt-btn" href="<?php echo esc_url( home_url( '/faq/' ) ); ?>">Read our FAQ</a> <a class="tt-btn tt-btn--wa" href="https://wa.me/254719261277">Order on WhatsApp</a></p>
