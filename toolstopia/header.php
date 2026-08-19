@@ -1,7 +1,7 @@
 <?php
 /**
  * Header
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 ?>
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="theme-color" content="#0F172A">
+	<meta name="theme-color" content="#0047FF">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
 </head>
@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 		<div class="ts-header__bar">
 			<div class="ts-logo">
 				<?php if ( has_custom_logo() ) { the_custom_logo(); } else { ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ts-logo"><img src="<?php echo esc_url( TOOLSTOPIA_URI . '/assets/images/logo.png' ); ?>" alt="Toolstopia" width="200" height="43"></a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ts-logo"><img src="<?php echo esc_url( TOOLSTOPIA_URI . '/assets/images/logo.png' ); ?>" alt="Tooltopia Store" width="200" height="43"></a>
 				<?php } ?>
 			</div>
 

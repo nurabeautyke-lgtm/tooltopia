@@ -1,7 +1,7 @@
 <?php
 /**
  * Default page template (prose pages: About, Policies, FAQ, etc.)
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header(); ?>
@@ -28,7 +28,7 @@ get_header(); ?>
 				<strong style="font-family:var(--ts-font-head)"><?php esc_html_e( 'Still have questions?', 'toolstopia' ); ?></strong>
 				<div class="ts-muted" style="font-size:.9rem"><?php esc_html_e( 'Our team replies fast on WhatsApp during business hours.', 'toolstopia' ); ?></div>
 			</div>
-			<a class="ts-btn ts-btn--wa" href="<?php echo toolstopia_wa_url( 'Hello Toolstopia, I have a question.' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Chat on WhatsApp', 'toolstopia' ); ?></a>
+			<a class="ts-btn ts-btn--wa" href="<?php echo toolstopia_wa_url( 'Hello Tooltopia Store, I have a question.' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Chat on WhatsApp', 'toolstopia' ); ?></a>
 			<a class="ts-btn ts-btn--ghost" href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php esc_html_e( 'Contact Us', 'toolstopia' ); ?></a>
 		</div>
 	</div>

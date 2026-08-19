@@ -1,7 +1,7 @@
 <?php
 /**
  * Archive / blog index
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header(); ?>

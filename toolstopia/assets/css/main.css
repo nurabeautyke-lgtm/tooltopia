@@ -5,11 +5,11 @@
 
 :root{
   /* Brand colors */
-  --ts-primary:#F97316;      /* orange */
-  --ts-primary-600:#EA6A0C;
-  --ts-primary-050:#FFF3EA;
+  --ts-primary:#0047FF;      /* orange */
+  --ts-primary-600:#0033CC;
+  --ts-primary-050:#e6edff;
   --ts-secondary:#111827;    /* near-black */
-  --ts-accent:#2563EB;       /* blue */
+  --ts-accent:#0047FF;       /* blue */
   --ts-success:#16A34A;
   --ts-danger:#DC2626;
   --ts-bg:#FFFFFF;
@@ -38,7 +38,7 @@
   --ts-shadow-sm:0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.08);
   --ts-shadow:0 6px 24px rgba(15,23,42,.08);
   --ts-shadow-lg:0 18px 50px rgba(15,23,42,.14);
-  --ts-shadow-primary:0 10px 30px rgba(249,115,22,.30);
+  --ts-shadow-primary:0 10px 30px rgba(0,71,255,.30);
 
   /* Layout */
   --ts-container:1240px;
@@ -162,7 +162,7 @@ ul{margin:0;padding:0}
    HERO
    ===================================================================== */
 .ts-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#0F172A 0%,#111827 55%,#1e293b 100%);color:#fff}
-.ts-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 80% -10%,rgba(249,115,22,.28),transparent 60%),radial-gradient(700px 500px at 10% 120%,rgba(37,99,235,.22),transparent 60%);pointer-events:none}
+.ts-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 80% -10%,rgba(0,71,255,.28),transparent 60%),radial-gradient(700px 500px at 10% 120%,rgba(37,99,235,.22),transparent 60%);pointer-events:none}
 .ts-hero__inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:72px 0}
 .ts-hero h1{color:#fff}
 .ts-hero h1 em{color:var(--ts-primary);font-style:normal}

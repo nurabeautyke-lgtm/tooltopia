@@ -1,7 +1,7 @@
 <?php
 /**
  * Small template helpers used across the theme.
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 

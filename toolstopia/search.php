@@ -1,7 +1,7 @@
 <?php
 /**
  * Search results
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header(); ?>
@@ -27,7 +27,7 @@ get_header(); ?>
 			<div class="ts-card" style="padding:40px;text-align:center">
 				<h2><?php esc_html_e( 'No matches found', 'toolstopia' ); ?></h2>
 				<p class="ts-muted"><?php esc_html_e( 'Check the spelling or try a brand or part number. You can also ask us directly on WhatsApp.', 'toolstopia' ); ?></p>
-				<a class="ts-btn ts-btn--wa" href="<?php echo toolstopia_wa_url( 'Hello Toolstopia, I am looking for a product.' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Ask on WhatsApp', 'toolstopia' ); ?></a>
+				<a class="ts-btn ts-btn--wa" href="<?php echo toolstopia_wa_url( 'Hello Tooltopia Store, I am looking for a product.' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Ask on WhatsApp', 'toolstopia' ); ?></a>
 			</div>
 		<?php endif; ?>
 	</div>

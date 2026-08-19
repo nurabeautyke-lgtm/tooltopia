@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Toolstopia Pages
-Description: Creates and keeps up to date all Toolstopia information pages (About, Shipping, Returns, Delivery & Installation, Contact, FAQ, Why Choose, Brands We Carry, Wholesale & Bulk, Request a Quote, Payment Methods, Today's Deals) with clean, compliant content. Does NOT change your homepage or design. Bump the version to re-sync all pages.
+Plugin Name: Tooltopia Store Pages
+Description: Creates and keeps up to date all Tooltopia Store information pages (About, Shipping, Returns, Delivery & Installation, Contact, FAQ, Why Choose, Brands We Carry, Wholesale & Bulk, Request a Quote, Payment Methods, Today's Deals) with clean, compliant content. Does NOT change your homepage or design. Bump the version to re-sync all pages.
 Version: 1.9.2
-Author: Toolstopia
+Author: Tooltopia Store
 */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
@@ -52,9 +52,9 @@ function tt_pages_blueprint(){
     'about-us' => array( 'About Us', <<<'TTBODY'
 <div class="ttx">
   <div class="ttx-intro">
-    <h1>About Toolstopia</h1>
+    <h1>About Tooltopia Store</h1>
     <p><b>Tools and equipment for homes, businesses and professionals in Kenya.</b></p>
-    <p>Toolstopia is a Kenya-based online retailer supplying power tools, hand tools, solar equipment, water pumps, generators, welding equipment, agricultural equipment, accessories and other related products. From our shop at Royal Palms Mall, Shop No. BG 55, Nairobi, we serve contractors, farmers, fundis, workshops and homeowners across the country.</p>
+    <p>Tooltopia Store is a Kenya-based online retailer supplying power tools, hand tools, solar equipment, water pumps, generators, welding equipment, agricultural equipment, accessories and other related products. From our shop at Royal Palms Mall, Shop No. BG 55, Nairobi, we serve contractors, farmers, fundis, workshops and homeowners across the country.</p>
     <p>We help customers compare products, understand specifications and place orders through our store, phone and WhatsApp. Our aim is simple: clear product information, transparent pricing and accessible customer support from order to delivery.</p>
   </div>
   <h2>What we offer</h2>
@@ -78,7 +78,7 @@ function tt_pages_blueprint(){
     Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya. Open Monday to Saturday, 7:00am-6:00pm.<br>
     <a href="tel:0719261277">Call 0719 261277</a>
     <a href="https://wa.me/254719261277">WhatsApp us</a>
-    <a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a>
+    <a href="mailto:info@tooltopiastore.co.ke">info@tooltopiastore.co.ke</a>
   </div>
 </div>
 TTBODY
@@ -142,22 +142,22 @@ TTBODY
   </ul>
   <h2>How to start a return</h2>
   <ol class="ttx-steps">
-    <li>Contact us within 7 days with your order number and a short description; a photo helps for damage (0719 261277 or info@toolstopia.co.ke).</li>
+    <li>Contact us within 7 days with your order number and a short description; a photo helps for damage (0719 261277 or info@tooltopiastore.co.ke).</li>
     <li>We confirm whether the item is eligible and advise on the next steps, including how the item should be returned.</li>
     <li>Once checked, we process your refund, exchange or store credit, typically within 3-5 business days.</li>
   </ol>
   <h2>Refunds and warranty</h2>
   <p>Approved refunds are made to your original payment method or by M-Pesa, usually within 3-5 business days of the returned item being received and inspected. Where products carry a manufacturer or supplier warranty, warranty claims and repairs are handled through the manufacturer or supplier, as we do not operate an in-house service centre.</p>
   <h2>Faulty or damaged items</h2>
-  <p>Where a return is accepted because an item arrived damaged or defective, Toolstopia will advise the customer on the appropriate return or collection method.</p>
+  <p>Where a return is accepted because an item arrived damaged or defective, Tooltopia Store will advise the customer on the appropriate return or collection method.</p>
   <div class="ttx-cta"><b>Need to start a return or ask a question?</b>
-    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
+    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@tooltopiastore.co.ke">info@tooltopiastore.co.ke</a></div>
 </div>
 TTBODY
     ),
     'delivery-installation' => array( 'Delivery & Installation', <<<'TTBODY'
 <div class="ttx">
-  <div class="ttx-intro"><p>Toolstopia delivers across Kenya, with typical next-day delivery in Nairobi and major towns. For equipment that needs setup, our team can advise so you can get started with confidence.</p></div>
+  <div class="ttx-intro"><p>Tooltopia Store delivers across Kenya, with typical next-day delivery in Nairobi and major towns. For equipment that needs setup, our team can advise so you can get started with confidence.</p></div>
   <h2>Delivery coverage</h2>
   <ul class="ttx-list good">
     <li>Typical next-day delivery within Nairobi on most orders.</li>
@@ -172,7 +172,7 @@ TTBODY
   <h2>Installation and setup support</h2>
   <p>For equipment such as solar systems, water pumps and welding machines, we can guide you on correct installation and safe operation. Where on-site setup is available, talk to our team when ordering and we will advise on options and any charges. Please note: we advise on installation but do not operate a physical service centre, and warranty repairs are handled through the manufacturer or supplier.</p>
   <div class="ttx-cta"><b>Arrange your delivery</b>Available Monday to Saturday, 7:00am-6:00pm.<br>
-    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
+    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@tooltopiastore.co.ke">info@tooltopiastore.co.ke</a></div>
 </div>
 TTBODY
     ),
@@ -182,7 +182,7 @@ TTBODY
   <div class="ttx-cards">
     <div class="ttx-card"><b>Visit our shop</b><small>Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya.</small></div>
     <div class="ttx-card"><b>Phone &amp; WhatsApp</b><small>0719 261277, the fastest way to order or check stock.</small></div>
-    <div class="ttx-card"><b>Email</b><small>info@toolstopia.co.ke</small></div>
+    <div class="ttx-card"><b>Email</b><small>info@tooltopiastore.co.ke</small></div>
     <div class="ttx-card"><b>Payment options</b><small>M-Pesa, bank transfer and cash on delivery where available.</small></div>
   </div>
   <div class="ttx-cards">
@@ -190,10 +190,10 @@ TTBODY
     <div class="ttx-card"><b>Response times</b><small>WhatsApp and phone during business hours; email replies typically within 24 hours.</small></div>
   </div>
   <div class="ttx-cta"><b>Talk to us now</b>
-    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
+    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@tooltopiastore.co.ke">info@tooltopiastore.co.ke</a></div>
   <h2>Find us on the map</h2>
   <p>Royal Palms Mall, Shop No. BG 55, Ronald Ngala Street, Nairobi.</p>
-  <div style="border-radius:14px;overflow:hidden;border:1px solid #e6eaf0;margin-top:8px"><iframe title="Toolstopia location" src="https://www.google.com/maps?q=Royal%20Palms%20Mall%2C%20Ronald%20Ngala%20Street%2C%20Nairobi%2C%20Kenya&amp;output=embed" width="100%" height="340" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <div style="border-radius:14px;overflow:hidden;border:1px solid #e6eaf0;margin-top:8px"><iframe title="Tooltopia Store location" src="https://www.google.com/maps?q=Royal%20Palms%20Mall%2C%20Ronald%20Ngala%20Street%2C%20Nairobi%2C%20Kenya&amp;output=embed" width="100%" height="340" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 </div>
 TTBODY
     ),
@@ -211,7 +211,7 @@ TTBODY
 </div>
 TTBODY
     ),
-    'why-choose-tools-topia' => array( 'Why Choose Toolstopia', <<<'TTBODY'
+    'why-choose-tools-topia' => array( 'Why Choose Tooltopia Store', <<<'TTBODY'
 <div class="ttx">
   <div class="ttx-cards">
     <div class="ttx-card"><b>Wide product range</b><small>Power tools, solar, water pumps, welding machines, grinders and more in one place.</small></div>
@@ -236,14 +236,14 @@ TTBODY
   </div>
   <p>Looking for a specific brand or model? Send us the details and we will confirm availability, pricing and lead time.</p>
   <div class="ttx-cta"><b>Looking for a specific brand?</b>
-    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
+    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@tooltopiastore.co.ke">info@tooltopiastore.co.ke</a></div>
 </div>
 TTBODY
     ),
     'wholesale-bulk' => array( 'Wholesale & Bulk Orders', <<<'TTBODY'
 <div class="ttx">
   <div class="ttx-intro"><h1>Wholesale &amp; Bulk Orders</h1><p>Buying in larger quantities for a project, business or resale? Contact us for bulk pricing on eligible products. Bulk pricing depends on the product, quantity and availability.</p></div>
-  <h2>Why buy in bulk from Toolstopia</h2>
+  <h2>Why buy in bulk from Tooltopia Store</h2>
   <div class="ttx-cards">
     <div class="ttx-card"><b>Competitive bulk pricing</b><small>Request pricing for larger quantities and repeat orders.</small></div>
     <div class="ttx-card"><b>Wide selection</b><small>Tools, solar equipment, welding machines, water pumps, generators and more.</small></div>
@@ -264,7 +264,7 @@ TTBODY
   </ul>
   <p>Bulk discounts, lead times and delivery terms are agreed per order. Contact us for a quote tailored to your requirements.</p>
   <div class="ttx-cta"><b>Get a bulk price</b>
-    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
+    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@tooltopiastore.co.ke">info@tooltopiastore.co.ke</a></div>
 </div>
 TTBODY
     ),
@@ -287,7 +287,7 @@ TTBODY
     <li>Once you approve, we arrange payment and delivery.</li>
   </ol>
   <div class="ttx-cta"><b>Send your request</b>
-    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
+    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@tooltopiastore.co.ke">info@tooltopiastore.co.ke</a></div>
 </div>
 TTBODY
     ),
@@ -306,7 +306,7 @@ TTBODY
     <li>If you are unsure which option to use, contact us and we will help.</li>
   </ul>
   <div class="ttx-cta"><b>Questions about payment?</b>
-    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
+    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@tooltopiastore.co.ke">info@tooltopiastore.co.ke</a></div>
 </div>
 TTBODY
     ),
@@ -318,7 +318,7 @@ TTBODY
   <h2>Popular products</h2>
   [best_selling_products per_page="8" columns="4"]
   <div class="ttx-cta"><b>Looking for a specific deal?</b>
-    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@toolstopia.co.ke">info@toolstopia.co.ke</a></div>
+    <a href="tel:0719261277">Call 0719 261277</a><a href="https://wa.me/254719261277">WhatsApp us</a><a href="mailto:info@tooltopiastore.co.ke">info@tooltopiastore.co.ke</a></div>
 </div>
 TTBODY
     ),
@@ -377,7 +377,7 @@ add_action( 'after_switch_theme', 'tt_sync_pages' );
 add_action( 'admin_notices', function () {
     $done = get_transient( 'tt_pages_notice' );
     if ( ! $done ) { return; }
-    echo '<div class="notice notice-success is-dismissible"><p><strong>Toolstopia pages are set up.</strong> Click any page to view it:</p><ul style="margin:6px 0 6px 18px;list-style:disc">';
+    echo '<div class="notice notice-success is-dismissible"><p><strong>Tooltopia Store pages are set up.</strong> Click any page to view it:</p><ul style="margin:6px 0 6px 18px;list-style:disc">';
     foreach ( $done as $row ) {
         echo '<li>' . esc_html( $row[0] ) . ' (' . esc_html( $row[2] ) . ') &mdash; <a href="' . esc_url( $row[1] ) . '" target="_blank" rel="noopener">view page</a></li>';
     }

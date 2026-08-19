@@ -1,6 +1,6 @@
 <?php
 /**
- * Front-end performance hardening for Toolstopia.
+ * Front-end performance hardening for Tooltopia Store.
  *
  * Conservative, safe optimizations aimed at a fast (1-3s) load:
  *   - remove the emoji detection script + styles (unused everywhere)
@@ -11,7 +11,7 @@
  *
  * Everything is guarded so nothing breaks if WooCommerce is inactive.
  *
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 

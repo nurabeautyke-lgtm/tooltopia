@@ -2,7 +2,7 @@
 /**
  * WooCommerce integration: wrappers, tweaks and WhatsApp ordering.
  * All hooks are guarded so the theme is safe even if WooCommerce is not active.
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
@@ -39,7 +39,7 @@ function toolstopia_wa_product_button() {
 	$price = wp_strip_all_tags( wc_price( $product->get_price() ) );
 	$sku   = $product->get_sku();
 
-	$msg  = "Hello Toolstopia! I would like to order:\n";
+	$msg  = "Hello Tooltopia Store! I would like to order:\n";
 	$msg .= "• " . $name . ( $sku ? " (SKU: {$sku})" : '' ) . "\n";
 	$msg .= "• Price: " . $price . "\n";
 	$msg .= "• Link: " . $url . "\n\n";

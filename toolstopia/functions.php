@@ -1,8 +1,8 @@
 <?php
 /**
- * Toolstopia theme functions
+ * Tooltopia Store theme functions
  *
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -131,7 +131,7 @@ add_action( 'widgets_init', 'toolstopia_widgets_init' );
  */
 function toolstopia_phone()      { return apply_filters( 'toolstopia_phone', '0719 261277' ); }
 function toolstopia_whatsapp()   { return apply_filters( 'toolstopia_whatsapp', '254719261277' ); } // international, no +
-function toolstopia_email()      { return apply_filters( 'toolstopia_email', 'info@toolstopia.co.ke' ); }
+function toolstopia_email()      { return apply_filters( 'toolstopia_email', 'info@tooltopiastore.co.ke' ); }
 function toolstopia_hours()      { return apply_filters( 'toolstopia_hours', 'Mon–Sat 7:00am–6:00pm' ); }
 function toolstopia_location()   { return apply_filters( 'toolstopia_location', 'Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya' ); }
 

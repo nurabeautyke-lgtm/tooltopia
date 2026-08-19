@@ -3,7 +3,7 @@
  * JSON-LD structured data (Organization + WebSite search).
  * Product / Article / FAQ / Breadcrumb schema is emitted by WooCommerce and
  * recommended SEO plugins; this adds site-wide Organization + Sitelinks search.
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 

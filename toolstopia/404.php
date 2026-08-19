@@ -1,7 +1,7 @@
 <?php
 /**
  * 404 template
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header(); ?>

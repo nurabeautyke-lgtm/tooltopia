@@ -2,7 +2,7 @@
 /**
  * Front page (homepage). Falls back gracefully if WooCommerce is inactive.
  * Uses WooCommerce shortcodes for live product rails so it works out of the box.
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 get_header();
@@ -38,7 +38,7 @@ $solutions = array(
 $reviews = array(
 	array( 'James M.', 'Nairobi', 'Ordered a Makita drill on WhatsApp at 9am and it was delivered by 3pm the same day. Good product, fair price.' ),
 	array( 'Grace W.', 'Nakuru', 'Bought a full generator for our shop. The team advised on the right size and it arrived well packed. Excellent service.' ),
-	array( 'Kevin O.', 'Mombasa', 'I run a small welding business. Toolstopia is now my go-to for consumables. Reliable stock and honest advice.' ),
+	array( 'Kevin O.', 'Mombasa', 'I run a small welding business. Tooltopia Store is now my go-to for consumables. Reliable stock and honest advice.' ),
 );
 ?>
 
@@ -61,7 +61,7 @@ $reviews = array(
 
 				<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
 					<a class="ts-btn ts-btn--lg" href="<?php echo esc_url( home_url( '/shop/' ) ); ?>">Shop All Tools</a>
-					<a class="ts-btn ts-btn--wa ts-btn--lg" target="_blank" rel="noopener" href="<?php echo toolstopia_wa_url( 'Hello Toolstopia! I would like to place an order.' ); ?>">
+					<a class="ts-btn ts-btn--wa ts-btn--lg" target="_blank" rel="noopener" href="<?php echo toolstopia_wa_url( 'Hello Tooltopia Store! I would like to place an order.' ); ?>">
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Z"/></svg> Order on WhatsApp
 					</a>
 				</div>
@@ -209,7 +209,7 @@ $reviews = array(
 <!-- ============ WHY TOOLSTOPIA ============ -->
 <section class="ts-section">
 	<div class="ts-container">
-		<div class="ts-section-head"><div><span class="ts-eyebrow">The Toolstopia difference</span><h2>Why Buy From Us</h2></div></div>
+		<div class="ts-section-head"><div><span class="ts-eyebrow">The Tooltopia Store difference</span><h2>Why Buy From Us</h2></div></div>
 		<div class="ts-grid ts-why">
 			<div class="ts-why__item ts-reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m20 6-11 11-5-5"/></svg></div><h3 style="font-size:1.05rem">Authentic products</h3><p class="ts-muted" style="margin:0">Sourced from established suppliers and distributors, with warranty information where applicable.</p></div>
 			<div class="ts-why__item ts-reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7"/></svg></div><h3 style="font-size:1.05rem">Fast Nationwide Delivery</h3><p class="ts-muted" style="margin:0">Same-day dispatch in Nairobi and 2&ndash;5 day delivery to every county in Kenya.</p></div>

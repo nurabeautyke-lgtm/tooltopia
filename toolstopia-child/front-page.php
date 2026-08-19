@@ -1,6 +1,6 @@
 <?php
 /**
- * Toolstopia Child - custom tabarak-style homepage.
+ * Tooltopia Store Child - custom tabarak-style homepage.
  * Delete this file to restore the theme's default homepage.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -152,7 +152,7 @@ get_header();
   </section>
 
   <section class="tt-sec tt-why">
-    <h2>Why choose Toolstopia</h2>
+    <h2>Why choose Tooltopia Store</h2>
     <div class="tt-trust">
       <div><b>Authentic products</b><small>Sourced from established suppliers and distributors.</small></div>
       <div><b>Kenya-wide delivery</b><small>Delivery times depend on your location, product availability and order confirmation.</small></div>

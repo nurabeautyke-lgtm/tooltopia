@@ -4,7 +4,7 @@
  * Adds a11y attributes and supports a "mega" menu column layout when a top-level
  * item is given the CSS class "mega" in Appearance > Menus.
  *
- * @package Toolstopia
+ * @package Tooltopia Store
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 

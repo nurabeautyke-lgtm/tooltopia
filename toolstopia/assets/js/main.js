@@ -1,4 +1,4 @@
-/* Toolstopia — micro-interactions & progressive enhancement */
+/* Tooltopia Store — micro-interactions & progressive enhancement */
 (function () {
   'use strict';
 
