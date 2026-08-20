@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'toolstopia-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.0' );
+    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.1' );
 }, 20 );
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
@@ -1316,4 +1316,85 @@ function tt_refresh_pages_v190() {
     update_option( 'tt_pages_refresh_v190', 1 );
 }
 add_action( 'admin_init', 'tt_refresh_pages_v190' );
+
+
+/* ============================================================
+   v2.0.0 - universal display-time rebrand net
+   The targeted guard above only covers theme-managed blueprint
+   pages. This applies the same brand/domain normalisation to ALL
+   front-end output, so NO page, product, widget or menu label can
+   display the old "Toolstopia" brand or the old toolstopia.co.ke
+   domain even when the stored copy is still stale. Front-end only.
+   ============================================================ */
+add_action( 'template_redirect', 'tt_rebrand_display_net' );
+function tt_rebrand_display_net() {
+    if ( is_admin() ) { return; }
+    $hooks = array(
+        'the_content', 'the_title', 'single_post_title', 'the_excerpt', 'get_the_excerpt',
+        'widget_text', 'widget_text_content', 'widget_block_content',
+        'nav_menu_item_title', 'wp_nav_menu_items', 'render_block', 'comment_text',
+        'woocommerce_short_description', 'woocommerce_product_get_description',
+        'woocommerce_product_get_short_description', 'woocommerce_product_title',
+    );
+    foreach ( $hooks as $hook ) {
+        add_filter( $hook, 'tt_rebrand_text', 10000 );
+    }
+}
+
+
+/* ============================================================
+   v2.0.0 - one-time permanent rebrand of stored content
+   Rewrites the old brand name and old domain in every page/post/
+   product title, content and excerpt actually stored in the
+   database, plus the site title and tagline. Batched (100 rows per
+   admin load) and gated by options so it runs once and terminates
+   cleanly. Only rows that actually change are re-saved.
+   ============================================================ */
+function tt_rebrand_db_v200() {
+    if ( get_option( 'tt_rebrand_db_v200_done' ) ) { return; }
+    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
+    global $wpdb;
+
+    // Site title + tagline (permanent, only written if they change).
+    foreach ( array( 'blogname', 'blogdescription' ) as $opt ) {
+        $v = get_option( $opt );
+        if ( is_string( $v ) ) {
+            $n = tt_rebrand_text( $v );
+            if ( $n !== $v ) { update_option( $opt, $n ); }
+        }
+    }
+
+    $last  = (int) get_option( 'tt_rebrand_db_v200_last', 0 );
+    $types = array( 'page', 'post' );
+    if ( post_type_exists( 'product' ) ) { $types[] = 'product'; }
+    $place = implode( ',', array_fill( 0, count( $types ), '%s' ) );
+
+    // Ascending by ID with a high-water mark so the pass always terminates,
+    // regardless of what the text normaliser does or doesn't change.
+    $ids = $wpdb->get_col( $wpdb->prepare(
+        "SELECT ID FROM {$wpdb->posts}
+         WHERE ID > %d
+           AND post_type IN ($place)
+           AND post_status NOT IN ('trash','auto-draft','inherit')
+         ORDER BY ID ASC LIMIT 100",
+        array_merge( array( $last ), $types )
+    ) );
+
+    if ( empty( $ids ) ) { update_option( 'tt_rebrand_db_v200_done', 1 ); return; }
+
+    foreach ( $ids as $pid ) {
+        $post = get_post( $pid );
+        if ( $post ) {
+            $nt = tt_rebrand_text( $post->post_title );
+            $nc = tt_rebrand_text( $post->post_content );
+            $ne = tt_rebrand_text( $post->post_excerpt );
+            if ( $nt !== $post->post_title || $nc !== $post->post_content || $ne !== $post->post_excerpt ) {
+                wp_update_post( array( 'ID' => $pid, 'post_title' => $nt, 'post_content' => $nc, 'post_excerpt' => $ne ) );
+            }
+            $last = (int) $pid;
+        }
+    }
+    update_option( 'tt_rebrand_db_v200_last', $last );
+}
+add_action( 'admin_init', 'tt_rebrand_db_v200' );
 
