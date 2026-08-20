@@ -228,7 +228,7 @@ $reviews = array(
 			<p style="max-width:52ch;margin:0 auto 22px;color:#fff;opacity:.95">Open a business account for custom pricing, purchase orders, and a dedicated account manager.</p>
 			<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
 				<a class="ts-btn ts-btn--dark" href="<?php echo esc_url( home_url( '/wholesale/' ) ); ?>">Wholesale Enquiry</a>
-				<a class="ts-btn ts-btn--dark" href="<?php echo esc_url( home_url( '/request-quotation/' ) ); ?>">Request a Quote</a>
+				<a class="ts-btn ts-btn--dark" href="<?php echo esc_url( home_url( '/request-a-quote/' ) ); ?>">Request a Quote</a>
 			</div>
 		</div>
 	</div>

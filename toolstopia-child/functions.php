@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'toolstopia-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.2' );
+    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.3' );
 }, 20 );
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
@@ -1409,4 +1409,16 @@ function tt_rebrand_db_v200() {
     update_option( 'tt_rebrand_db_v202_last', $last );
 }
 add_action( 'admin_init', 'tt_rebrand_db_v200' );
+
+
+/* ===== v2.0.3: repair the one legacy menu link whose target slug does
+   not exist (/request-quotation/ -> /request-a-quote/). Applies to any
+   configured primary menu; the theme's own fallback menu already uses
+   the correct slug. Shipping/Returns links are left alone because those
+   pages (/shipping-delivery/, /returns-refunds/) really do exist. ===== */
+add_filter( 'wp_nav_menu', 'tt_fix_legacy_menu_links', 20 );
+function tt_fix_legacy_menu_links( $nav ) {
+    if ( ! is_string( $nav ) || '' === $nav ) { return $nav; }
+    return str_replace( '/request-quotation/', '/request-a-quote/', $nav );
+}
 

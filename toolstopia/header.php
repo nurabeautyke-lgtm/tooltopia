@@ -96,7 +96,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/shop/' ) ) . '">' . esc_html__( 'Shop All', 'toolstopia' ) . '</a></li>';
 					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/brands/' ) ) . '">' . esc_html__( 'Brands', 'toolstopia' ) . '</a></li>';
 					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/wholesale/' ) ) . '">' . esc_html__( 'Wholesale', 'toolstopia' ) . '</a></li>';
-					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/request-quotation/' ) ) . '">' . esc_html__( 'Request a Quote', 'toolstopia' ) . '</a></li>';
+					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/shipping-delivery/' ) ) . '">' . esc_html__( 'Shipping & Delivery', 'toolstopia' ) . '</a></li>';
+					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/returns-refunds/' ) ) . '">' . esc_html__( 'Returns & Refunds', 'toolstopia' ) . '</a></li>';
 					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/about-us/' ) ) . '">' . esc_html__( 'About', 'toolstopia' ) . '</a></li>';
 					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/contact-us/' ) ) . '">' . esc_html__( 'Contact', 'toolstopia' ) . '</a></li>';
 					echo '</ul>';

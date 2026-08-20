@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 					<li><a href="<?php echo esc_url( home_url( '/brands/' ) ); ?>"><?php esc_html_e( 'Shop by Brand', 'toolstopia' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/deals/' ) ); ?>"><?php esc_html_e( "Today's Deals", 'toolstopia' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/wholesale/' ) ); ?>"><?php esc_html_e( 'Wholesale & Bulk', 'toolstopia' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/request-quotation/' ) ); ?>"><?php esc_html_e( 'Request a Quote', 'toolstopia' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/request-a-quote/' ) ); ?>"><?php esc_html_e( 'Request a Quote', 'toolstopia' ); ?></a></li>
 				</ul>
 			</div>
 
