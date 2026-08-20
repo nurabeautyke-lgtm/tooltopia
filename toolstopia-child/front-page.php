@@ -24,7 +24,7 @@ get_header();
       <ul>
       <?php
       if ( taxonomy_exists( 'product_cat' ) ) {
-          $terms = get_terms( array( 'taxonomy' => 'product_cat', 'hide_empty' => true, 'number' => intval( get_theme_mod( 'tt_cat_count', 14 ) ), 'orderby' => 'count', 'order' => 'DESC' ) );
+          $terms = get_terms( array( 'taxonomy' => 'product_cat', 'hide_empty' => true, 'number' => intval( get_theme_mod( 'tt_cat_count', 0 ) ), 'orderby' => 'name', 'order' => 'ASC' ) );
           if ( ! is_wp_error( $terms ) && $terms ) {
               foreach ( $terms as $t ) {
                   echo '<li><a href="' . esc_url( get_term_link( $t ) ) . '">' . esc_html( $t->name ) . ' <span>' . intval( $t->count ) . '</span></a></li>';
@@ -116,7 +116,7 @@ get_header();
         $link  = $term ? get_term_link( $term ) : $shop_url;
         $label = $term ? $term->name : $fc[0];
         $img   = esc_url( $cat_imgs_uri . '/' . $fc[1] );
-        echo '<a class="tt-cat" href="' . esc_url( $link ) . '"><span class="tt-cat__img" style="background-image:url(' . $img . ')"></span><span class="tt-cat__label">' . esc_html( $label ) . '</span></a>';
+        echo '<a class="tt-cat" href="' . esc_url( $link ) . '"><img class="tt-cat__img" src="' . $img . '" alt="' . esc_attr( $label ) . '" width="800" height="597" loading="lazy" decoding="async"><span class="tt-cat__label">' . esc_html( $label ) . '</span></a>';
     }
     ?>
     </div>

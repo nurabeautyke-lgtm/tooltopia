@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'toolstopia-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '1.9.0' );
+    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.0' );
 }, 20 );
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
@@ -878,8 +878,8 @@ function tt_customize_full( $wp_customize ) {
     }
 
     /* ---- Category count for the hero list (added to existing section) ---- */
-    $wp_customize->add_setting( 'tt_cat_count', array( 'default' => 14, 'sanitize_callback' => 'absint' ) );
-    $wp_customize->add_control( 'tt_cat_count', array( 'type' => 'number', 'section' => 'tt_home', 'label' => 'Categories shown in hero list', 'input_attrs' => array( 'min' => 4, 'max' => 30 ) ) );
+    $wp_customize->add_setting( 'tt_cat_count', array( 'default' => 0, 'sanitize_callback' => 'absint' ) );
+    $wp_customize->add_control( 'tt_cat_count', array( 'type' => 'number', 'section' => 'tt_home', 'label' => 'Categories shown in hero list (0 = show all)', 'input_attrs' => array( 'min' => 0, 'max' => 60 ) ) );
 }
 
 
@@ -1199,6 +1199,32 @@ add_action( 'customize_register', 'tt_customize_brands' );
    hold pre-rebrand copy. All hooks are scoped and idempotent, and
    they stop acting once the underlying data is already correct.
    ============================================================ */
+
+/* ===== Add a "Home" link to the primary top menu (v2.0.0) ===== */
+add_filter( 'wp_nav_menu_items', 'tt_add_home_menu_item', 10, 2 );
+function tt_add_home_menu_item( $items, $args ) {
+    if ( empty( $args->theme_location ) || 'primary' !== $args->theme_location ) {
+        return $items;
+    }
+    if ( preg_match( '/>\s*Home\s*</i', (string) $items ) ) {
+        return $items; // A Home link already exists in this menu.
+    }
+    $current   = ( is_front_page() || is_home() ) ? ' current-menu-item' : '';
+    $home_item = '<li class="menu-item menu-item-home' . $current . '"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'toolstopia' ) . '</a></li>';
+    return $home_item . $items;
+}
+
+/* ===== Preload the first homepage hero slide for a faster LCP (v2.0.0) ===== */
+add_action( 'wp_head', 'tt_preload_hero_image', 1 );
+function tt_preload_hero_image() {
+    if ( ! is_front_page() ) {
+        return;
+    }
+    $img = get_theme_mod( 'tt_slide1_img', get_stylesheet_directory_uri() . '/assets/slides/slide1.jpg' );
+    if ( $img ) {
+        echo '<link rel="preload" as="image" href="' . esc_url( $img ) . '" fetchpriority="high">' . "\n";
+    }
+}
 
 /* Normalise any lingering old brand name or old domain in a string. */
 function tt_rebrand_text( $s ) {

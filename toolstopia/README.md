@@ -1,14 +1,14 @@
-# Toolstopia — Premium Industrial WooCommerce Theme
+# Tooltopia Store — Premium Industrial WooCommerce Theme
 
 Kenya's premium industrial / power-tools eCommerce theme, built for
-**toolstopia.co.ke**. Minimal, industrial, fast, WooCommerce-ready, with
+**tooltopiastore.co.ke**. Minimal, industrial, fast, WooCommerce-ready, with
 WhatsApp ordering, a mega menu, full design system, JSON-LD schema, and a
 Google Merchant / Google Ads friendly structure.
 
 - Colours: Primary `#F97316`, Secondary `#111827`, Accent `#2563EB`,
   Success `#16A34A`, Danger `#DC2626`, backgrounds `#FFFFFF` / `#F8FAFC`, dark `#0F172A`.
 - Fonts: Plus Jakarta Sans (headings) + Inter (body), loaded from Google Fonts.
-- Contact baked in: 0719 261277 (WhatsApp), info@toolstopia.co.ke, Nairobi.
+- Contact baked in: 0719 261277 (WhatsApp), info@tooltopiastore.co.ke, Nairobi.
 
 ------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ content/                    ← 10 ready-to-use pages + auto-importer
    upload this whole package's theme folders via FTP to `wp-content/themes/`.
 2. WordPress admin → **Appearance → Themes → Add New → Upload Theme** → choose
    `toolstopia.zip`, install. Then upload `toolstopia-child.zip`.
-3. **Activate "Toolstopia Child"** (recommended) so future updates never wipe
+3. **Activate "Tooltopia Store Child"** (recommended) so future updates never wipe
    your customisations.
 4. Install & activate **WooCommerce** (Plugins → Add New → search WooCommerce).
    The theme declares full WooCommerce support and works out of the box.
@@ -86,7 +86,7 @@ theme `functions.php` (no core edits needed):
 ```php
 add_filter( 'toolstopia_whatsapp', fn() => '2547XXXXXXXX' ); // international, no +
 add_filter( 'toolstopia_phone',    fn() => '07XX XXX XXX' );
-add_filter( 'toolstopia_email',    fn() => 'sales@toolstopia.co.ke' );
+add_filter( 'toolstopia_email',    fn() => 'sales@tooltopiastore.co.ke' );
 ```
 
 Every product page gets an **"Order on WhatsApp"** button that pre-fills the
@@ -135,4 +135,4 @@ affiliate, exit-intent, etc.) are **features delivered by dedicated plugins**,
 not theme code — the theme is built to host them cleanly. Recommended plugins
 for each are listed above and in the delivery notes.
 
-© 2026 Toolstopia. Licensed GPL-2.0-or-later.
+© 2026 Tooltopia Store. Licensed GPL-2.0-or-later.

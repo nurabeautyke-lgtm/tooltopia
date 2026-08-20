@@ -1,9 +1,9 @@
-TOOLSTOPIA PAGES (plugin, v1.9.0)  -  RECOMMENDED
+TOOLTOPIA STORE PAGES (plugin, v1.9.0)  -  RECOMMENDED
 
 WHAT IT DOES
 - Creates or updates all your information pages with clean, compliant, designed content:
   About Us, Shipping Policy, Returns & Refund Policy, Delivery & Installation,
-  Contact Us, FAQ, Why Choose Toolstopia, Brands We Carry, Wholesale & Bulk Orders,
+  Contact Us, FAQ, Why Choose Tooltopia Store, Brands We Carry, Wholesale & Bulk Orders,
   Request a Quote, Payment Methods, Today's Deals.
 - Content is written to avoid unsupported marketing claims (no "100% genuine",
   "authorised distributor", "warranty-backed" guarantees, or invented statistics),
