@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'toolstopia-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.1' );
+    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.2' );
 }, 20 );
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
@@ -737,7 +737,7 @@ function tt_product_info_panel() {
 	if ( ! empty( $sku ) )   { $rows[] = array( 'SKU / Model', esc_html( $sku ) ); }
 	$rows[] = array( 'Availability', esc_html( $stock ) );
 	$rows[] = array( 'Warranty', 'Where applicable; varies by product and manufacturer' );
-	$rows[] = array( 'Delivery', 'Kenya-wide; typically 2-5 business days' );
+	$rows[] = array( 'Delivery', '1-5 days, everywhere in Kenya' );
 	$rows[] = array( 'Country of origin', esc_html( $origin ) );
 	$rows[] = array( 'Returns', '7-day returns on unused items' );
 	echo '<div class="tt-pinfo"><ul>';
@@ -847,7 +847,7 @@ function tt_customize_full( $wp_customize ) {
         1 => array( "Kenya-wide delivery", "Tools & equipment for Kenya", "Shop power tools, solar equipment, generators, water pumps, welding equipment and more.", "Shop All Tools", "" ),
         2 => array( "Solar & power", "Power that never quits", "Panels, inverters and batteries for home, business and off-grid living.", "Shop Solar", "" ),
         3 => array( "Generators & pumps", "Reliable backup power & water", "Petrol generators and water pumps built for Kenyan conditions.", "Shop now", "" ),
-        4 => array( "Kenya-wide delivery", "Delivery across Kenya", "Typically 2-5 business days countrywide. Pay by M-Pesa, bank transfer or cash on delivery.", "Delivery details", "/shipping-policy/" ),
+        4 => array( "Kenya-wide delivery", "Delivery across Kenya", "Typically 1-5 days, everywhere in Kenya. Pay by M-Pesa, bank transfer or cash on delivery.", "Delivery details", "/shipping-policy/" ),
     );
     foreach ( $sd as $i => $d ) {
         $img_default = get_stylesheet_directory_uri() . '/assets/slides/slide' . $i . '.jpg';
@@ -1231,6 +1231,18 @@ function tt_rebrand_text( $s ) {
     if ( ! is_string( $s ) || '' === $s ) { return $s; }
     $s = str_replace( 'toolstopia.co.ke', 'tooltopiastore.co.ke', $s );
     $s = str_replace( array( 'Toolstopia', 'ToolsTopia', 'TOOLSTOPIA', 'Tools Topia', 'Tools topia', 'tools topia' ), 'Tooltopia Store', $s );
+    // Delivery estimate: one simple promise of 1-5 days everywhere in Kenya (v2.0.2).
+    // Note: intentionally does NOT touch dispatch (1-2) or refund (3-5) windows.
+    $s = strtr( $s, array(
+        '2-5 business days' => '1-5 business days',
+        '2–5 business days' => '1-5 business days',
+        '1-3 business days' => '1-5 business days',
+        '1–3 business days' => '1-5 business days',
+        '2&ndash;5 days'    => '1&ndash;5 days',
+        '2&ndash;5 day'     => '1&ndash;5 day',
+        '2–5 days'          => '1–5 days',
+        '2-5 days'          => '1-5 days',
+    ) );
     return $s;
 }
 
@@ -1351,7 +1363,7 @@ function tt_rebrand_display_net() {
    cleanly. Only rows that actually change are re-saved.
    ============================================================ */
 function tt_rebrand_db_v200() {
-    if ( get_option( 'tt_rebrand_db_v200_done' ) ) { return; }
+    if ( get_option( 'tt_rebrand_db_v202_done' ) ) { return; }
     if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
     global $wpdb;
 
@@ -1364,7 +1376,7 @@ function tt_rebrand_db_v200() {
         }
     }
 
-    $last  = (int) get_option( 'tt_rebrand_db_v200_last', 0 );
+    $last  = (int) get_option( 'tt_rebrand_db_v202_last', 0 );
     $types = array( 'page', 'post' );
     if ( post_type_exists( 'product' ) ) { $types[] = 'product'; }
     $place = implode( ',', array_fill( 0, count( $types ), '%s' ) );
@@ -1380,7 +1392,7 @@ function tt_rebrand_db_v200() {
         array_merge( array( $last ), $types )
     ) );
 
-    if ( empty( $ids ) ) { update_option( 'tt_rebrand_db_v200_done', 1 ); return; }
+    if ( empty( $ids ) ) { update_option( 'tt_rebrand_db_v202_done', 1 ); return; }
 
     foreach ( $ids as $pid ) {
         $post = get_post( $pid );
@@ -1394,7 +1406,7 @@ function tt_rebrand_db_v200() {
             $last = (int) $pid;
         }
     }
-    update_option( 'tt_rebrand_db_v200_last', $last );
+    update_option( 'tt_rebrand_db_v202_last', $last );
 }
 add_action( 'admin_init', 'tt_rebrand_db_v200' );
 

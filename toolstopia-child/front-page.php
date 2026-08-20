@@ -46,7 +46,7 @@ get_header();
           array( get_theme_mod( 'tt_slide1_img', $slides_uri . '/slide1.jpg' ), get_theme_mod( 'tt_slide1_eyebrow', "Kenya-wide delivery" ), $hero_title, $hero_text, get_theme_mod( 'tt_slide1_btn', 'Shop All Tools' ), get_theme_mod( 'tt_slide1_url', '' ) ),
           array( get_theme_mod( 'tt_slide2_img', $slides_uri . '/slide2.jpg' ), get_theme_mod( 'tt_slide2_eyebrow', 'Solar & power' ), get_theme_mod( 'tt_slide2_heading', 'Solar power, sorted' ), get_theme_mod( 'tt_slide2_text', 'Panels, inverters and batteries sized for homes, shops and off-grid living, with guidance to get the setup right.' ), get_theme_mod( 'tt_slide2_btn', 'Shop Solar' ), get_theme_mod( 'tt_slide2_url', '' ) ),
           array( get_theme_mod( 'tt_slide3_img', $slides_uri . '/slide3.jpg' ), get_theme_mod( 'tt_slide3_eyebrow', 'Generators & pumps' ), get_theme_mod( 'tt_slide3_heading', 'Backup power and water, ready when you are' ), get_theme_mod( 'tt_slide3_text', 'Petrol generators and water pumps chosen for Kenyan conditions and backed by real support.' ), get_theme_mod( 'tt_slide3_btn', 'Shop now' ), get_theme_mod( 'tt_slide3_url', '' ) ),
-          array( get_theme_mod( 'tt_slide4_img', $slides_uri . '/slide4.jpg' ), get_theme_mod( 'tt_slide4_eyebrow', 'Kenya-wide delivery' ), get_theme_mod( 'tt_slide4_heading', 'From our shop to your door, countrywide' ), get_theme_mod( 'tt_slide4_text', 'Typically 2-5 business days across Kenya. Pay by M-Pesa, bank transfer or cash on delivery.' ), get_theme_mod( 'tt_slide4_btn', 'Delivery details' ), get_theme_mod( 'tt_slide4_url', '/shipping-policy/' ) ),
+          array( get_theme_mod( 'tt_slide4_img', $slides_uri . '/slide4.jpg' ), get_theme_mod( 'tt_slide4_eyebrow', 'Kenya-wide delivery' ), get_theme_mod( 'tt_slide4_heading', 'From our shop to your door, countrywide' ), get_theme_mod( 'tt_slide4_text', 'Typically 1-5 days, everywhere in Kenya. Pay by M-Pesa, bank transfer or cash on delivery.' ), get_theme_mod( 'tt_slide4_btn', 'Delivery details' ), get_theme_mod( 'tt_slide4_url', '/shipping-policy/' ) ),
         );
         $tt_i = 0;
         foreach ( $tt_slides as $sl ) {
@@ -86,7 +86,7 @@ get_header();
   <?php endif; ?>
 
   <section class="tt-trust">
-    <div><b>Kenya-wide delivery</b><small>Delivery times depend on your location, product availability and order confirmation.</small></div>
+    <div><b>Kenya-wide delivery</b><small>Typically 1-5 days, everywhere in Kenya. Times are typical, not guaranteed.</small></div>
     <div><b>Trusted sourcing</b><small>Established suppliers and distributors</small></div>
     <div><b>Secure payments</b><small>M-Pesa, bank transfer or cash on delivery</small></div>
     <div><b>Expert support</b><small>Mon-Saturday 7:00am-6:00pm</small></div>
@@ -155,7 +155,7 @@ get_header();
     <h2>Why choose Tooltopia Store</h2>
     <div class="tt-trust">
       <div><b>Sourcing you can trust</b><small>Stocked through established suppliers and distributors.</small></div>
-      <div><b>Kenya-wide delivery</b><small>Delivery times depend on your location, product availability and order confirmation.</small></div>
+      <div><b>Kenya-wide delivery</b><small>Typically 1-5 days, everywhere in Kenya. Times are typical, not guaranteed.</small></div>
       <div><b>Honest pricing</b><small>Fair prices shown up front, no hidden extras.</small></div>
       <div><b>Real support</b><small>Reachable before and after your purchase.</small></div>
     </div>
