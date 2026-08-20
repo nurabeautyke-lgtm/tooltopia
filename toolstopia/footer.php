@@ -52,11 +52,21 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 			</div>
 		</div>
 
-		<div class="ts-footer__contact" style="display:flex;gap:26px;flex-wrap:wrap;padding-bottom:26px;font-size:.9rem">
-			<span><strong style="color:#fff"><?php esc_html_e( 'Call/WhatsApp:', 'toolstopia' ); ?></strong> <a href="<?php echo toolstopia_wa_url( 'Hello Tooltopia Store, I have a question.' ); ?>"><?php echo esc_html( toolstopia_phone() ); ?></a></span>
-			<span><strong style="color:#fff"><?php esc_html_e( 'Email:', 'toolstopia' ); ?></strong> <a href="mailto:<?php echo esc_attr( toolstopia_email() ); ?>"><?php echo esc_html( toolstopia_email() ); ?></a></span>
-			<span><strong style="color:#fff"><?php esc_html_e( 'Hours:', 'toolstopia' ); ?></strong> <?php echo esc_html( toolstopia_hours() ); ?></span>
-			<span><strong style="color:#fff"><?php esc_html_e( 'Location:', 'toolstopia' ); ?></strong> <?php echo esc_html( toolstopia_location() ); ?></span>
+		<div class="ts-footer__contact" style="display:flex;gap:40px;flex-wrap:wrap;padding-bottom:26px;font-size:.9rem">
+			<address style="font-style:normal;line-height:1.8">
+				<strong style="color:#fff"><?php esc_html_e( 'Tooltopia Store', 'toolstopia' ); ?></strong><br>
+				Royal Palms Mall, Shop No. BG 55<br>Nairobi, Kenya
+			</address>
+			<div style="line-height:1.8">
+				<div><strong style="color:#fff"><?php esc_html_e( 'Phone:', 'toolstopia' ); ?></strong> <a href="tel:+254719261277"><?php echo esc_html( toolstopia_phone() ); ?></a></div>
+				<div><strong style="color:#fff"><?php esc_html_e( 'WhatsApp:', 'toolstopia' ); ?></strong> <a href="<?php echo toolstopia_wa_url( 'Hello Tooltopia Store, I have a question.' ); ?>"><?php echo esc_html( toolstopia_phone() ); ?></a></div>
+				<div><strong style="color:#fff"><?php esc_html_e( 'Email:', 'toolstopia' ); ?></strong> <a href="mailto:<?php echo esc_attr( toolstopia_email() ); ?>"><?php echo esc_html( toolstopia_email() ); ?></a></div>
+			</div>
+			<div style="line-height:1.8">
+				<div><strong style="color:#fff"><?php esc_html_e( 'Business hours:', 'toolstopia' ); ?></strong></div>
+				<div><?php esc_html_e( 'Monday - Saturday: 7:00am - 6:00pm', 'toolstopia' ); ?></div>
+				<div><?php esc_html_e( 'Sunday: Closed', 'toolstopia' ); ?></div>
+			</div>
 		</div>
 
 		<div class="ts-footer__bottom">

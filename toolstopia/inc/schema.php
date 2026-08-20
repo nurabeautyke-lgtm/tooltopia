@@ -19,8 +19,16 @@ add_action( 'wp_head', function () {
 		'priceRange' => 'KSh',
 		'address'  => array(
 			'@type'           => 'PostalAddress',
+			'streetAddress'   => 'Royal Palms Mall, Shop No. BG 55, Ronald Ngala Street',
 			'addressLocality' => 'Nairobi',
+			'addressRegion'   => 'Nairobi',
 			'addressCountry'  => 'KE',
+		),
+		'openingHoursSpecification' => array(
+			'@type'     => 'OpeningHoursSpecification',
+			'dayOfWeek' => array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ),
+			'opens'     => '07:00',
+			'closes'    => '18:00',
 		),
 		'areaServed' => 'KE',
 		'sameAs'     => array(

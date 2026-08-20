@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'toolstopia-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.3' );
+    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.4' );
 }, 20 );
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
@@ -38,6 +38,15 @@ function tt_pages_blueprint(){
     <div class="ttx-card"><b>Kenya-wide Delivery</b><small>Delivery options available depending on product and location.</small></div>
     <div class="ttx-card"><b>Customer Support</b><small>Assistance before and after purchase through phone, WhatsApp and email.</small></div>
   </div>
+  <h2>Business details</h2>
+  <div class="ttx-cards">
+    <div class="ttx-card"><b>Business name</b><small>Tooltopia Store</small></div>
+    <div class="ttx-card"><b>Address</b><small>Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya</small></div>
+    <div class="ttx-card"><b>Phone &amp; WhatsApp</b><small>0719 261277</small></div>
+    <div class="ttx-card"><b>Email</b><small>info@tooltopiastore.co.ke</small></div>
+    <div class="ttx-card"><b>Business hours</b><small>Monday to Saturday, 7:00am-6:00pm</small></div>
+    <div class="ttx-card"><b>Delivery</b><small>Countrywide, typically 1-5 business days</small></div>
+  </div>
   <div class="ttx-cta">
     <b>Visit us or order from home</b>
     Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya. Open Monday to Saturday, 7:00am-6:00pm.<br>
@@ -56,19 +65,31 @@ TTBODY
     <div class="ttx-card"><b>Dispatch</b><small>Same or next-business-day dispatch in Nairobi where available; other orders typically leave within 1-2 business days.</small></div>
     <div class="ttx-card"><b>Tracking</b><small>We keep you updated by call or WhatsApp from dispatch until the item reaches you.</small></div>
   </div>
-  <h2>Delivery times</h2>
+  <h2>Order processing</h2>
   <ul class="ttx-list good">
-    <li><b>Nairobi and surrounding areas:</b> same-day or next-business-day delivery may be available for qualifying orders placed during business hours, subject to product availability and delivery location.</li>
-    <li><b>Major towns:</b> typically 1-3 business days.</li>
-    <li><b>Other locations in Kenya:</b> typically 2-5 business days.</li>
-    <li>Large, heavy or specialised equipment may require additional handling time.</li>
+    <li>Orders are confirmed and processed on business days (Monday to Saturday, 7:00am-6:00pm).</li>
+    <li>Orders placed on Sundays or public holidays are processed the next business day.</li>
+    <li>Where a same-day dispatch cut-off applies for your area, we confirm it when we call or WhatsApp to verify your order.</li>
+  </ul>
+  <h2>Where we deliver</h2>
+  <ul class="ttx-list good">
+    <li><b>Nairobi and surrounding areas.</b></li>
+    <li><b>Major towns and other counties</b> across Kenya.</li>
+    <li><b>Remote and hard-to-reach areas</b>, served through our courier partners.</li>
+  </ul>
+  <h2>Delivery time</h2>
+  <ul class="ttx-list good">
+    <li><b>Everywhere in Kenya:</b> typically 1-5 business days.</li>
+    <li>Nairobi orders placed during business hours may arrive sooner, sometimes same or next business day.</li>
+    <li>Remote or hard-to-reach areas, and large or specialised equipment, may occasionally take a little longer - we will always tell you.</li>
   </ul>
   <p><em>These are typical delivery times, not guaranteed delivery windows.</em></p>
-  <h2>Shipping costs</h2>
+  <h2>Delivery charges &amp; who pays</h2>
   <ul class="ttx-list">
-    <li>Shipping is calculated at checkout based on your location and the size and weight of the items.</li>
-    <li>Large, heavy or specialised equipment may attract an additional handling fee for safe transport.</li>
-    <li>For an estimate before you order, contact us by phone or WhatsApp.</li>
+    <li>Delivery is paid by the customer and is <b>calculated at checkout</b> based on your location and the size and weight of the items - the exact charge is shown before you pay.</li>
+    <li>Large, heavy or specialised equipment may attract an additional handling fee for safe transport; this is shown at checkout or confirmed before dispatch.</li>
+    <li>Any free-delivery offers or promotions, where available, are applied automatically at checkout.</li>
+    <li>For an estimate before you order, contact us by phone or WhatsApp on 0719 261277.</li>
   </ul>
   <h2>What to expect</h2>
   <ul class="ttx-list good">
@@ -117,6 +138,13 @@ TTBODY
   </ol>
   <h2>Faulty or damaged items</h2>
   <p>Where a return is accepted because an item arrived damaged or defective, Tooltopia Store will advise the customer on the appropriate return or collection method.</p>
+  <h2>Who pays return shipping</h2>
+  <ul class="ttx-list good">
+    <li>If the item is <b>damaged, defective, or not what you ordered</b>, Tooltopia Store covers the cost of the return or collection.</li>
+    <li>For <b>change-of-mind returns</b> (see below), the customer pays the cost of returning the item, and the original delivery charge is non-refundable.</li>
+  </ul>
+  <h2>Change of mind</h2>
+  <p>If you simply change your mind, most unused items may still be returned within 7 days of delivery, provided they are in their original condition and packaging with all accessories and proof of purchase. Change-of-mind returns are eligible for an exchange, store credit, or a refund of the product price (excluding the original delivery charge). Consumables, installed items and items with broken security seals cannot be returned on change of mind, for hygiene and safety reasons.</p>
   <h2>Refunds &amp; warranty</h2>
   <p>Approved refunds are processed within 3-5 business days after the returned item has been received and assessed, to your original payment method or by M-Pesa. Warranty coverage varies by product and manufacturer. Where a manufacturer or supplier warranty applies, the applicable terms are stated on the product page or provided with the product; we do not operate an in-house service centre, so warranty repairs are handled through the manufacturer or supplier.</p>
   <div class="ttx-cta"><b>Need to start a return or ask a question?</b>
@@ -134,8 +162,8 @@ TTBODY
   </ul>
   <div class="ttx-cards">
     <div class="ttx-card"><b>Nairobi &amp; surrounding areas</b><small>Same-day or next-business-day delivery may be available for qualifying orders placed during business hours.</small></div>
-    <div class="ttx-card"><b>Major towns</b><small>Typically 1-3 business days.</small></div>
-    <div class="ttx-card"><b>Other locations</b><small>Typically 2-5 business days.</small></div>
+    <div class="ttx-card"><b>Everywhere else in Kenya</b><small>Typically 1-5 business days.</small></div>
+    <div class="ttx-card"><b>Remote areas</b><small>May take a little longer; we will always confirm timing.</small></div>
   </div>
   <h2>Installation &amp; setup support</h2>
   <p>For equipment such as solar systems, water pumps and welding machines, we guide you on correct installation and safe operation. Where on-site setup is available, talk to our team when ordering and we will advise on options and any charges. Please note: we advise on installation but do not operate a physical service centre, so warranty repairs are handled through the manufacturer or supplier.</p>
@@ -166,7 +194,7 @@ TTBODY
     'faq' => array( 'FAQ', <<<'TTBODY'
 <div class="ttx">
   <details class="ttx-faq" open><summary>Are your products genuine?</summary><p>We source products through established suppliers and distributors. Product brand, model and specification information is provided where available. If a manufacturer warranty applies, the applicable warranty information is stated on the product page or provided with the product.</p></details>
-  <details class="ttx-faq"><summary>Which areas do you deliver to?</summary><p>We deliver countrywide. Nairobi enjoys same-day or next-day delivery; major towns receive orders in 1-3 business days and other areas in 2-5 business days.</p></details>
+  <details class="ttx-faq"><summary>Which areas do you deliver to?</summary><p>We deliver countrywide, typically within 1-5 business days everywhere in Kenya. Nairobi orders placed during business hours may arrive sooner, sometimes same or next business day. Remote or hard-to-reach areas may take a little longer.</p></details>
   <details class="ttx-faq"><summary>How much is delivery?</summary><p>Delivery is calculated at checkout based on your location and the size and weight of the items. For an estimate before you order, WhatsApp 0719 261277.</p></details>
   <details class="ttx-faq"><summary>What payment methods do you accept?</summary><p>M-Pesa, Bank transfer, and Cash on Delivery.</p></details>
   <details class="ttx-faq"><summary>Do your products have a warranty?</summary><p>Warranty coverage varies by product and manufacturer. Where a manufacturer or supplier warranty applies, the applicable period and terms will be provided on the product page, quotation or accompanying documentation. Products without a stated warranty should not be assumed to have one. Keep your receipt in case you need to make a claim.</p></details>
@@ -1328,6 +1356,48 @@ function tt_refresh_pages_v190() {
     update_option( 'tt_pages_refresh_v190', 1 );
 }
 add_action( 'admin_init', 'tt_refresh_pages_v190' );
+
+
+/* ============================================================
+   v2.0.4 - one-time content refresh for the Merchant Center
+   consistency pass: clearer Shipping, Returns, About, Delivery
+   and FAQ copy. Also mirrors the Shipping and Returns content
+   onto the duplicate slugs the menu/footer link to
+   (shipping-delivery, returns-refunds) so every URL a customer
+   or Google can reach shows the same, consistent policy. Runs
+   once, gated by an option; only re-saves pages that exist.
+   ============================================================ */
+function tt_refresh_pages_v204() {
+    if ( get_option( 'tt_pages_refresh_v204' ) ) { return; }
+    if ( ! is_admin() ) { return; }
+    if ( ! function_exists( 'tt_pages_blueprint' ) ) { return; }
+    $bp = tt_pages_blueprint();
+    // site slug => array( blueprint key to copy from, title override or null )
+    $map = array(
+        'about-us'              => array( 'about-us', null ),
+        'shipping-policy'       => array( 'shipping-policy', null ),
+        'shipping-delivery'     => array( 'shipping-policy', 'Shipping & Delivery' ),
+        'returns-refund-policy' => array( 'returns-refund-policy', null ),
+        'returns-refunds'       => array( 'returns-refund-policy', 'Returns & Refunds' ),
+        'delivery-installation' => array( 'delivery-installation', null ),
+        'contact-us'            => array( 'contact-us', null ),
+        'faq'                   => array( 'faq', null ),
+    );
+    foreach ( $map as $slug => $cfg ) {
+        $key   = $cfg[0];
+        $title = $cfg[1];
+        if ( ! isset( $bp[ $key ] ) ) { continue; }
+        $p = get_page_by_path( $slug );
+        if ( ! $p ) { continue; }
+        wp_update_post( array(
+            'ID'           => $p->ID,
+            'post_title'   => ( null === $title ) ? $bp[ $key ][0] : $title,
+            'post_content' => "<!-- wp:html -->\n" . $bp[ $key ][1] . "\n<!-- /wp:html -->",
+        ) );
+    }
+    update_option( 'tt_pages_refresh_v204', 1 );
+}
+add_action( 'admin_init', 'tt_refresh_pages_v204' );
 
 
 /* ============================================================
