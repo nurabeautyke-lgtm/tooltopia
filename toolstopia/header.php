@@ -92,6 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 					) );
 				} else {
 					echo '<ul class="menu">';
+					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'toolstopia' ) . '</a></li>';
 					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/shop/' ) ) . '">' . esc_html__( 'Shop All', 'toolstopia' ) . '</a></li>';
 					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/brands/' ) ) . '">' . esc_html__( 'Brands', 'toolstopia' ) . '</a></li>';
 					echo '<li class="menu-item"><a href="' . esc_url( home_url( '/wholesale/' ) ) . '">' . esc_html__( 'Wholesale', 'toolstopia' ) . '</a></li>';

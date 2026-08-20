@@ -1,4 +1,4 @@
-# Toolstopia Child Theme  (v1.1.0)
+# Tooltopia Store Child Theme  (v2.0.0)
 
 ## FIXES IN THIS VERSION
 1. Theme now has a **picture** (screenshot.png).
@@ -10,12 +10,12 @@
 
 ## HOW TO APPLY (pick ONE)
 ### Option A - replace the theme files (recommended)
-1. WP Admin > Appearance > Themes. If you can, delete the old blank "Toolstopia Child"
+1. WP Admin > Appearance > Themes. If you can, delete the old blank "Tooltopia Store Child"
    AFTER switching to the parent once, OR just overwrite via FTP.
 2. Upload this updated `toolstopia-child` (Add New > Upload Theme, "Replace" if asked),
    then Activate it.
 3. IMPORTANT: `Template: toolstopia` in style.css MUST match your parent theme's folder
-   name exactly. Your parent shows as "Toolstopia" - if its folder is not literally
+   name exactly. Your parent shows as "Tooltopia Store" - if its folder is not literally
    `toolstopia`, change that line to the real folder name or the theme won't activate.
 
 ### Option B - paste into your existing child (no Template risk)
@@ -77,7 +77,7 @@ Appearance > Customize > **Tools Topia**:
 - Brand color (defaults to #4a90e2)
 
 Pre-filled defaults already use your details:
-- WhatsApp/Phone: 0719 261277        Email: info@toolstopia.co.ke
+- WhatsApp/Phone: 0719 261277        Email: info@tooltopiastore.co.ke
 - Address: Royal Palms Mall, Shop No. BG 55, Nairobi, Kenya
 - Hours: Mon - Saturday 7:00am - 6:00pm
 - Payments: M-Pesa, Bank & Cash on Delivery

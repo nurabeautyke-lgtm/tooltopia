@@ -1,7 +1,7 @@
-TOOLSTOPIA CHILD THEME (v1.1.0)
+TOOLTOPIA STORE CHILD THEME (v2.0.0)
 
 WHAT IT DOES
-- Keeps your current parent "Toolstopia" homepage and design exactly as they are.
+- Keeps your current parent "Tooltopia Store" homepage and design exactly as they are.
 - Automatically creates or updates all information pages with detailed, designed content:
   About Us, Shipping Policy, Returns & Refund Policy, Delivery & Installation,
   Contact Us, FAQ, Why Choose Tools Topia.
