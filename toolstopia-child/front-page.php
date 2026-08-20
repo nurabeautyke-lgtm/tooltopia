@@ -142,7 +142,7 @@ get_header();
           $tt_blink = get_theme_mod( 'tt_brand_' . $tt_bslug . '_url', home_url( '/brands/' ) );
           if ( $tt_blink === '' ) { $tt_blink = home_url( '/brands/' ); }
           if ( $tt_blogo ) {
-            echo '<a class="tt-brand tt-brand--logo" href="' . esc_url( $tt_blink ) . '" title="' . esc_attr( $tt_blabel ) . '"><img src="' . esc_url( $tt_blogo ) . '" alt="' . esc_attr( $tt_blabel ) . '" loading="lazy"></a>';
+            echo '<a class="tt-brand tt-brand--logo" href="' . esc_url( $tt_blink ) . '" title="' . esc_attr( $tt_blabel ) . '"><img src="' . esc_url( $tt_blogo ) . '" alt="' . esc_attr( $tt_blabel ) . '" loading="lazy" onerror="this.style.display=&quot;none&quot;;var a=this.parentNode;a.classList.remove(&quot;tt-brand--logo&quot;);a.appendChild(document.createTextNode(this.alt));"></a>';
           } else {
             echo '<a class="tt-brand" href="' . esc_url( $tt_blink ) . '">' . esc_html( $tt_blabel ) . '</a>';
           }

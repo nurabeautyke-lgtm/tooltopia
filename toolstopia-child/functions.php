@@ -1192,6 +1192,70 @@ add_action( 'customize_register', 'tt_customize_brands' );
 
 
 /* ============================================================
+   Rebrand safety net (Aug 2026) - Tooltopia Store
+   Keeps the LIVE site on-brand even before the WordPress Site
+   Title / Rank Math titles are updated in wp-admin, and while an
+   older duplicate page or the companion pages plugin may still
+   hold pre-rebrand copy. All hooks are scoped and idempotent, and
+   they stop acting once the underlying data is already correct.
+   ============================================================ */
+
+/* Normalise any lingering old brand name or old domain in a string. */
+function tt_rebrand_text( $s ) {
+    if ( ! is_string( $s ) || '' === $s ) { return $s; }
+    $s = str_replace( 'toolstopia.co.ke', 'tooltopiastore.co.ke', $s );
+    $s = str_replace( array( 'Toolstopia', 'ToolsTopia', 'TOOLSTOPIA', 'Tools Topia', 'Tools topia', 'tools topia' ), 'Tooltopia Store', $s );
+    return $s;
+}
+
+/* Site name + SEO titles/descriptions - fixed at runtime, no database change. */
+add_filter( 'option_blogname', 'tt_rebrand_text', 99 );
+add_filter( 'option_blogdescription', 'tt_rebrand_text', 99 );
+add_filter( 'rank_math/frontend/title', 'tt_rebrand_text', 99 );
+add_filter( 'rank_math/frontend/description', 'tt_rebrand_text', 99 );
+add_filter( 'rank_math/opengraph/facebook/og_title', 'tt_rebrand_text', 99 );
+add_filter( 'rank_math/opengraph/facebook/og_description', 'tt_rebrand_text', 99 );
+add_filter( 'wpseo_title', 'tt_rebrand_text', 99 );
+add_filter( 'wpseo_metadesc', 'tt_rebrand_text', 99 );
+add_filter( 'wpseo_opengraph_title', 'tt_rebrand_text', 99 );
+add_filter( 'document_title_parts', function ( $parts ) {
+    if ( is_array( $parts ) ) {
+        foreach ( $parts as $k => $v ) { $parts[ $k ] = tt_rebrand_text( $v ); }
+    }
+    return $parts;
+}, 99 );
+
+/* For theme-managed info pages, if the live content is stale (still shows the
+   old brand or old domain) or empty, render the current blueprint instead.
+   Once a page's stored content is clean/current this stops taking over, so
+   normal WordPress edits win again. */
+add_filter( 'the_content', 'tt_rebrand_content_guard', 9999 );
+function tt_rebrand_content_guard( $content ) {
+    if ( is_admin() || ! is_singular( 'page' ) || ! is_main_query() || ! in_the_loop() ) { return $content; }
+    if ( ! function_exists( 'tt_pages_blueprint' ) ) { return $content; }
+    $post = get_post();
+    if ( ! $post ) { return $content; }
+    $slug    = $post->post_name;
+    $bp      = tt_pages_blueprint();
+    $is_priv = false;
+    $priv_id = (int) get_option( 'wp_page_for_privacy_policy' );
+    if ( ( $priv_id && (int) $post->ID === $priv_id ) || in_array( $slug, array( 'privacy-policy', 'privacy' ), true ) ) {
+        $is_priv = true;
+    }
+    if ( ! isset( $bp[ $slug ] ) && ! $is_priv ) { return $content; }
+    $plain = trim( wp_strip_all_tags( (string) $content ) );
+    $stale = ( '' === $plain )
+          || ( false !== stripos( (string) $content, 'Toolstopia' ) )
+          || ( false !== stripos( (string) $content, 'toolstopia.co.ke' ) );
+    if ( ! $stale ) { return $content; }
+    if ( $is_priv && function_exists( 'tt_privacy_html' ) ) {
+        return do_shortcode( tt_privacy_html() );
+    }
+    return do_shortcode( $bp[ $slug ][1] );
+}
+
+
+/* ============================================================
    v1.9.0 - one-time content refresh
    The blueprint above never overwrites pages you have already
    edited, so this runs once (gated by an option) to update the
