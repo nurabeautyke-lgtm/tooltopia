@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'toolstopia-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.4' );
+    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.5' );
 }, 20 );
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
@@ -908,6 +908,10 @@ function tt_customize_full( $wp_customize ) {
     /* ---- Category count for the hero list (added to existing section) ---- */
     $wp_customize->add_setting( 'tt_cat_count', array( 'default' => 0, 'sanitize_callback' => 'absint' ) );
     $wp_customize->add_control( 'tt_cat_count', array( 'type' => 'number', 'section' => 'tt_home', 'label' => 'Categories shown in hero list (0 = show all)', 'input_attrs' => array( 'min' => 0, 'max' => 60 ) ) );
+
+    /* ---- Featured "Shop by Category" tiles (editable; about 6 works best) ---- */
+    $wp_customize->add_setting( 'tt_home_featured', array( 'default' => "Solar Panels\nWater Pumps\nGenerators\nHome Appliances\nHardware Tools\nAgricultural Equipment", 'sanitize_callback' => 'sanitize_textarea_field' ) );
+    $wp_customize->add_control( 'tt_home_featured', array( 'type' => 'textarea', 'section' => 'tt_home', 'label' => 'Shop by Category tiles', 'description' => 'One category name per line (about 6 works best). Each tile uses the image set for that category in Products > Categories, falling back to a bundled image.' ) );
 }
 
 
