@@ -24,12 +24,14 @@ get_header();
       <ul>
       <?php
       if ( taxonomy_exists( 'product_cat' ) ) {
-          $terms = get_terms( array( 'taxonomy' => 'product_cat', 'hide_empty' => true, 'number' => intval( get_theme_mod( 'tt_cat_count', 0 ) ), 'orderby' => 'name', 'order' => 'ASC' ) );
+          $tt_exclude = array_filter( array( (int) get_option( 'default_product_cat' ) ) );
+          $terms = get_terms( array( 'taxonomy' => 'product_cat', 'hide_empty' => true, 'number' => intval( get_theme_mod( 'tt_cat_count', 0 ) ), 'orderby' => 'name', 'order' => 'ASC', 'exclude' => $tt_exclude ) );
           if ( ! is_wp_error( $terms ) && $terms ) {
-              // Collapse duplicate category names (e.g. two "Water Pumps" or "Generators"
-              // terms), keeping the one with the most products, so each name shows once.
+              // Real categories only: collapse duplicate names (e.g. two "Water Pumps"
+              // terms) keeping the one with the most products, and hide "Uncategorized".
               $tt_seen = array();
               foreach ( $terms as $t ) {
+                  if ( 'uncategorized' === $t->slug ) { continue; }
                   $k = strtolower( trim( $t->name ) );
                   if ( ! isset( $tt_seen[ $k ] ) || $t->count > $tt_seen[ $k ]->count ) { $tt_seen[ $k ] = $t; }
               }
@@ -103,36 +105,52 @@ get_header();
     <div class="tt-sec__head"><h2>Shop by Category</h2><a href="<?php echo esc_url( $shop_url ); ?>">View all</a></div>
     <div class="tt-catgrid">
     <?php
-    // Featured tiles are editable in Appearance > Customize > Tooltopia Homepage
-    // ("Shop by Category tiles"), one category name per line (about 6 works best).
-    $tt_featured_raw = get_theme_mod( 'tt_home_featured', "Solar Panels\nWater Pumps\nGenerators\nHome Appliances\nHardware Tools\nAgricultural Equipment" );
-    $tt_featured     = array_filter( array_map( 'trim', preg_split( '/[\r\n]+/', (string) $tt_featured_raw ) ) );
+    // Featured tiles: editable in Appearance > Customize > Tooltopia Homepage
+    // ("Shop by Category tiles"), one category name per line. Leave the box empty
+    // to auto-show the top categories from the live catalogue. Every tile links to
+    // a REAL category - names that don't match a category are skipped, so a tile
+    // never falls back to the generic Shop All page.
+    $tt_default_cat  = array_filter( array( (int) get_option( 'default_product_cat' ) ) );
+    $tt_featured_raw = trim( (string) get_theme_mod( 'tt_home_featured', '' ) );
+    $tt_terms        = array();
+    if ( '' !== $tt_featured_raw ) {
+        foreach ( array_filter( array_map( 'trim', preg_split( '/[\r\n]+/', $tt_featured_raw ) ) ) as $fc ) {
+            $term = get_term_by( 'name', $fc, 'product_cat' );
+            if ( ! $term ) { $term = get_term_by( 'slug', sanitize_title( $fc ), 'product_cat' ); }
+            if ( $term && ! is_wp_error( $term ) && 'uncategorized' !== $term->slug ) { $tt_terms[] = $term; }
+        }
+    }
+    if ( empty( $tt_terms ) && taxonomy_exists( 'product_cat' ) ) {
+        // Nothing set (or nothing matched): auto-pick the biggest real categories.
+        $tt_auto = get_terms( array( 'taxonomy' => 'product_cat', 'hide_empty' => true, 'number' => 6, 'orderby' => 'count', 'order' => 'DESC', 'exclude' => $tt_default_cat ) );
+        if ( is_array( $tt_auto ) && ! is_wp_error( $tt_auto ) ) { $tt_terms = $tt_auto; }
+    }
     // Bundled fallback images for common categories (assets/categories/).
     $tt_cat_imgmap = array(
         'hardware tools' => 'hardware-tools.jpg', 'power tools' => 'hardware-tools.jpg',
         'solar panels' => 'solar-panels.jpg', 'solar equipment' => 'solar-panels.jpg',
         'home appliances' => 'home-appliances.jpg', 'kitchen appliances' => 'kitchen-utensils.jpg',
         'kitchen utensils' => 'kitchen-utensils.jpg', 'batteries' => 'batteries.jpg',
-        'inverters' => 'inverters.jpg', 'electronics' => 'electronics.jpg',
-        'water pumps' => 'water-pump.jpg', 'generators' => 'generators.jpg',
-        'incubators' => 'incubators.jpg', 'egg incubators' => 'incubators.jpg',
-        'agricultural equipment' => 'agricultural-appliances.jpg', 'accessories' => 'accessories.jpg',
+        'solar batteries' => 'batteries.jpg', 'inverters' => 'inverters.jpg',
+        'solar inverters' => 'inverters.jpg', 'electronics' => 'electronics.jpg',
+        'water pumps' => 'water-pump.jpg', 'submersible pumps' => 'water-pump.jpg',
+        'surface pumps' => 'water-pump.jpg', 'solar water pumps' => 'water-pump.jpg',
+        'generators' => 'generators.jpg', 'incubators' => 'incubators.jpg',
+        'egg incubators' => 'incubators.jpg', 'agricultural equipment' => 'agricultural-appliances.jpg',
+        'agricultural engines' => 'agricultural-appliances.jpg', 'accessories' => 'accessories.jpg',
     );
     $tt_cat_dir = trailingslashit( get_stylesheet_directory() ) . 'assets/categories/';
-    foreach ( $tt_featured as $fc ) {
-        $term = get_term_by( 'name', $fc, 'product_cat' );
-        if ( ! $term ) { $term = get_term_by( 'slug', sanitize_title( $fc ), 'product_cat' ); }
-        $link  = $term ? get_term_link( $term ) : $shop_url;
-        $label = $term ? $term->name : $fc;
+    foreach ( $tt_terms as $term ) {
+        $link  = get_term_link( $term );
+        if ( is_wp_error( $link ) ) { $link = $shop_url; }
+        $label = $term->name;
         // Image priority: the category's own image (Products > Categories),
         // then a bundled image, then a neutral fallback.
         $img = '';
-        if ( $term ) {
-            $thumb_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
-            if ( $thumb_id ) {
-                $src = wp_get_attachment_image_url( $thumb_id, 'medium_large' );
-                if ( $src ) { $img = $src; }
-            }
+        $thumb_id = get_term_meta( $term->term_id, 'thumbnail_id', true );
+        if ( $thumb_id ) {
+            $src = wp_get_attachment_image_url( $thumb_id, 'medium_large' );
+            if ( $src ) { $img = $src; }
         }
         if ( '' === $img ) {
             $key = strtolower( $label );

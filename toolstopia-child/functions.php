@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'toolstopia-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.6' );
+    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.7' );
 }, 20 );
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {
@@ -910,8 +910,8 @@ function tt_customize_full( $wp_customize ) {
     $wp_customize->add_control( 'tt_cat_count', array( 'type' => 'number', 'section' => 'tt_home', 'label' => 'Categories shown in hero list (0 = show all)', 'input_attrs' => array( 'min' => 0, 'max' => 60 ) ) );
 
     /* ---- Featured "Shop by Category" tiles (editable; about 6 works best) ---- */
-    $wp_customize->add_setting( 'tt_home_featured', array( 'default' => "Solar Panels\nWater Pumps\nGenerators\nHome Appliances\nHardware Tools\nAgricultural Equipment", 'sanitize_callback' => 'sanitize_textarea_field' ) );
-    $wp_customize->add_control( 'tt_home_featured', array( 'type' => 'textarea', 'section' => 'tt_home', 'label' => 'Shop by Category tiles', 'description' => 'One category name per line (about 6 works best). Each tile uses the image set for that category in Products > Categories, falling back to a bundled image.' ) );
+    $wp_customize->add_setting( 'tt_home_featured', array( 'default' => '', 'sanitize_callback' => 'sanitize_textarea_field' ) );
+    $wp_customize->add_control( 'tt_home_featured', array( 'type' => 'textarea', 'section' => 'tt_home', 'label' => 'Shop by Category tiles', 'description' => 'One category name per line (about 6 works best). Leave blank to auto-show your top categories from the live catalogue. Any name that is not a real category is skipped, so a tile never links to the generic Shop All page. Each tile uses the image set for that category in Products > Categories.' ) );
 }
 
 
@@ -1497,84 +1497,9 @@ function tt_fix_legacy_menu_links( $nav ) {
 }
 
 
-/* ============================================================
-   v2.0.6 - one-time product-category clean-up
-   Merges duplicate / overlapping product categories into a single
-   keeper each (the store owner chose the "second" name in each set),
-   moving every product into the keeper and then deleting the emptied
-   term. Exact-name duplicates (two "Water Pumps" / "Generators"
-   terms) collapse into the term with the most products. Runs once
-   for a logged-in admin, gated by an option, and is safe to redeploy.
-   ============================================================ */
-function tt_cat_terms_by_name_v206( $name ) {
-    $want = strtolower( trim( html_entity_decode( (string) $name, ENT_QUOTES ) ) );
-    $all  = get_terms( array( 'taxonomy' => 'product_cat', 'hide_empty' => false ) );
-    if ( ! is_array( $all ) || is_wp_error( $all ) ) { return array(); }
-    $out = array();
-    foreach ( $all as $t ) {
-        if ( strtolower( trim( html_entity_decode( $t->name, ENT_QUOTES ) ) ) === $want ) { $out[] = $t; }
-    }
-    return $out;
-}
-function tt_cat_biggest_term_v206( $name ) {
-    $terms = tt_cat_terms_by_name_v206( $name );
-    if ( empty( $terms ) ) { return null; }
-    usort( $terms, function ( $a, $b ) { return ( (int) $b->count ) - ( (int) $a->count ); } );
-    return $terms[0];
-}
-function tt_merge_categories_v206() {
-    if ( get_option( 'tt_cats_merged_v206' ) ) { return; }
-    if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) { return; }
-    if ( ! taxonomy_exists( 'product_cat' ) ) { return; }
-
-    // keeper name => other names to fold into it.
-    $groups = array(
-        array( 'Digital Weighing Scales',           array( 'Weighing Scales' ) ),
-        array( 'Egg Incubators',                    array( 'Incubators' ) ),
-        array( 'Batteries & Power Storage',         array( 'Batteries' ) ),
-        array( 'Speakers & Audio',                  array( 'Audio' ) ),
-        array( 'Air Compressors & Pneumatic Tools', array( 'Air Compressors' ) ),
-        array( 'Electric Motors',                   array( 'Motors & Engines', 'Agricultural Engines' ) ),
-        array( 'Water Pumps',                       array() ),
-        array( 'Generators',                        array() ),
-    );
-
-    foreach ( $groups as $g ) {
-        $keeper = tt_cat_biggest_term_v206( $g[0] );
-        if ( ! $keeper ) { continue; }
-        $keeper_id = (int) $keeper->term_id;
-
-        $loser_ids = array();
-        foreach ( tt_cat_terms_by_name_v206( $g[0] ) as $t ) {
-            if ( (int) $t->term_id !== $keeper_id ) { $loser_ids[] = (int) $t->term_id; }
-        }
-        foreach ( $g[1] as $mname ) {
-            foreach ( tt_cat_terms_by_name_v206( $mname ) as $t ) {
-                if ( (int) $t->term_id !== $keeper_id ) { $loser_ids[] = (int) $t->term_id; }
-            }
-        }
-        $loser_ids = array_unique( $loser_ids );
-
-        foreach ( $loser_ids as $lid ) {
-            $ids = get_posts( array(
-                'post_type'   => 'product',
-                'post_status' => 'any',
-                'numberposts' => -1,
-                'fields'      => 'ids',
-                'tax_query'   => array( array(
-                    'taxonomy' => 'product_cat',
-                    'field'    => 'term_id',
-                    'terms'    => $lid,
-                ) ),
-            ) );
-            foreach ( $ids as $pid ) {
-                wp_set_object_terms( $pid, array( $keeper_id ), 'product_cat', true );
-                wp_remove_object_terms( $pid, array( $lid ), 'product_cat' );
-            }
-            wp_delete_term( $lid, 'product_cat' );
-        }
-    }
-    update_option( 'tt_cats_merged_v206', 1 );
-}
-add_action( 'admin_init', 'tt_merge_categories_v206' );
+/* v2.0.6 category-merge migration retired in v2.0.7: product categories are
+   now curated by hand in wp-admin, so the automatic merge is no longer needed
+   (and its keeper names no longer match the live catalogue). Homepage tiles and
+   the hero list read live categories directly, so they stay correct on their
+   own as the catalogue changes. */
 
