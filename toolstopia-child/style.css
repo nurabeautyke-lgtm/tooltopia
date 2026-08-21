@@ -4,7 +4,7 @@ Theme URI: https://tooltopiastore.co.ke
 Description: Child theme for the Tooltopia Store parent theme. Sets the brand colour to #0047FF, keeps the parent homepage/design, and automatically builds all information pages (About, Shipping, Returns, Delivery & Installation, Contact, FAQ, Why Choose). Everything stays editable.
 Author: Tooltopia Store
 Template: toolstopia
-Version: 2.0.8
+Version: 2.0.9
 Text Domain: toolstopia-child
 */
 
@@ -509,26 +509,34 @@ html.tt-dark .tt-filter-body select,html.tt-dark .tt-filter-body input{backgroun
    classes (plus classic-checkout fallbacks) so nothing else is affected.
    ========================================================================= */
 
-/* ---- Order summary line item: the main fix ---- */
+/* ---- Order summary line item: the main fix ----
+   Uses flex + !important so it wins over WooCommerce's own block CSS no
+   matter the stylesheet load order. The key is min-width:0 on the
+   description so it can shrink and wrap instead of collapsing/overlapping. */
 .wc-block-components-order-summary-item{
-  display:grid !important;
-  grid-template-columns:56px minmax(0,1fr) auto;
-  gap:14px;
-  align-items:start;
-  padding:14px 0;
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  align-items:flex-start !important;
+  gap:14px !important;
+  padding:14px 0 !important;
   border-bottom:1px solid #eef1f6;
 }
 .wc-block-components-order-summary__content .wc-block-components-order-summary-item:last-child{border-bottom:0}
-.wc-block-components-order-summary-item__image{width:56px;min-width:56px;margin:0;position:relative}
+.wc-block-components-order-summary-item__image{
+  flex:0 0 56px !important;width:56px !important;min-width:56px !important;max-width:56px !important;
+  margin:0 !important;position:relative;
+}
 .wc-block-components-order-summary-item__image img{
-  width:56px;height:56px;object-fit:contain;background:#f7f9fc;
+  width:56px !important;height:56px !important;object-fit:contain;background:#f7f9fc;
   border:1px solid #eef1f6;border-radius:10px;padding:4px;display:block;
 }
-/* description column MUST be able to shrink and wrap normally */
-.wc-block-components-order-summary-item__description{min-width:0}
+/* description takes the remaining width and MUST be allowed to shrink so text wraps */
+.wc-block-components-order-summary-item__description{
+  flex:1 1 auto !important;min-width:0 !important;max-width:100% !important;
+}
 .wc-block-components-order-summary-item__description,
 .wc-block-components-order-summary-item__description *{
-  overflow-wrap:break-word;word-break:normal;hyphens:none;white-space:normal;
+  overflow-wrap:break-word !important;word-break:normal !important;hyphens:none;white-space:normal !important;
 }
 .wc-block-components-order-summary-item__description .wc-block-components-product-name{
   font-weight:600;line-height:1.3;font-size:.92rem;color:#14243a;
@@ -539,10 +547,11 @@ html.tt-dark .tt-filter-body select,html.tt-dark .tt-filter-body input{backgroun
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
 .wc-block-components-order-summary-item__total-price{
+  flex:0 0 auto !important;margin-left:auto !important;position:static !important;
   white-space:nowrap;text-align:right;font-weight:700;color:#14243a;font-size:.92rem;
 }
 .wc-block-components-order-summary-item__total-price .wc-block-components-product-badge{
-  display:inline-block;margin-top:6px;font-size:.68rem;font-weight:700;white-space:nowrap;
+  display:block;margin-top:6px;font-size:.68rem;font-weight:700;white-space:nowrap;
 }
 .wc-block-components-order-summary-item__quantity{transform:translate(-45%,-45%)}
 
