@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'toolstopia-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.7' );
+    wp_enqueue_style( 'toolstopia-child', get_stylesheet_uri(), array( 'toolstopia-parent' ), '2.0.8' );
 }, 20 );
 
 if ( ! defined( 'TT_PAGES_LOADED' ) ) {

@@ -4,7 +4,7 @@ Theme URI: https://tooltopiastore.co.ke
 Description: Child theme for the Tooltopia Store parent theme. Sets the brand colour to #0047FF, keeps the parent homepage/design, and automatically builds all information pages (About, Shipping, Returns, Delivery & Installation, Contact, FAQ, Why Choose). Everything stays editable.
 Author: Tooltopia Store
 Template: toolstopia
-Version: 2.0.7
+Version: 2.0.8
 Text Domain: toolstopia-child
 */
 
@@ -499,3 +499,89 @@ html.tt-dark .tt-filter-body select,html.tt-dark .tt-filter-body input{backgroun
 /* Shop by Brand chips: clean logo-style cards; reliable text fallback when a logo image is missing */
 .tt-brand{display:flex;align-items:center;justify-content:center;min-width:150px;height:82px;background:#fff;border:1px solid #e6ebf1;border-radius:12px;padding:14px 20px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:1.05rem;color:#0f1b2d;text-decoration:none;white-space:nowrap;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease,color .16s ease}
 .tt-brand:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,71,255,.14);border-color:#cfe0f7;color:#0047FF}
+
+/* =========================================================================
+   v2.0.8 - Checkout (WooCommerce Cart & Checkout Blocks) UI/UX
+   Primary fix: the order-summary line item was wrapping one character per
+   line because its description column collapsed to near-zero width. These
+   rules force a clean grid layout with normal word wrapping, brand-blue
+   actions and a tidy, sticky summary card. Scoped to WooCommerce block
+   classes (plus classic-checkout fallbacks) so nothing else is affected.
+   ========================================================================= */
+
+/* ---- Order summary line item: the main fix ---- */
+.wc-block-components-order-summary-item{
+  display:grid !important;
+  grid-template-columns:56px minmax(0,1fr) auto;
+  gap:14px;
+  align-items:start;
+  padding:14px 0;
+  border-bottom:1px solid #eef1f6;
+}
+.wc-block-components-order-summary__content .wc-block-components-order-summary-item:last-child{border-bottom:0}
+.wc-block-components-order-summary-item__image{width:56px;min-width:56px;margin:0;position:relative}
+.wc-block-components-order-summary-item__image img{
+  width:56px;height:56px;object-fit:contain;background:#f7f9fc;
+  border:1px solid #eef1f6;border-radius:10px;padding:4px;display:block;
+}
+/* description column MUST be able to shrink and wrap normally */
+.wc-block-components-order-summary-item__description{min-width:0}
+.wc-block-components-order-summary-item__description,
+.wc-block-components-order-summary-item__description *{
+  overflow-wrap:break-word;word-break:normal;hyphens:none;white-space:normal;
+}
+.wc-block-components-order-summary-item__description .wc-block-components-product-name{
+  font-weight:600;line-height:1.3;font-size:.92rem;color:#14243a;
+}
+/* keep the auto-generated blurb to two tidy lines */
+.wc-block-components-product-metadata__description{
+  font-size:.8rem;color:#64748b;line-height:1.4;margin-top:3px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.wc-block-components-order-summary-item__total-price{
+  white-space:nowrap;text-align:right;font-weight:700;color:#14243a;font-size:.92rem;
+}
+.wc-block-components-order-summary-item__total-price .wc-block-components-product-badge{
+  display:inline-block;margin-top:6px;font-size:.68rem;font-weight:700;white-space:nowrap;
+}
+.wc-block-components-order-summary-item__quantity{transform:translate(-45%,-45%)}
+
+/* ---- Summary totals + sticky sidebar on desktop ---- */
+.wc-block-checkout__sidebar{position:sticky;top:16px;align-self:flex-start}
+.wc-block-components-totals-wrapper{padding:6px 0}
+.wc-block-components-totals-item{padding:5px 0}
+.wc-block-components-totals-footer-item{font-size:1.06rem}
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__value{font-weight:800;color:#0047FF}
+
+/* ---- Brand-blue actions & selections ---- */
+.wc-block-components-checkout-place-order-button,
+.wp-block-woocommerce-checkout-actions-block .wc-block-components-button.contained,
+#place_order,
+.woocommerce #place_order{
+  background:#0047FF !important;border-color:#0047FF !important;color:#fff !important;
+  border-radius:999px !important;font-weight:700 !important;
+}
+.wc-block-components-checkout-place-order-button:hover,
+.wp-block-woocommerce-checkout-actions-block .wc-block-components-button.contained:hover,
+#place_order:hover,
+.woocommerce #place_order:hover{background:#0033CC !important;border-color:#0033CC !important}
+.wc-block-components-radio-control__input,
+.wc-block-components-checkbox__input{accent-color:#0047FF}
+.wc-block-components-text-input input:focus,
+.wc-block-components-address-form input:focus{border-color:#0047FF;box-shadow:0 0 0 1px #0047FF}
+
+/* ---- Classic checkout fallback (shortcode pages) ---- */
+.woocommerce-checkout #order_review table.shop_table td,
+.woocommerce-checkout #order_review table.shop_table th{overflow-wrap:break-word;word-break:normal}
+.woocommerce-checkout #order_review .cart_item .product-name{width:66%}
+.woocommerce-checkout #order_review img{max-width:56px;height:auto;border-radius:8px}
+
+/* ---- Mobile ---- */
+@media (max-width:900px){
+  .wc-block-checkout__sidebar{position:static}
+}
+@media (max-width:560px){
+  .wc-block-components-order-summary-item{grid-template-columns:46px minmax(0,1fr) auto;gap:10px}
+  .wc-block-components-order-summary-item__image,
+  .wc-block-components-order-summary-item__image img{width:46px;height:46px;min-width:46px}
+}
